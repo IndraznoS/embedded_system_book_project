@@ -235,7 +235,15 @@ void setup() {
     \item Setelah \textit{fade in} selesai, program memulai \textit{fade out} menggunakan \texttt{ledcFadeWithInterrupt(...)}, yang memungkinkan ISR dipanggil saat selesai, sehingga eksekusi tidak perlu diblokir.
 \end{enumerate}
 
-\begin{verbatim}
+
+
+
+\begin{lstlisting}[
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  breakatwhitespace=false, % crucial: allows breaking at commas/symbols
+  postbreak=\mbox{\textcolor{red}{\tiny$\hookrightarrow$}\space}
+]
 void loop() {
   // Check if fade_ended flag was set to true in ISR
   if (fade_ended) {
@@ -244,7 +252,8 @@ void loop() {
 
     // Check what fade should be started next
     if (fade_in) {
-      ledcFadeWithInterrupt(LED_PIN, LEDC_START_DUTY, LEDC_TARGET_DUTY, LEDC_FADE_TIME, LED_FADE_ISR);
+      ledcFadeWithInterrupt(LED_PIN, LEDC_START_DUTY, LEDC_TARGET_DUTY, LEDC_FADE_TIME, 
+      LED_FADE_ISR);
       Serial.println("LED Fade in started.");
       fade_in = false;
     } else {
@@ -254,7 +263,9 @@ void loop() {
     }
   }
 }
-\end{verbatim}
+\end{lstlisting}
+
+
 \begin{enumerate}
     \item Di dalam \texttt{loop()}, program memeriksa apakah \texttt{fade\_ended} bernilai \texttt{true}.
     \item Jika ya, program mencetak pesan, mereset bendera, lalu memulai \textit{fade} berikutnya sesuai arah yang ditentukan oleh \texttt{fade\_in}.
