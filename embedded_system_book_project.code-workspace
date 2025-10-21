@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "blink",
+			"path": "arduino/esp32-devkit/blink"
+		}
+	],
+	"settings": {}
+}
