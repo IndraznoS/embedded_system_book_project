@@ -1,0 +1,64 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="zA4AWfTzUKRSEyk2OHQa">
+    <mxGraphModel dx="1106" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-44" value="Roadmap Pusat Riset IoT&#xa;Mewujudkan Ekosistem Cerdas yang Berdampak (2025–2045)" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="850" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-45" value="" style="endArrow=none;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="200" as="sourcePoint" />
+            <mxPoint x="1010" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-46" value="Tahap 1&#xa;Pembangunan Fondasi&#xa;(2025–2029)&#xa;&#xa;• C-IoT-TB v1.0&#xa;• 50 node sensor&#xa;• Workshop &amp; sertifikasi&#xa;• Publikasi nasional" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#3366FF;fillColor=#E6F0FF;" vertex="1" parent="1">
+          <mxGeometry x="180" y="240" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-47" value="" style="shape=triangle;direction=south;fillColor=#3366FF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="250" y="200" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-48" value="2025" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="170" y="180" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-49" value="Tahap 2&#xa;Ekspansi &amp; Spesialisasi&#xa;(2030–2034)&#xa;&#xa;• 3 sektor: Health, Env, Campus&#xa;• AI dasar + cloud&#xa;• Publikasi Scopus Q2&#xa;• Hibah nasional" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#00994C;fillColor=#E6F9F0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-50" value="" style="shape=triangle;direction=south;fillColor=#00994C;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="430" y="200" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-51" value="2034" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="490" y="180" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-52" value="Tahap 3&#xa;Integrasi &amp; Dampak Sistemik&#xa;(2035–2038)&#xa;&#xa;• Integrasi lintas-sektor&#xa;• Digital twin kampus&#xa;• Publikasi Q1&#xa;• Paten &amp; kebijakan" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#FF9900;fillColor=#FFF9E6;" vertex="1" parent="1">
+          <mxGeometry x="540" y="240" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-53" value="" style="shape=triangle;direction=south;fillColor=#FF9900;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="610" y="200" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-54" value="2038" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-55" value="Tahap 4&#xa;Inovasi Berbasis Data &amp; Keadilan&#xa;(2039–2041)&#xa;&#xa;• IoT untuk ketahanan sosial&#xa;• Antarmuka inklusif&#xa;• AIoT di edge device&#xa;• Startup spin-off" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#9900CC;fillColor=#F9E6FF;" vertex="1" parent="1">
+          <mxGeometry x="720" y="240" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-56" value="" style="shape=triangle;direction=south;fillColor=#9900CC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="790" y="200" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-57" value="2041" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="850" y="180" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-58" value="Tahap 5&#xa;Pionir Ekosistem Global&#xa;(2042–2045)&#xa;&#xa;• Open-source framework&#xa;• Reference model ASEAN&#xa;• Advisory kebijakan nasional&#xa;• Center of Excellence" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#CC0000;fillColor=#FFE6E6;" vertex="1" parent="1">
+          <mxGeometry x="900" y="240" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-59" value="" style="shape=triangle;direction=south;fillColor=#CC0000;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="970" y="200" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="aSYSOzgi3-xHvO69DJcr-60" value="2045" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="180" width="40" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

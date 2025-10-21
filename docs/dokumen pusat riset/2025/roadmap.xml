@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    
+    <!-- Title -->
+    <mxCell id="title" value="Roadmap Pusat Riset IoT&#10;Mewujudkan Ekosistem Cerdas yang Berdampak (2025–2045)" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;" vertex="1" parent="1">
+      <mxGeometry x="160" y="40" width="850" height="80" as="geometry"/>
+    </mxCell>
+
+    <!-- Timeline -->
+    <mxCell id="timeline" value="" style="endArrow=none;strokeWidth=2;" edge="1" parent="1">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxPoint x="160" y="200" as="sourcePoint"/>
+        <mxPoint x="1010" y="200" as="targetPoint"/>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Tahap 1 Block -->
+    <mxCell id="p1" value="Tahap 1&#10;Pembangunan Fondasi&#10;(2025–2029)&#10;&#10;• C-IoT-TB v1.0&#10;• 50 node sensor&#10;• Workshop &amp; sertifikasi&#10;• Publikasi nasional" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#3366FF;fillColor=#E6F0FF;" vertex="1" parent="1">
+      <mxGeometry x="180" y="240" width="160" height="180" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m1" value="" style="shape=triangle;direction=south;fillColor=#3366FF;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="250" y="200" width="20" height="20" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="y1" value="2025" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="170" y="180" width="40" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Tahap 2 Block -->
+    <mxCell id="p2" value="Tahap 2&#10;Ekspansi &amp; Spesialisasi&#10;(2030–2034)&#10;&#10;• 3 sektor: Health, Env, Campus&#10;• AI dasar + cloud&#10;• Publikasi Scopus Q2&#10;• Hibah nasional" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#00994C;fillColor=#E6F9F0;" vertex="1" parent="1">
+      <mxGeometry x="360" y="240" width="160" height="180" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m2" value="" style="shape=triangle;direction=south;fillColor=#00994C;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="430" y="200" width="20" height="20" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="y2" value="2034" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="490" y="180" width="40" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Tahap 3 Block -->
+    <mxCell id="p3" value="Tahap 3&#10;Integrasi &amp; Dampak Sistemik&#10;(2035–2038)&#10;&#10;• Integrasi lintas-sektor&#10;• Digital twin kampus&#10;• Publikasi Q1&#10;• Paten &amp; kebijakan" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#FF9900;fillColor=#FFF9E6;" vertex="1" parent="1">
+      <mxGeometry x="540" y="240" width="160" height="180" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m3" value="" style="shape=triangle;direction=south;fillColor=#FF9900;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="610" y="200" width="20" height="20" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="y3" value="2038" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="670" y="180" width="40" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Tahap 4 Block -->
+    <mxCell id="p4" value="Tahap 4&#10;Inovasi Berbasis Data &amp; Keadilan&#10;(2039–2041)&#10;&#10;• IoT untuk ketahanan sosial&#10;• Antarmuka inklusif&#10;• AIoT di edge device&#10;• Startup spin-off" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#9900CC;fillColor=#F9E6FF;" vertex="1" parent="1">
+      <mxGeometry x="720" y="240" width="160" height="180" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="m4" value="" style="shape=triangle;direction=south;fillColor=#9900CC;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="790" y="200" width="20" height="20" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="y4" value="2041" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="850" y="180" width="40" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Tahap 5 Block -->
+    <mxCell id="p5" value="Tahap 5&#10;Pionir Ekosistem Global&#10;(2042–2045)&#10;&#10;• Open-source framework&#10;• Reference model ASEAN&#10;• Advisory kebijakan nasional&#10;• Center of Excellence" style="rounded=1;whiteSpace=wrap;html=0;align=left;verticalAlign=top;strokeColor=#CC0000;fillColor=#FFE6E6;" vertex="1" parent="1">
+      <mxGeometry x="900" y="240" width="160" height="180" as="geometry"/>
+    </mxCell>
+
+    <!-- Triangle marker for Tahap 5 -->
+    <mxCell id="m5" value="" style="shape=triangle;direction=south;fillColor=#CC0000;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="970" y="200" width="20" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Year label: 2045 -->
+    <mxCell id="y5" value="2045" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="1030" y="180" width="40" height="20" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>

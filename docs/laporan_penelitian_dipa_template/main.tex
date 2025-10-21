@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper,oneside, most]{report}
+
+\input{settings/packages}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+\begin{document}
+\pagenumbering{roman}
+\input{chapters/cover}
+\pagenumbering{arabic}
+\input{chapters/01a_identitas.tex}
+\addcontentsline{toc}{chapter}{Daftar Isi}
+\newpage
+\setlength{\parskip}{0.5em}
+\tableofcontents
+\pagebreak
+%\setlength{\parskip}{1em}
+\listoffigures
+\addcontentsline{toc}{chapter}{Daftar Gambar}
+%\setlength{\parskip}{1em}
+\listoftables
+\addcontentsline{toc}{chapter}{Daftar Tabel}
+\newpage
+\input{chapters/ringkasan}
+\input{chapters/01_pendahuluan}
+\input{chapters/02_profilmitra}
+\input{chapters/03_tinjauan_pustaka}
+\input{chapters/04_metodepenelitian}
+\input{chapters/05_hasilpenelitian}
+% \bibliographystyle{IEEEtran}
+% \nocite{*}
+% \bibliography{bibliography/urbanrobotwarfare.bib}
+% \bibliography{bibliography/urbanrobotwarfare.bib}
+
+%\input{chapters/05a_sptjb.tex}
+%\pagestyle{plain}
+\input{chapters/05b_lampiransusunanpeneliti.tex}
+\input{chapters/05c_lampiranbiodata.tex}
+%\input{chapters/05d_lampiranluaran.tex}
+\input{chapters/05e_lampirantkt.tex}
+\end{document}

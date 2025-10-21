@@ -1,0 +1,256 @@
+\documentclass[11pt]{article}
+
+% Page geometry
+\usepackage[a4paper, top=2cm, bottom=3cm, left=2cm, right=1.5cm]{geometry}
+
+% Essential packages
+\usepackage[T1]{fontenc}
+\usepackage{tgbonum}
+\usepackage{lmodern}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault} % Sans-serif default (Helvetica-like)
+
+% Math and symbols
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+% Graphics and figures
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{subcaption}
+
+% Tables and arrays
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{ragged2e}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+% Text formatting
+\usepackage{setspace}
+\singlespacing
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{parskip}
+\usepackage{hyphenat}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Utilities
+\usepackage{lipsum}      % For placeholder text (remove in final version)
+\usepackage{blindtext}
+\usepackage{verbatim}
+\usepackage{adjustbox}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+% Hyperlinks and bookmarks
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{pageanchor=false} % Fixes duplicate page anchor warnings with \pagenumbering{gobble}
+
+% Page numbering
+\pagenumbering{gobble}
+
+% Language and labels
+\usepackage[english]{babel} % or [bahasa] if using babel-bahasa
+\renewcommand{\figurename}{Gambar} 
+\renewcommand{\tablename}{Tabel} 
+\renewcommand{\refname}{} 
+
+% Custom color and instruction box
+\definecolor{instructionbg}{RGB}{244,178,147}
+\newcommand{\instructionbox}[1]{%
+  \begingroup
+  \setlength{\fboxrule}{1pt}%
+  \noindent\fcolorbox{black}{instructionbg}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{#1}%
+  }%
+  \endgroup
+  \vspace{1em}%
+}
+
+% Graphics rule for .tif (optional)
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+% Header with logo and title
+\begin{table}[htbp]
+  \begin{tabular}{ll}
+    \multirow{4}{*}{\includegraphics[width=.14\textwidth]{kemendikbud.pdf}} &
+    \footnotesize \textbf{Isian Substansi Proposal} \vspace{4pt}                                                                                                           \\
+                                                                            & \normalsize \textbf{KOLABORASI PENELITIAN STRATEGIS (KATALIS)} \vspace{3pt}                  \\
+                                                                            & \small Petunjuk: Pengusul hanya diperkenankan mengisi di tempat yang telah disediakan sesuai \\
+                                                                            & \small dengan petunjuk pengisian dan tidak diperkenankan melakukan modifikasi template atau  \\
+                                                                            & \small penghapusan di setiap bagian.
+  \end{tabular}
+\end{table}
+
+\vspace{-1.2cm}
+\normalsize
+\singlespacing
+\vspace{1.2cm}
+
+% Sections with instruction boxes
+\instructionbox{%
+  \textbf{A. JUDUL/ NAMA KONSORSIUM}\\
+  \textit{
+    Tuliskan judul/nama konsorsium penelitian, juga dapat diberikan singkatan untuk sebutan konsorsiumnya. Seluruh proposal anggota konsorsium wajib mencantumkan judul/nama/nama singkat konsorsiumnya.%
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{B. STRUKTUR KONSORSIUM}\\
+  \textit{
+    Tuliskan struktur konsorsium sesuai dengan format bagan di bawah ini
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{C. PETA JALAN KONSORSIUM}\\
+  \textit{
+    Tuliskan peta jalan penelitian konsorsium dari tahapan yang direncanakan 5-10 tahun ke depan
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{D. JUDUL PENELITIAN}\\
+  \textit{
+    Tuliskan judul usulan penelitian maksimal 20 kata
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{E. RINGKASAN}\\
+  \textit{
+    Isian ringkasan penelitian tidak lebih dari 300 kata yang berisi urgensi, tujuan, metode, dan luaran yang ditargetkan
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{F. KATA KUNCI}\\
+  \textit{
+    Isian 5 kata kunci yang dipisahkan dengan tanda titik koma (;)
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{G. PENDAHULUAN}\\
+  \textit{
+    Pendahuluan penelitian tidak lebih dari 1000 kata yang memuat, latar belakang, rumusan permasalahan yang akan diteliti, pendekatan pemecahan masalah, state-of-the-art dan kebaruan, peta jalan (road map) penelitian setidaknya 5 tahun. Sitasi disusun dan ditulis berdasarkan sistem nomor sesuai dengan urutan pengutipan.
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{H. METODE}\\
+  \textit{
+    Isian metode atau cara untuk mencapai tujuan yang telah ditetapkan tidak lebih dari 1000 kata. Pada bagian metoda wajib dilengkapi dengan diagram alir penelitian yang menggambarkan apa yang sudah dilaksanakan dan yang akan dikerjakan selama waktu yang diusulkan. Format diagram alir dapat berupa file JPG/PNG. Metode penelitian harus memuat sekurang-kurangnya prosedur penelitian, hasil yang diharapkan, indikator capaian yang ditargetkan, serta anggota tim/mitra yang bertanggung jawab pada setiap tahapan penelitian. Metode penelitian harus sejalan dengan Rencana Anggaran Biaya (RAB).
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{I. HASIL YANG DIHARAPKAN}\\
+  \textit{
+    Hasil yang diharapkan/luaran yang dijanjikan.
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{J. JADWAL PENELITIAN}\\
+  \textit{
+    Jadwal penelitian disusun berdasarkan pelaksanaan penelitian, harap disesuaikan berdasarkan lama tahun pelaksanaan penelitian.
+  }
+}
+\lipsum[1]
+
+\vspace{1cm}
+\instructionbox{%
+  \textbf{K. DAFTAR PUSTAKA}\\
+  \textit{
+    Sitasi disusun dan ditulis berdasarkan sistem nomor sesuai dengan urutan pengutipan. Hanya pustaka yang disitasi pada usulan penelitian yang dicantumkan dalam Daftar Pustaka.
+  }
+}
+\lipsum[1]
+
+% Final table
+\begin{table}[htbp]
+  \centering
+  \caption{Identitas dan Ringkasan Proposal Konsorsium}
+  \label{tab:consortium}
+  \def\firstcol{4.2cm}
+  \def\colA{2.0cm}
+  \def\colB{2.2cm}
+  \def\colC{3.0cm}
+  \def\colD{2.0cm}
+  \def\colE{2.0cm}
+  \begin{tabular}{|P{\firstcol}|P{\colA}|P{\colB}|P{\colC}|P{\colD}|P{\colE}|}
+    \hline
+    \rowcolor{instructionbg}
+    Judul Penelitian Kolaborasi                      &
+    \multicolumn{5}{>{\RaggedRight\arraybackslash}p{\dimexpr\textwidth-\firstcol-2\tabcolsep-2\arrayrulewidth}|}{\textbf{JUDUL}}             \\
+    \hline
+    Tema Payung                                      &
+    \multicolumn{5}{>{\RaggedRight\arraybackslash}p{\dimexpr\textwidth-\firstcol-2\tabcolsep-2\arrayrulewidth}|}{ISIAN TEMA PAYUNG}          \\
+    \hline
+    \multirow{5}{=}{Identitas Pengusul}              &
+    \textbf{Peran}                                   & \textbf{NIDN}             & \textbf{Nama} & \textbf{Institusi} & \textbf{ID Sinta}    \\
+    \cline{2-6}
+                                                     & Koordinator (Ketua Tim 1) &               &                    &                   &  \\
+    \cline{2-6}
+                                                     & Ketua Tim 2               &               &                    &                   &  \\
+    \cline{2-6}
+                                                     & Ketua Tim 3               &               &                    &                   &  \\
+    \cline{2-6}
+                                                     & Ketua Tim 4               &               &                    &                   &  \\
+    \hline
+    Tujuan Penelitian (max. 50 kata)                 &
+    \multicolumn{5}{>{\RaggedRight\arraybackslash}p{\dimexpr\textwidth-\firstcol-2\tabcolsep-2\arrayrulewidth}|}{ISIAN TUJUAN}               \\
+    \hline
+    Luaran dan Dampak yang diharapkan (max. 50 kata) &
+    \multicolumn{5}{>{\RaggedRight\arraybackslash}p{\dimexpr\textwidth-\firstcol-2\tabcolsep-2\arrayrulewidth}|}{ISIAN DAMPAK}               \\
+    \hline
+    Keselarasan dengan Tema (max. 100 kata)          &
+    \multicolumn{5}{>{\RaggedRight\arraybackslash}p{\dimexpr\textwidth-\firstcol-2\tabcolsep-2\arrayrulewidth}|}{ISIAN KESELARASAN}          \\
+    \hline
+    Kerangka Kerja Sama Konsorsium (max. 150 kata)   &
+    \multicolumn{5}{>{\RaggedRight\arraybackslash}p{\dimexpr\textwidth-\firstcol-2\tabcolsep-2\arrayrulewidth}|}{ISIAN KERJASAMA KONSORSIUM} \\
+    \hline
+    Metodologi (max. 200 kata)                       &
+    \multicolumn{5}{>{\RaggedRight\arraybackslash}p{\dimexpr\textwidth-\firstcol-2\tabcolsep-2\arrayrulewidth}|}{ISIAN METODOLOGI}           \\
+    \hline
+  \end{tabular}
+\end{table}
+
+% Optional: Uncomment below if you have a .bib file
+% \bibliographystyle{IEEEtran}
+% \bibliography{urbanrobotwarfare}
+
+\end{document}

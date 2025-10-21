@@ -1,0 +1,923 @@
+\chapter{Tinjauan Pustaka}
+\section{Embedded systems dan IoT}
+Istilah IoT (Internet of Things) merupakan istilah yang relatif baru tetapi mengacu pada penggunaan lama yang disebut Machine-to-Machine.
+Machine-to-Machine (M2M) adalah sekumpulan teknologi jaringan kabel atau nirkabel yang memungkinkan pertukaran informasi secara otomatis antar sistem tanpa intervensi manusia. IoT hanyalah visi yang lebih luas dari M2M, di mana perangkat tidak hanya berasal dari dunia industri, tetapi juga dari penggunaan publik umum.
+Pasar IoT terus berkembang pesat di seluruh dunia. Perkembangan pesat ini mendorong pemain baru untuk mengusulkan teknologi baru pada setiap tahap: pengembangan perangkat keras, cakupan konektivitas, dan layanan cloud (misalnya, platform penyimpanan atau visualisasi data).
+IoT sering disajikan sebagai revolusi industri baru, dan pemasaran sering menjanjikan bahwa semua kasus penggunaan bersifat "smart": smart building, smart city, smart healthcare, dll. Namun, membuat sesuatu menjadi “smart” tidak selalu mudah dan banyak protokol yang ada.
+\subsection{Embedded System}
+Embedded systems adalah sistem komputasi khusus yang dirancang untuk menjalankan fungsi tertentu dalam sistem yang lebih besar. Sistem ini biasanya ditandai dengan integrasinya ke dalam perangkat yang dikendalikan, operasi real-time, dan keterbatasan sumber daya (misalnya, daya pemrosesan, memori, dan konsumsi energi yang terbatas). Embedded systems dapat ditemukan dalam berbagai aplikasi, mulai dari elektronik konsumen (misalnya, smartphone, perangkat rumah pintar) hingga otomasi industri (misalnya, robotika, kontrol proses).
+Dalam konteks IoT, embedded systems memainkan peran penting sebagai "things" yang mengumpulkan dan memproses data dari lingkungan. Sistem ini sering mencakup sensor, aktuator, dan antarmuka komunikasi yang memungkinkannya berinteraksi dengan perangkat lain dan cloud. Desain dan pengembangan embedded systems untuk aplikasi IoT memerlukan pertimbangan hati-hati terhadap faktor-faktor seperti konektivitas, interoperabilitas, keamanan, dan manajemen daya.
+Secara umum, sistem elektronik dapat dikarakterisasi berdasarkan konsumsi daya, daya komputasi, ukuran, dan harga. Dalam kasus khusus embedded systems yang digunakan dalam IoT, kita dapat memberikan bobot berikut pada masing-masing karakteristik:
+Meskipun tentu ada pengecualian terhadap definisi sederhana ini, kita mengasumsikan bahwa, dibandingkan dengan sistem elektronik lainnya, embedded systems yang digunakan dalam IoT memiliki:
+\begin{enumerate}
+    \item Konsumsi daya rendah (Low-power consumption)
+    \item Daya komputasi rendah (Low computing power)
+    \item Ukuran kecil (A small size)
+    \item Harga rendah (A low price)
+\end{enumerate}
+Karakteristik-karakteristik ini sering saling terkait. Misalnya, ukuran kecil biasanya menyiratkan konsumsi daya rendah dan harga rendah. Demikian pula, konsumsi daya rendah sering menyiratkan daya komputasi rendah. Desain embedded systems sering merupakan pertukaran (trade-off) antara karakteristik-karakteristik ini, tergantung pada aplikasi dan kebutuhan spesifik.
+\subsection{Protokol nirkabel IoT}
+Protokol nirkabel IoT dapat diklasifikasikan ke dalam tiga kategori utama berdasarkan jangkauan dan laju data: protokol jangkauan pendek, jangkauan menengah, dan jangkauan jauh.
+\begin{enumerate}
+    \item Protokol jangkauan pendek: Protokol ini dirancang untuk komunikasi pada jarak pendek, biasanya dalam beberapa meter. Protokol ini umum digunakan untuk jaringan area pribadi (PANs) dan aplikasi otomasi rumah. Contoh protokol jangkauan pendek termasuk Bluetooth, Zigbee, dan Wi-Fi.
+    \item   Protokol jangkauan menengah: Protokol ini dirancang untuk komunikasi pada jarak sedang, biasanya hingga beberapa ratus meter. Protokol ini umum digunakan untuk jaringan area lokal (LANs) dan aplikasi otomasi industri. Contoh protokol jangkauan menengah termasuk Wi-Fi, Z-Wave, dan Thread.
+    \item Protokol jangkauan jauh: Protokol ini dirancang untuk komunikasi pada jarak jauh, biasanya beberapa kilometer atau lebih. Protokol ini umum digunakan untuk jaringan area luas (WANs) dan aplikasi smart city. Contoh protokol jangkauan jauh termasuk LoRaWAN, Sigfox, dan NB-IoT.
+    \item Protokol jangkauan sangat jauh: Protokol ini dirancang untuk komunikasi pada jarak yang sangat jauh, biasanya puluhan kilometer. Protokol ini umum digunakan untuk aplikasi yang memerlukan jangkauan ekstrem, seperti pemantauan lingkungan dan pertanian cerdas. Contoh protokol jangkauan sangat jauh termasuk Long Range (LoRa) dan Weightless.
+\end{enumerate}
+
+
+Setiap protokol ini memiliki kelebihan dan kekurangan masing-masing, dan pemilihan protokol tergantung pada kebutuhan spesifik aplikasi IoT, seperti jangkauan, laju data, konsumsi daya, dan biaya.
+Sigfox dan LoRaWAN dianggap sebagai protokol dengan jangkauan sangat jauh dan daya sangat rendah. Jenis jaringan ini semuanya disebut sebagai Low Power Wide Area Network (LPWANs). Dalam penelitian ini, kami fokus pada LoRaWAN (Long Range Wide Area Network) yang merupakan standar jangkauan jauh yang menggunakan laju data rendah dengan kebutuhan konsumsi daya rendah.
+\section{Ikhtisar Dasar-dasar dan Arsitektur LoRaWAN}
+LoRaWAN adalah protokol Low Power Wide Area Network (LPWAN) yang dirancang untuk mendukung komunikasi jarak jauh, daya rendah, dan laju data rendah untuk aplikasi Internet of Things (IoT). Dikembangkan dan dipelihara oleh LoRa Alliance, protokol ini mendefinisikan lapisan Media Access Control (MAC) yang beroperasi di atas lapisan fisik yang disediakan oleh modulasi LoRa. Sejak rilis awalnya pada Januari 2015, LoRaWAN telah berkembang melalui beberapa versi spesifikasi, dengan LoRaWAN 1.0.4 dan 1.1 mewakili iterasi stabil terbaru pada saat penulisan.
+Bagian ini memberikan ikhtisar teknis singkat tentang dasar-dasar LoRaWAN, termasuk karakteristik utamanya, arsitektur, model komunikasi, mekanisme keamanan, dan domain aplikasi khas.
+\subsection{Karakteristik Utama LoRaWAN}
+LoRaWAN menampilkan beberapa fitur utama yang membuatnya sangat cocok untuk penyebaran IoT:
+\begin{enumerate}
+    \item \textbf{Jangkauan Jauh}: Jangkauan komunikasi hingga 10+ km di lingkungan pedesaan dan 2–5 km di lingkungan perkotaan yang padat dapat dicapai, tergantung pada medan dan kondisi interferensi.
+    \item \textbf{Konsumsi Daya Rendah}: Perangkat akhir dapat beroperasi selama 5–10 tahun atau lebih dengan satu baterai karena pengoptimalan siklus tugas (duty cycling) dan mode tidur.
+    \item \textbf{Komunikasi Aman}: Kerahasiaan dan integritas data end-to-end dijamin melalui enkripsi berbasis AES simetris.
+    \item \textbf{Komunikasi Dua Arah}: Protokol ini mendukung pengiriman pesan uplink (perangkat-ke-server) dan downlink (server-ke-perangkat).
+    \item \textbf{Skalabilitas}: Jaringan LoRaWAN dapat mendukung jutaan perangkat per gateway karena skema akses berbasis ALOHA dan mekanisme Adaptive Data Rate (ADR).
+    \item \textbf{Dukungan Geolokasi}: LoRaWAN memungkinkan geolokasi perangkat tanpa GPS melalui teknik time difference of arrival (TDOA) menggunakan beberapa gateway.
+    \item \textbf{Adaptive Data Rate (ADR)}: Protokol ini secara dinamis menyesuaikan laju data dan daya transmisi berdasarkan kualitas link untuk mengoptimalkan kapasitas jaringan dan masa pakai baterai.
+    \item \textbf{Standardisasi Global}: LoRaWAN distandardisasi oleh LoRa Alliance, memastikan interoperabilitas di seluruh perangkat dan jaringan di seluruh dunia.
+\end{enumerate}
+\subsection{Batasan Laju Data dan Payload}
+LoRaWAN dioptimalkan untuk transmisi data kecil dan tidak sering. Batasan utama meliputi:
+\begin{enumerate}
+    \item \textbf{Ukuran Payload}: Berkisar antara 51 hingga 242 byte per pesan, tergantung pada peraturan regional dan laju data yang dipilih.
+    \item \textbf{Laju Data}: Bervariasi antara 0,3 kbps hingga 50 kbps, ditentukan oleh spreading factor (SF) dan konfigurasi bandwidth.
+    \item \textbf{Frekuensi Pesan}: Perangkat biasanya dirancang untuk mengirimkan 1–100 pesan per hari.
+    \item \textbf{Duty Cycle}: Tunduk pada batasan peraturan nasional (misalnya, 1\% di Eropa berdasarkan peraturan ETSI).
+    \item Spreading factor adalah parameter transmisi kritis yang menukar laju data dengan jangkauan komunikasi dan ketahanan: spreading factor yang lebih tinggi (misalnya, SF12) memungkinkan komunikasi jarak jauh dengan biaya throughput yang lebih rendah, sedangkan spreading factor yang lebih rendah (misalnya, SF7) mendukung laju data yang lebih tinggi pada jarak yang lebih pendek.
+\end{enumerate}
+\subsection{Domain Aplikasi Khas}
+LoRaWAN banyak diadopsi dalam skenario yang menuntut masa pakai baterai yang panjang, cakupan luas, efisiensi biaya, dan pertukaran data minimal. Kasus penggunaan representatif meliputi:
+\begin{enumerate}
+    \item \textbf{Pertanian Cerdas}: Pemantauan kelembaban tanah, pelacakan kesehatan tanaman, manajemen ternak.
+    \item \textbf{Pemantauan Lingkungan}: Pemantauan kualitas udara, pemantauan ketinggian air, stasiun cuaca.
+    \item \textbf{Gedung Cerdas}: Kontrol HVAC, manajemen pencahayaan, deteksi hunian.
+    \item \textbf{Pelacakan Aset}: Manajemen armada, pelacakan inventaris, pemantauan rantai dingin.
+    \item \textbf{Kota Cerdas}: Kontrol pencahayaan jalan, pemantauan lalu lintas dan parkir, manajemen limbah.
+    \item \textbf{Pertanian}: Pemantauan kelembaban tanah, otomasi irigasi, pelacakan ternak.
+    \item \textbf{Rantai Pasok dan Logistik}: Pelacakan aset, pemantauan rantai dingin, manajemen inventaris.
+    \item \textbf{Utilitas}: Pengukuran pintar untuk air, gas, dan listrik; deteksi kebocoran dan perusakan.
+    \item \textbf{IoT Industri}: Pemantauan kondisi, perawatan prediktif, pemantauan lingkungan.
+\end{enumerate}
+\subsection{LoRa vs. LoRaWAN}
+Penting untuk membedakan antara LoRa dan LoRaWAN:
+\begin{enumerate}
+    \item \textbf{LoRa} adalah teknik modulasi lapisan fisik berpaten yang berbasis Chirp Spread Spectrum (CSS). LoRa mengkodekan data menggunakan pulsa chirp yang dimodulasi frekuensi linear, menawarkan anggaran link (link budget) yang tinggi dan ketahanan terhadap fading multipath dan pergeseran Doppler.
+    \item \textbf{LoRaWAN} adalah protokol lapisan MAC yang mendefinisikan bagaimana perangkat yang diaktifkan LoRa mengakses jaringan, menyusun pesan, mengelola sesi, dan memastikan keamanan. LoRaWAN menstandarkan perilaku perangkat di berbagai penyebaran heterogen dan memungkinkan interoperabilitas.
+\end{enumerate}
+Dengan demikian, LoRa menyediakan mekanisme transmisi fisik, sedangkan LoRaWAN mengatur aturan komunikasi tingkat jaringan.
+\subsection{Arsitektur Jaringan}
+Jaringan LoRaWAN standar terdiri dari empat komponen utama:
+\begin{enumerate}
+    \item \textbf{End Devices}: Node sensor atau aktuator yang menghasilkan atau menerima data aplikasi. Mereka berkomunikasi secara nirkabel menggunakan modulasi LoRa.
+    \item \textbf{Gateways}: Transceiver multi-saluran dan multi-modem yang menerima pesan uplink dari end devices dan meneruskannya ke Network Server melalui backhaul (misalnya, Ethernet, seluler). Gateway juga meneruskan pesan downlink dari server ke end devices.
+    \item \textbf{Network Server (LNS)}: Perangkat lunak terpusat yang bertanggung jawab atas manajemen jaringan, termasuk deduplikasi pesan, kontrol adaptive data rate (ADR), dan routing.
+    \item \textbf{Application Server}: Memproses data lapisan aplikasi yang didekripsi dan berinteraksi dengan layanan pengguna akhir atau dashboard.
+\end{enumerate}
+\subsection{Alur Pesan}
+LoRaWAN menggunakan topologi star-of-stars, di mana end devices berkomunikasi langsung dengan beberapa gateway. Alur pesan dapat dirangkum sebagai berikut:
+\subsubsection{Komunikasi Uplink}
+Pesan uplink berasal dari end devices dan dikirim melalui udara menggunakan skema akses acak berbasis ALOHA—tidak diperlukan pemasangan berpasangan dengan gateway tertentu. Semua gateway dalam jangkauan radio menerima pesan dan meneruskannya ke Network Server. Server melakukan deduplikasi dengan menyimpan hanya satu salinan dari penerimaan yang berulang dan kemudian memisahkan payload lapisan jaringan dan lapisan aplikasi.
+\subsubsection{Komunikasi Downlink}
+Pesan downlink diprakarsai oleh Network Server atau Application Server dan dijadwalkan untuk transmisi selama jendela penerimaan yang telah ditentukan (RX1 dan RX2) setelah uplink. Network Server memilih gateway yang sesuai untuk mengirimkan pesan berdasarkan kualitas link dan batasan waktu.
+\subsection{Model Keamanan}
+LoRaWAN menggunakan skema enkripsi kunci simetris dua lapis untuk memastikan pemisahan perhatian antara fungsi jaringan dan aplikasi:
+\begin{enumerate}
+    \item \textbf{Network Session Key (NwkSKey)}: Mengenkripsi perintah MAC dan memastikan integritas payload lapisan jaringan. Hanya diketahui oleh end device dan Network Server.
+    \item \textbf{Application Session Key (AppSKey)}: Mengenkripsi data aplikasi. Dibagikan secara eksklusif antara end device dan Application Server.
+\end{enumerate}
+Kunci sesi ini diturunkan dari kunci root selama prosedur join (baik Over-the-Air Activation—OTAA—atau Activation-by-Personalization yang telah ditentukan sebelumnya—ABP). Kunci sesi diputar ulang saat bergabung kembali ke jaringan, meningkatkan kerahasiaan ke depan (forward secrecy).
+\subsection{The Things Stack}
+The Things Stack adalah implementasi open-source kelas enterprise dari LoRaWAN Network Server yang mengintegrasikan fungsi Network Server dan Application Server. The Things Stack mendukung onboarding aman, manajemen, dan pemantauan jutaan perangkat LoRaWAN dalam skala besar. Dengan mengabstraksi detail protokol tingkat rendah, The Things Stack memungkinkan penyebaran solusi LoRaWAN siap produksi yang cepat di berbagai vertikal.
+LoRaWAN merupakan solusi yang kuat, distandardisasi, dan dapat diskalakan untuk penyebaran IoT berbasis LPWAN. Kombinasi kemampuan jangkauan jauh, efisiensi energi, keamanan yang kuat, dan kemampuan beradaptasi dengan peraturan telah mendorong adopsi global di infrastruktur cerdas, pertanian, logistik, dan otomasi industri. Memahami arsitektur berlapisnya—mulai dari modulasi fisik (LoRa), protokol MAC (LoRaWAN), hingga perangkat lunak jaringan (misalnya, The Things Stack)—sangat penting untuk merancang dan menyebarkan sistem IoT yang andal.
+\section{Arsitektur LoRaWAN}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/architecture_ttn.png}
+    \caption{Arsitektur Jaringan LoRaWAN}
+    \label{fig:lora_architecture}
+\end{figure}
+Jaringan LoRaWAN diterapkan menggunakan topologi \emph{star-of-stars}.
+Gambar~\ref{fig:lora_architecture} menunjukkan arsitektur tingkat tinggi dari jaringan LoRaWAN dan komponen utamanya.
+Penyebaran LoRaWAN khas terdiri dari elemen fungsional berikut:
+\begin{enumerate}
+    \item \textbf{End Devices}: Sensor atau aktuator yang mengirim atau menerima pesan nirkabel LoRa-modulated melalui gateway.
+    \item \textbf{Gateways}: Penerima radio multi-saluran yang meneruskan pesan antara end devices dan Network Server.
+    \item \textbf{Network Server}: Perangkat lunak terpusat yang bertanggung jawab atas operasi tingkat jaringan.
+    \item \textbf{Application Servers}: Komponen perangkat lunak yang memproses data spesifik aplikasi secara aman.
+    \item \textbf{Join Server}: Entitas khusus yang menangani aktivasi perangkat aman dan turunan kunci (tidak selalu digambarkan dalam diagram tingkat tinggi).
+\end{enumerate}
+End devices berkomunikasi dengan semua gateway dalam jangkauan radio. Gateway, pada gilirannya, terhubung ke Network Server melalui tautan backhaul (misalnya, Ethernet, seluler, atau Wi-Fi). Mekanisme akses medium didasarkan pada protokol tipe ALOHA; oleh karena itu, end devices tidak membuat asosiasi persisten dengan gateway tertentu. Pesan uplink dapat diterima oleh beberapa gateway secara bersamaan. Network Server melakukan \emph{deduplikasi pesan} dengan menyimpan hanya satu instance dari setiap pesan unik dan membuang salinan berlebih.
+\subsection{End Devices}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/stick_v3.png}
+    \caption{End Device LoRaWAN Heltec stick V3}
+    \label{fig:lora_end_device}
+\end{figure}
+End device LoRaWAN biasanya merupakan sensor daya rendah, aktuator, atau kombinasi keduanya, sering kali dioperasikan dengan baterai yang memiliki masa pakai mulai dari beberapa bulan hingga lebih dari satu dekade. Perangkat ini berinteraksi dengan jaringan secara eksklusif melalui komunikasi RF berbasis LoRa. Modalitas penginderaan umum meliputi suhu, kelembaban, gerakan, dan parameter lingkungan. End devices beroperasi di bawah batasan peraturan yang ketat mengenai daya transmisi, duty cycle, dan penggunaan saluran, yang bersifat spesifik wilayah dan diberlakukan oleh spesifikasi parameter regional LoRaWAN.
+Gambar~\ref{fig:lora_end_device} menunjukkan contoh end device LoRaWAN.
+\subsection{Gateways}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/Ethernet-4G-Lorawan-Outdoor-Gateway-for-Remote-Street-Light-Management.png}
+    \caption{Gateway LoRaWAN}
+    \label{fig:lora_gateway}
+\end{figure}
+Gateway berfungsi sebagai jembatan transparan antara lapisan RF dan jaringan inti berbasis IP. Setiap gateway dikonfigurasi sebelumnya untuk berkomunikasi dengan Network Server yang ditentukan. Setelah menerima frame LoRa-modulated, gateway memberi stempel waktu, mengenkapsulasi dalam protokol standar (misalnya, LoRaWAN Backend Interfaces atau Semtech UDP Packet Forwarder), dan meneruskannya melalui backhaul ke Network Server.
+Gambar~\ref{fig:lora_gateway} menunjukkan contoh gateway LoRaWAN.
+Gateway LoRaWAN secara luas diklasifikasikan ke dalam dua kategori:
+\begin{enumerate}
+    \item \textbf{Gateway Indoor (Picocell)}:
+          \begin{enumerate}
+              \item Dirancang untuk penyebaran di lingkungan indoor residensial, komersial, atau industri.
+              \item Biasanya memiliki antena terintegrasi atau antena eksternal pendek (misalnya, konektor pigtail).
+              \item Hemat biaya dan cocok untuk cakupan di skenario indoor yang dalam seperti ruang bawah tanah atau bangunan bertingkat.
+              \item Meskipun bentuknya kecil, beberapa gateway indoor dapat menerima sinyal dari perangkat yang berjarak beberapa kilometer di bawah kondisi propagasi yang menguntungkan.
+          \end{enumerate}
+    \item \textbf{Gateway Outdoor (Macrocell)}:
+          \begin{enumerate}
+              \item Dirancang untuk cakupan area luas di lingkungan perkotaan dan pedesaan.
+              \item Sering dipasang pada struktur tinggi seperti menara seluler, atap gedung, atau tiang.
+              \item Dilengkapi antena eksternal gain tinggi (misalnya, antena omnidirectional fiberglass) yang dihubungkan melalui kabel koaksial.
+              \item Menunjukkan sensitivitas penerima yang lebih unggul dibandingkan rekan indoor.
+              \item Dapat mendukung opsi konektivitas tambahan (misalnya, 3G/4G, GPS) untuk sinkronisasi dan redundansi backhaul.
+              \item Dengan kandang lingkungan yang sesuai dan modifikasi antena, gateway indoor tertentu dapat digunakan kembali untuk penggunaan outdoor.
+          \end{enumerate}
+\end{enumerate}
+\subsection{Network Server}
+Network Server (NS) adalah komponen orkestrasi inti dari infrastruktur LoRaWAN. NS mengelola status jaringan, menegakkan kepatuhan protokol, dan memastikan routing data yang aman dan efisien. Tanggung jawab utama meliputi:
+\begin{enumerate}
+    \item Membangun keamanan end-to-end melalui enkripsi AES 128-bit menggunakan kunci sesi (NwkSKey untuk lapisan jaringan, AppSKey untuk lapisan aplikasi).
+    \item Memvalidasi keaslian end devices dan integritas pesan yang diterima.
+    \item Melakukan deduplikasi pesan uplink yang diterima dari beberapa gateway.
+    \item Memilih gateway optimal untuk transmisi downlink berdasarkan kualitas sinyal dan waktu.
+    \item Menjalankan algoritma Adaptive Data Rate (ADR) untuk secara dinamis menyesuaikan laju data perangkat dan daya transmisi demi efisiensi jaringan.
+    \item Memverifikasi alamat perangkat (DevAddr) dan mengelola sesi perangkat.
+    \item Mengakui frame uplink yang dikonfirmasi sesuai dengan persyaratan lapisan MAC.
+    \item Merutekan payload aplikasi ke Application Server yang sesuai.
+    \item Meneruskan pesan Join-Request dan Join-Accept antara end devices dan Join Server.
+    \item Memproses dan merespons semua perintah MAC yang didefinisikan dalam spesifikasi LoRaWAN.
+\end{enumerate}
+\subsection{Application Server}
+Application Server (AS) bertanggung jawab atas penanganan logika lapisan aplikasi. AS menerima payload aplikasi yang didekripsi dari Network Server, menafsirkan data sesuai dengan kebutuhan spesifik domain, dan dapat memprakarsai komunikasi downlink dengan menghasilkan payload aplikasi. Payload ini dikirim kembali ke end device target melalui Network Server. Penyebaran LoRaWAN tunggal dapat meng-host beberapa Application Server, masing-masing melayani kasus penggunaan atau penyewa yang berbeda. Analitik lanjutan, termasuk teknik machine learning dan artificial intelligence, sering diterapkan pada data yang dikumpulkan untuk menghasilkan wawasan yang dapat ditindaklanjuti dan mendukung pengambilan keputusan.
+\subsection{Join Server}
+Join Server (JS) adalah komponen kritis keamanan yang diperkenalkan dalam LoRaWAN 1.1 dan juga didukung dalam LoRaWAN 1.0.4 untuk keamanan yang ditingkatkan. Fungsi utamanya adalah:
+\begin{enumerate}
+    \item Penyimpanan aman kunci root (misalnya, AppKey dalam LoRaWAN 1.0, atau AppKey dan NwkKey dalam LoRaWAN 1.1).
+    \item Memproses pesan Join-Request yang diprakarsai oleh end devices selama Over-the-Air Activation (OTAA).
+    \item Menurunkan kunci sesi (NwkSKey dan AppSKey) setelah otentikasi berhasil.
+    \item Mendistribusikan NwkSKey ke Network Server dan AppSKey ke Application Server secara aman.
+\end{enumerate}
+Pemisahan manajemen kunci ini meningkatkan keamanan dengan memastikan bahwa tidak ada entitas tunggal yang memiliki kunci sesi jaringan dan aplikasi, sehingga menegakkan prinsip hak akses minimal (least privilege) dan memungkinkan penyebaran multi-penyewa yang aman.
+\section{Parameter Regional}
+LoRaWAN beroperasi dalam pita spektrum radio Industrial, Scientific, and Medical (ISM) tanpa lisensi yang tersedia secara global. Mirip dengan Wi-Fi di pita 2,4\,GHz dan 5\,GHz, LoRaWAN memungkinkan penyebaran tanpa memerlukan lisensi spektrum individu. Namun, karena penggunaan frekuensi yang lebih rendah—biasanya antara 433\,MHz dan 928\,MHz—transmisi LoRaWAN mencapai jangkauan yang lebih jauh tetapi tunduk pada batasan peraturan yang lebih ketat dan spesifik negara. Untuk mendamaikan interoperabilitas global dengan kepatuhan lokal, LoRa Alliance telah mendefinisikan \emph{Parameter Regional} yang distandardisasi yang menentukan konfigurasi lapisan fisik dan MAC spesifik wilayah.
+Parameter Regional ini menetapkan dasar teknis umum untuk setiap domain peraturan tetapi tidak mendefinisikan secara lengkap semua detail operasional. Operator jaringan dapat menerapkan saluran atau kebijakan tambahan di luar spesifikasi, yang sering disebut sebagai parameter \emph{Other}. Di beberapa yurisdiksi, beberapa rencana frekuensi diperbolehkan; misalnya, di Belanda, kedua pita EU863–870 dan EU433 diizinkan untuk penggunaan LoRaWAN.
+Parameter Regional mencakup:
+\begin{enumerate}
+    \item Spesifikasi lapisan fisik, termasuk:
+          \begin{enumerate}
+              \item Rencana frekuensi (saluran)
+              \item Saluran wajib untuk join jaringan
+              \item Laju data dan spreading factor yang diizinkan
+              \item Batas daya transmisi (EIRP)
+          \end{enumerate}
+    \item Batasan lapisan MAC, seperti:
+          \begin{enumerate}
+              \item Ukuran payload maksimum per laju data
+              \item Waktu dan frekuensi jendela penerimaan
+              \item Batasan duty cycle dan dwell time (jika berlaku)
+          \end{enumerate}
+\end{enumerate}
+Dokumen Parameter Regional resmi (RP002-1.0.4) mendefinisikan tiga belas rencana frekuensi berbeda, masing-masing diberi ID Rencana unik dan nama umum, sebagaimana dirangkum di bawah ini.
+\subsection{Rencana Frekuensi}
+\begin{enumerate}
+    \item Plan ID 1: EU863–870 (nama umum: EU868)
+    \item Plan ID 2: US902–928 (nama umum: US915)
+    \item Plan ID 3: CN779–787 (nama umum: CN779)
+    \item Plan ID 4: EU433 (nama umum: EU433)
+    \item Plan ID 5: AU915–928 (nama umum: AU915)
+    \item Plan ID 6: CN470–510 (nama umum: CN470)
+    \item Plan ID 7: AS923-1 (nama umum: AS923)
+    \item Plan ID 8: AS923-2 (nama umum: AS923-2)
+    \item Plan ID 9: AS923-3 (nama umum: AS923-3)
+    \item Plan ID 10: KR920–923 (nama umum: KR920)
+    \item Plan ID 11: IN865–867 (nama umum: IN865)
+    \item Plan ID 12: RU864–870 (nama umum: RU864)
+    \item Plan ID 13: AS923-4 (nama umum: AS923-4)
+\end{enumerate}
+Setiap rencana sesuai dengan satu atau lebih negara, sebagaimana dirinci dalam Tabel Referensi Silang Negara LoRa Alliance. Meskipun pengetahuan komprehensif tentang semua rencana tidak diperlukan, pita EU863–870 dan US902–928 ditekankan dalam konteks sertifikasi karena adopsinya yang luas.
+\subsection{Pengaturan Default untuk Semua Wilayah}
+Parameter waktu dan operasional tertentu direkomendasikan secara seragam di semua implementasi regional untuk memastikan interoperabilitas dasar. Nilai default ini adalah sebagai berikut:
+\begin{enumerate}
+    \item \textbf{RECEIVE\_DELAY1 (RX1 Delay)}: 1 detik
+    \item \textbf{RECEIVE\_DELAY2 (RX2 Delay)}: 2 detik (didefinisikan sebagai RX1 Delay + 1 detik)
+    \item \textbf{JOIN\_ACCEPT\_DELAY1}: 5 detik
+    \item \textbf{JOIN\_ACCEPT\_DELAY2}: 6 detik
+\end{enumerate}
+Default ini dapat diganti melalui perintah MAC (misalnya, \texttt{RXTimingSetupReq}) atau selama provisioning perangkat, tetapi penyimpangan harus dikomunikasikan ke Network Server selama komisioning. Network Server dapat menolak konfigurasi waktu non-standar untuk menjaga integritas jaringan.
+\subsection{Indonesia: Pita AS923-2}
+\label{subsec:indonesia_as923}
+Di Indonesia, operasi LoRaWAN diatur di bawah rencana frekuensi \textbf{AS923-2}, yang merupakan varian dari spesifikasi regional AS923 yang lebih luas yang didefinisikan dalam dokumen Parameter Regional LoRaWAN RP002-1.0.4. Rencana ini mengakomodasi sub-pita spesifik yang dialokasikan oleh otoritas peraturan Indonesia, yaitu pita ISM \textbf{920–923 MHz}.
+Kerangka kerja regional AS923 menggunakan mekanisme offset frekuensi untuk mendukung beberapa implementasi nasional menggunakan spesifikasi dasar yang sama. Untuk Indonesia, rencana ini ditetapkan sebagai \textbf{AS923-2}, sesuai dengan offset frekuensi:
+\begin{enumerate}
+    \item \texttt{AS923\_FREQ\_OFFSET} = \texttt{0xFFFFB9B0} (bilangan bulat bertanda 32-bit)
+    \item \texttt{AS923\_FREQ\_OFFSET\_HZ} = $-1.80$~MHz
+\end{enumerate}
+Offset ini menggeser saluran default nominal AS923 dari 923.2/923.4~MHz ke \textbf{921.4~MHz} dan \textbf{921.6~MHz}, yang merupakan saluran default wajib untuk semua end-device AS923-2 di Indonesia.
+\begin{enumerate}
+    \item \textbf{Saluran Default dan Join}:
+          Setiap end-device harus mengimplementasikan dua saluran default berikut untuk operasi normal dan transmisi Join-Request:
+    \item Uplink/Downlink: 921.4~MHz (DR2–DR5)
+    \item Uplink/Downlink: 921.6~MHz (DR2–DR5)
+          Saluran ini menggunakan modulasi LoRa dengan bandwidth 125~kHz. Laju data Join-Request dibatasi pada DR2–DR5 (SF10–SF7) untuk memastikan kompatibilitas dengan batasan dwell time 400~ms yang diberlakukan di banyak yurisdiksi AS923 hingga dikonfigurasi ulang oleh jaringan.
+    \item \textbf{Pengkodean Laju Data dan TXPower}:
+          Laju data yang didukung adalah:
+    \item DR0–DR5 (minimum untuk sertifikasi)
+    \item DR0–DR7 (dukungan opsional penuh, termasuk DR6: LoRa SF7/250~kHz dan DR7: FSK 50~kbps)
+          EIRP maksimum adalah \textbf{+16 dBm}. Level TXPower didefinisikan relatif terhadap maksimum ini dalam langkah 2~dB (TXPower 0 = +16 dBm, TXPower 1 = +14 dBm, dll.).
+    \item \textbf{Dwell Time dan Kepatuhan Peraturan}:
+          Perangkat AS923-2 di Indonesia harus mendukung perintah MAC \texttt{TxParamSetupReq} untuk menerima konfigurasi dwell time dari Network Server. Secara default, perangkat mengasumsikan \texttt{UplinkDwellTime} = 1 (batas 400~ms) hingga dikonfigurasi ulang secara eksplisit. Dwell time downlink selalu diatur ke 0 (tanpa batasan).
+    \item \textbf{Jendela Penerimaan}:
+    \item RX1 menggunakan saluran yang sama dengan uplink. Laju data downlink ditentukan oleh DR uplink dan RX1DROffset (0–7).
+    \item RX2 menggunakan frekuensi tetap \textbf{921.4~MHz} (yaitu, 923.2~MHz + \texttt{AS923\_FREQ\_OFFSET\_HZ}) dengan DR2 (SF10, 125~kHz).
+    \item \textbf{Fleksibilitas Rencana Saluran}:
+          Meskipun hanya dua saluran default yang diwajibkan, end-device harus mendukung struktur data saluran untuk setidaknya 24 saluran. Saluran tambahan dapat dikonfigurasi melalui CFList dalam pesan Join-Accept atau melalui perintah MAC (misalnya, \texttt{NewChannelReq}, \texttt{LinkADRReq}).
+    \item \textbf{Listen-Before-Talk (LBT)}:
+          Meskipun tidak secara eksplisit diwajibkan untuk Indonesia dalam RP002-1.0.4, perangkat AS923 yang beroperasi di wilayah dengan persyaratan LBT (misalnya, Jepang) harus mematuhi ARIB STD-T108. Produsen perangkat yang menargetkan Indonesia harus memverifikasi peraturan lokal saat ini, karena kebijakan manajemen spektrum dapat berkembang.
+\end{enumerate}
+Secara ringkas, penyebaran LoRaWAN di Indonesia harus mematuhi profil AS923-2, yang memastikan kepatuhan peraturan sekaligus mempertahankan interoperabilitas dalam ekosistem AS923 yang lebih luas. Operator jaringan dan vendor perangkat harus mengonfigurasi offset frekuensi dan parameter dwell time secara tepat selama komisioning untuk menjamin operasi yang benar.
+\section{Relay LoRaWAN}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/relay-placement.png}
+    \caption{Arsitektur Relay LoRaWAN}
+    \label{fig:lora_relay}
+\end{figure}
+Relay LoRaWAN menyediakan solusi hemat biaya untuk memperluas cakupan jaringan dalam skenario di mana komunikasi langsung antara end devices dan gateway terganggu karena jarak yang berlebihan, hambatan fisik, atau redaman sinyal. Relay beroperasi sebagai perantara berdaya rendah dan berbiaya rendah yang meneruskan pesan antara end devices dan infrastruktur LoRaWAN. Dari perspektif Network Server, relay secara fungsional tidak dapat dibedakan dari end device standar.
+Gambar~\ref{fig:lora_relay} menggambarkan arsitektur sistem relay LoRaWAN.
+\subsection{Strategi Penempatan Relay}
+Penyebaran relay secara ekonomis dibenarkan ketika hanya sejumlah kecil end devices yang mengalami masalah konektivitas. Sebaliknya, jika kekurangan cakupan memengaruhi sebagian besar jaringan, pemasangan gateway tambahan biasanya lebih tepat.
+\subsection{Persyaratan Relay}
+Persyaratan fungsional dan teknis untuk relay LoRaWAN secara formal didefinisikan dalam \emph{Spesifikasi Relay LoRaWAN\textsuperscript{\textregistered}} (TS011-1.0.0). Prasyarat implementasi utama meliputi:
+\begin{enumerate}
+    \item End device harus mengimplementasikan:
+          \begin{enumerate}
+              \item Spesifikasi Lapisan MAC LoRaWAN (TS001) versi 1.0.4.
+              \item Spesifikasi Parameter Regional RP2-1.0.3.
+              \item Firmware LoRa Basics Modem (rilis eksperimental tersedia dari Semtech).
+          \end{enumerate}
+    \item Perangkat keras end device harus menggabungkan salah satu transceiver LoRa sub-GHz berikut:
+          \begin{enumerate}
+              \item SX1261/2
+              \item LR1110
+              \item LR1120
+              \item LR1121
+          \end{enumerate}
+    \item LoRaWAN Network Server (misalnya, The Things Stack) harus mendukung spesifikasi relay.
+    \item Gateway tidak memerlukan modifikasi atau pembaruan firmware untuk mendukung fungsionalitas relay.
+\end{enumerate}
+\subsection{Operasi Relay}
+Komunikasi antara end device dan Network Server melalui relay mengikuti urutan terstruktur:
+\begin{enumerate}
+    \item Sebelum komunikasi, end device dan relay dikonfigurasi sebelumnya dengan parameter saluran bersama (frekuensi, laju data) untuk tautan langsung mereka.
+    \item Untuk memulai komunikasi, end device mengirimkan frame \emph{Wake-on-Radio} (WOR). Frame ini memiliki dua tujuan:
+          \begin{enumerate}
+              \item Membangunkan relay dari mode tidur.
+              \item Menyampaikan parameter radio (frekuensi dan laju data) untuk transmisi uplink berikutnya.
+          \end{enumerate}
+    \item Dua jenis frame WOR didefinisikan, dapat dibedakan berdasarkan konten payload:
+          \begin{enumerate}
+              \item Relay Join-Request
+              \item Relay Uplink (uplink Kelas A)
+          \end{enumerate}
+    \item Relay beroperasi dalam keadaan tidur berdaya rendah dan secara berkala melakukan \emph{Channel Activity Detection} (CAD) untuk memantau frame WOR masuk. Parameter waktu utama meliputi:
+          \begin{enumerate}
+              \item Durasi CAD: 25 ms hingga 1 s (tergantung konfigurasi default).
+              \item Periodisitas CAD: interval antara operasi CAD berturut-turut.
+              \item Panjang preamble WOR: hingga 1 s, memastikan probabilitas deteksi tinggi selama jendela CAD singkat.
+          \end{enumerate}
+    \item Setelah mendeteksi aktivitas LoRa selama CAD, relay beralih ke mode penerima setelah penundaan \emph{CadToRx}. Jika frame WOR yang didemodulasi valid, relay merespons dengan frame \emph{WOR-ACK} yang berisi:
+          \begin{enumerate}
+              \item \texttt{CadToRx}: penundaan dari deteksi CAD ke kesiapan penerimaan.
+              \item \texttt{Forward}: status kemampuan penerusan relay.
+              \item \texttt{RelayDataRate}: laju data untuk penerusan upstream ke Network Server.
+              \item \texttt{XTALAccuracy}: akurasi osilator kristal relay.
+              \item \texttt{CADPeriodicity}: interval antara pemindaian CAD.
+              \item \texttt{TOffset}: waktu antara awal CAD dan akhir penerimaan preamble WOR.
+          \end{enumerate}
+    \item End device menggunakan parameter WOR-ACK untuk menyinkronkan transmisi berikutnya dengan relay.
+    \item End device kemudian mengirimkan frame uplink LoRaWAN-nya. Relay menerima frame ini, menambahkan header metadata 6-byte, dan mengenkapsulasi hasilnya sebagai \emph{Relay Uplink FRMPayload}. Payload ini dikirim ke Network Server menggunakan FPort 226.
+    \item Pesan downlink dari Network Server (FPort 226) diterima oleh relay di jendela RX1 atau RX2. Relay mengekstrak payload asli dan meneruskannya ke end device selama jendela \emph{Relay Receive} (RXR) yang didedikasikan.
+\end{enumerate}
+\subsection{Parameter Regional untuk Relay}
+Parameter lapisan fisik khusus relay didefinisikan per pita regional. Contohnya meliputi:
+\begin{enumerate}
+    \item \textbf{EU868 (EU863–870 MHz)}:
+          \begin{enumerate}
+              \item Saluran WOR (end device $\rightarrow$ relay):
+                    \begin{enumerate}
+                        \item Saluran 0: 856.1 MHz
+                        \item Saluran 1: 865.5 MHz
+                    \end{enumerate}
+              \item Saluran WOR-ACK (relay $\rightarrow$ end device):
+                    \begin{enumerate}
+                        \item Saluran 0: 865.3 MHz
+                        \item Saluran 1: 865.9 MHz
+                    \end{enumerate}
+              \item Bandwidth: 125 kHz
+              \item Spreading Factor: SF9
+          \end{enumerate}
+    \item \textbf{US915 (US902–928 MHz)}:
+          \begin{enumerate}
+              \item Saluran WOR (end device $\rightarrow$ relay):
+                    \begin{enumerate}
+                        \item Saluran 0: 916.7 MHz
+                        \item Saluran 1: 919.9 MHz
+                    \end{enumerate}
+              \item Saluran WOR-ACK (relay $\rightarrow$ end device):
+                    \begin{enumerate}
+                        \item Saluran 0: 918.3 MHz
+                        \item Saluran 1: 918.3 MHz
+                    \end{enumerate}
+              \item Bandwidth: 500 kHz
+              \item Spreading Factor: SF10
+          \end{enumerate}
+    \item Untuk wilayah lain (AU915, CN470, AS923, KR920, IN865, RU864), frekuensi saluran relay, bandwidth, dan spreading factor ditentukan dalam dokumen Parameter Regional LoRaWAN RP002-1.0.4.
+\end{enumerate}
+\subsection{Model Keamanan}
+Komunikasi relay menggunakan kerangka kerja keamanan khusus untuk memastikan integritas dan kerahasiaan frame WOR dan WOR-ACK:
+\begin{enumerate}
+    \item Kunci sesi standar (\texttt{AppSKey}, \texttt{NwkSKey}) tidak cukup untuk mengamankan frame kontrol relay.
+    \item Kunci root baru, \emph{Root Relay Session Key} (\texttt{RootWorSKey}), diturunkan oleh end device:
+          \begin{enumerate}
+              \item Dari \texttt{NwkSKey} dalam LoRaWAN 1.0.x.
+              \item Dari \texttt{NwkSEncKey} dalam LoRaWAN 1.1.x dan seterusnya.
+          \end{enumerate}
+    \item Network Server menyediakan \texttt{RootWorSKey} yang sama ke relay selama komisioning.
+    \item End device dan relay secara independen menurunkan dua kunci sesi dari \texttt{RootWorSKey} dan \texttt{DevAddr}:
+          \begin{enumerate}
+              \item \texttt{WorSIntKey}: digunakan untuk menghitung dan memverifikasi Message Integrity Code (MIC) frame WOR dan WOR-ACK.
+              \item \texttt{WorSEncKey}: digunakan untuk mengenkripsi dan mendekripsi payload frame WOR dan WOR-ACK.
+          \end{enumerate}
+\end{enumerate}
+\section{Jenis Pesan}
+LoRaWAN mendefinisikan serangkaian jenis pesan terstruktur untuk memfasilitasi komunikasi aman dan efisien antara end devices, gateway, dan entitas jaringan. Pesan-pesan ini mengangkut perintah Medium Access Control (MAC) dan data lapisan aplikasi. Memahami klasifikasi pesan, struktur, enkripsi, dan mekanisme integritas sangat penting untuk interoperabilitas dan kepatuhan keamanan, terutama dalam versi LoRaWAN 1.0.x dan 1.1.
+\subsection{Pesan Uplink dan Downlink}
+Pesan dalam LoRaWAN dikategorikan berdasarkan arah transmisinya:
+\begin{enumerate}
+    \item \textbf{Pesan uplink}: Berasal dari end devices dan diteruskan ke Network Server melalui satu atau lebih gateway. Bergantung pada tujuannya, Network Server meneruskan pesan ini ke Application Server atau Join Server.
+    \item \textbf{Pesan downlink}: Dikirim oleh Network Server ke end device tertentu dan dikirim melalui gateway yang dipilih. Pesan ini dapat berasal dari Network Server itu sendiri, Application Server, atau Join Server.
+\end{enumerate}
+\subsection{Jenis Pesan MAC}
+LoRaWAN menentukan jenis pesan MAC yang berbeda untuk kontrol jaringan dan transportasi data. Enumerasi berikut menguraikan jenis pesan yang didukung dalam LoRaWAN 1.0.x dan 1.1:
+\begin{enumerate}
+    \item \textbf{Join-request}: Pesan uplink yang digunakan selama Over-the-Air Activation (OTAA) untuk memulai sesi.
+    \item \textbf{Join-accept}: Respons downlink terhadap Join-request, menyediakan parameter sesi.
+    \item \textbf{Unconfirmed Data Up}: Frame data uplink yang tidak memerlukan acknowledgment.
+    \item \textbf{Unconfirmed Data Down}: Frame data downlink yang tidak memerlukan acknowledgment.
+    \item \textbf{Confirmed Data Up}: Frame data uplink yang memerlukan acknowledgment dari penerima.
+    \item \textbf{Confirmed Data Down}: Frame data downlink yang memerlukan acknowledgment dari end device.
+    \item \textbf{Rejoin-request} (hanya LoRaWAN 1.1): Pesan uplink yang digunakan untuk membuat ulang konteks sesi tanpa reaktivasi penuh; mendukung tiga subtipe (0, 1, 2).
+    \item \textbf{Proprietary}: Dicadangkan untuk ekstensi khusus vendor.
+    \item \textbf{RFU} (LoRaWAN 1.0.x): Dicadangkan untuk penggunaan di masa depan; digunakan kembali sebagai Rejoin-request dalam 1.1.
+\end{enumerate}
+\subsection{Pesan Join-Request, Rejoin-Request, dan Join-Accept}
+\begin{enumerate}
+    \item \textbf{Join-request}:
+          \begin{enumerate}
+              \item Diprakarsai oleh end device.
+              \item Dalam LoRaWAN 1.0.4 dan sebelumnya, diteruskan oleh Network Server ke Application Server.
+              \item Dalam LoRaWAN 1.1 dan 1.0.4+, diteruskan ke Join Server.
+              \item Dikirim tanpa enkripsi.
+          \end{enumerate}
+    \item \textbf{Join-accept}:
+          \begin{enumerate}
+              \item Dihasilkan oleh Join Server (1.1 dan 1.0.4+) atau Application Server (sebelum 1.0.4).
+              \item Dirutekan ke end device melalui Network Server.
+              \item Kunci enkripsi tergantung pada versi LoRaWAN dan pesan pemicu:
+                    \begin{enumerate}
+                        \item LoRaWAN 1.0: dienkripsi dengan \texttt{AppKey}.
+                        \item LoRaWAN 1.1:
+                        \item Dipicu oleh Join-request: dienkripsi dengan \texttt{NwkKey}.
+                        \item Dipicu oleh Rejoin-request (Tipe 0, 1, 2): dienkripsi dengan \texttt{JSEncKey}.
+                    \end{enumerate}
+          \end{enumerate}
+    \item \textbf{Rejoin-request} (hanya LoRaWAN 1.1):
+          \begin{enumerate}
+              \item Diprakarsai oleh end device untuk menyegarkan kunci sesi atau bergabung kembali setelah roaming.
+              \item Tiga tipe didefinisikan (0, 1, 2), berbeda dalam cakupan pengenal (NetID vs. JoinEUI).
+              \item Selalu direspons dengan pesan Join-accept.
+          \end{enumerate}
+\end{enumerate}
+\subsection{Pesan Data}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/payload.png}
+    \caption{Struktur Pesan Data LoRaWAN}
+    \label{fig:lora_data_message}
+\end{figure}
+Pesan data mengangkut payload aplikasi dan/atau perintah MAC. Empat tipe ada, konsisten di seluruh LoRaWAN 1.0.x dan 1.1:
+Gambar~\ref{fig:lora_data_message} menggambarkan struktur pesan data LoRaWAN.
+\begin{enumerate}
+    \item Unconfirmed Data Up
+    \item Unconfirmed Data Down
+    \item Confirmed Data Up
+    \item Confirmed Data Down
+\end{enumerate}
+Pesan data terdiri dari payload MAC yang disusun sebagai berikut:
+\begin{enumerate}
+    \item \textbf{Frame Header (FHDR)}: 7–22 byte, berisi:
+          \begin{enumerate}
+              \item \texttt{DevAddr} (4 byte)
+              \item \texttt{FCtrl} (1 byte)
+              \item \texttt{FCnt} (2 byte)
+              \item \texttt{FOpts} (0–15 byte)
+          \end{enumerate}
+    \item \textbf{FPort} (0–1 byte, opsional): Menunjukkan konten FRMPayload.
+    \item \textbf{FRMPayload} (0–N byte, opsional): Mengangkut perintah MAC atau data aplikasi.
+\end{enumerate}
+Panjang payload MAC maksimum tergantung pada wilayah dan laju data, sebagaimana didefinisikan dalam spesifikasi Parameter Regional.
+\subsection{Mengirim Perintah MAC dan Data Spesifik Aplikasi}
+Perintah MAC dan data aplikasi saling eksklusif dalam field FRMPayload tetapi dapat berdampingan dalam pesan jika perintah MAC ditempatkan di FOpts dan data aplikasi di FRMPayload.
+\begin{enumerate}
+    \item \textbf{Perintah MAC di FOpts}:
+          \begin{enumerate}
+              \item Panjang total tidak boleh melebihi 15 byte.
+              \item Dalam LoRaWAN 1.0.x: dikirim tanpa enkripsi.
+              \item Dalam LoRaWAN 1.1: dienkripsi menggunakan \texttt{NwkSEncKey}.
+          \end{enumerate}
+    \item \textbf{Perintah MAC atau data aplikasi di FRMPayload}:
+          \begin{enumerate}
+              \item Memerlukan keberadaan field FPort.
+              \item Interpretasi FPort:
+                    \begin{enumerate}
+                        \item \texttt{FPort = 0}: FRMPayload hanya berisi perintah MAC.
+                        \item \texttt{FPort = 1–223}: FRMPayload berisi data aplikasi.
+                        \item \texttt{FPort = 224}: Dicadangkan untuk protokol uji lapisan MAC LoRaWAN.
+                        \item \texttt{FPort = 255}: Dicadangkan untuk Penggunaan Mendatang (RFU).
+                    \end{enumerate}
+              \item Enkripsi FRMPayload:
+                    \begin{enumerate}
+                        \item Perintah MAC (FPort = 0):
+                        \item LoRaWAN 1.0.x: dienkripsi dengan \texttt{NwkSKey}.
+                        \item LoRaWAN 1.1: dienkripsi dengan \texttt{NwkSEncKey}.
+                        \item Data aplikasi (FPort = 1–223): dienkripsi dengan \texttt{AppSKey} di kedua versi.
+                    \end{enumerate}
+          \end{enumerate}
+\end{enumerate}
+\subsection{Perhitungan Message Integrity Code (MIC)}
+MIC memastikan keaslian dan integritas pesan. MIC dihitung berdasarkan field tertentu dan ditambahkan ke pesan. Field dan kunci yang digunakan tergantung pada versi LoRaWAN dan jenis pesan.
+\begin{enumerate}
+    \item \textbf{Field yang digunakan dalam perhitungan MIC}:
+          \begin{enumerate}
+              \item LoRaWAN 1.0.x:
+                    \begin{enumerate}
+                        \item Join-request: \texttt{MHDR | AppEUI | DevEUI | DevNonce}
+                        \item Join-accept: \texttt{MHDR | AppNonce | NetID | DevAddr | DLSettings | RxDelay | CFList}
+                        \item Pesan data (up/down): \texttt{MHDR | FHDR | FPort | FRMPayload}
+                    \end{enumerate}
+              \item LoRaWAN 1.1:
+                    \begin{enumerate}
+                        \item Join-request: \texttt{MHDR | JoinEUI | DevEUI | DevNonce}
+                        \item Join-accept: \texttt{MHDR | JoinNonce | NetID | DevAddr | DLSettings | RxDelay | CFList}
+                        \item Rejoin-request Tipe 0/2: \texttt{MHDR | Rejoin Type | NetID | DevEUI | RJcount0}
+                        \item Rejoin-request Tipe 1: \texttt{MHDR | Rejoin Type | JoinEUI | DevEUI | RJcount1}
+                        \item Pesan data (up/down): \texttt{MHDR | FHDR | FPort | FRMPayload}
+                    \end{enumerate}
+          \end{enumerate}
+    \item \textbf{Kunci yang digunakan untuk perhitungan MIC}:
+          \begin{enumerate}
+              \item LoRaWAN 1.0.x:
+                    \begin{enumerate}
+                        \item Join-request: \texttt{AppKey}
+                        \item Join-accept: \texttt{AppKey}
+                        \item Data uplink: \texttt{NwkSKey}
+                        \item Data downlink: \texttt{NwkSKey}
+                    \end{enumerate}
+              \item LoRaWAN 1.1:
+                    \begin{enumerate}
+                        \item Join-request: \texttt{NwkKey}
+                        \item Join-accept: \texttt{JSIntKey}
+                        \item Rejoin-request Tipe 0/2: \texttt{SNwkSIntKey}
+                        \item Rejoin-request Tipe 1: \texttt{JSIntKey}
+                        \item Data uplink: \texttt{FNwkSIntKey} (untuk verifikasi MIC) dan \texttt{SNwkSIntKey} (untuk pembuatan dalam beberapa konteks)
+                        \item Data downlink: \texttt{SNwkSIntKey}
+                    \end{enumerate}
+              \item Perangkat LoRaWAN 1.1 yang beroperasi dengan Network Server 1.0.x:
+                    \begin{enumerate}
+                        \item Join-request: \texttt{NwkKey}
+                        \item Join-accept: \texttt{NwkKey}
+                        \item Data uplink: \texttt{FNwkSIntKey}
+                        \item Data downlink: \texttt{FNwkSIntKey}
+                    \end{enumerate}
+          \end{enumerate}
+\end{enumerate}
+\section{Keamanan}
+LoRaWAN menggunakan kerangka kerja keamanan yang kuat berdasarkan kriptografi simetris untuk memastikan kerahasiaan, integritas, dan keaslian komunikasi. Model keamanan dibangun di atas serangkaian kunci 128-bit dan menggunakan Advanced Encryption Standard (AES-128), konsisten dengan praktik kriptografi dalam standar seperti IEEE 802.15.4.
+\subsection{Kunci Keamanan}
+Spesifikasi LoRaWAN 1.0 mendefinisikan tiga kunci kriptografi utama, masing-masing 128 bit:
+\begin{enumerate}
+    \item \textbf{AppKey} (Application Key): Kunci root yang digunakan secara eksklusif selama prosedur Over-the-Air Activation (OTAA) untuk menurunkan kunci sesi. Kunci ini hanya dibagikan antara end-device dan Join Server (atau Application Server dalam penyebaran pra-1.1).
+    \item \textbf{NwkSKey} (Network Session Key): Kunci sesi yang digunakan untuk mengamankan komunikasi antara end-device dan Network Server.
+    \item \textbf{AppSKey} (Application Session Key): Kunci sesi yang digunakan untuk enkripsi end-to-end payload lapisan aplikasi antara end-device dan Application Server.
+\end{enumerate}
+\subsection{Kunci Sesi}
+Setelah aktivasi jaringan berhasil—baik melalui OTAA atau Activation-by-Personalization (ABP) yang telah ditentukan sebelumnya—dua kunci sesi ditetapkan:
+\begin{enumerate}
+    \item \textbf{Network Session Key (NwkSKey)} digunakan untuk:
+          \begin{enumerate}
+              \item Menghitung dan memverifikasi Message Integrity Code (MIC) semua pesan MAC dan data menggunakan AES-CMAC.
+              \item Memastikan keaslian pesan dan mencegah perusakan.
+              \item Membantu Network Server dalam memetakan alamat perangkat non-unik (\texttt{DevAddr}) ke pengenal unik global \texttt{DevEUI} dan \texttt{AppEUI}.
+          \end{enumerate}
+    \item \textbf{Application Session Key (AppSKey)} digunakan untuk:
+          \begin{enumerate}
+              \item Mengenkripsi dan mendekripsi payload aplikasi (\texttt{FRMPayload}) pesan uplink dan downlink.
+              \item Memberikan kerahasiaan end-to-end antara end-device dan Application Server.
+              \item Memastikan bahwa entitas jaringan perantara (misalnya, gateway, Network Server) tidak dapat mengakses data aplikasi.
+          \end{enumerate}
+\end{enumerate}
+Kunci sesi ini unik per perangkat dan per sesi. Dalam OTAA, kunci dibuat ulang pada setiap permintaan join. Dalam ABP, kunci tetap statis kecuali diperbarui secara manual.
+\subsection{Application Key}
+\textbf{Application Key (AppKey)} berfungsi sebagai rahasia root untuk perangkat OTAA:
+\begin{enumerate}
+    \item Tidak pernah dikirim melalui udara.
+    \item Digunakan selama prosedur join untuk menurunkan \texttt{NwkSKey} dan \texttt{AppSKey} melalui fungsi turunan kunci yang ditentukan dalam spesifikasi lapisan MAC LoRaWAN.
+    \item Dalam penyebaran jaringan seperti The Things Network, \texttt{AppKey} default dapat dikonfigurasi per aplikasi, atau kunci individual dapat ditetapkan per perangkat untuk keamanan yang ditingkatkan.
+\end{enumerate}
+\subsection{Penghitung Frame}
+Untuk mengurangi serangan replay—di mana penyerang menangkap dan mengirim ulang pesan yang valid—LoRaWAN menggunakan penghitung uplink dan downlink:
+\begin{enumerate}
+    \item \texttt{FCntUp}: Dinaikkan oleh end-device untuk setiap transmisi uplink.
+    \item \texttt{FCntDown}: Dinaikkan oleh Network Server untuk setiap transmisi downlink.
+    \item Kedua penghitung diinisialisasi ke nol setelah pembentukan sesi.
+    \item Penerima (perangkat atau server) membuang pesan apa pun dengan penghitung frame kurang dari atau sama dengan nilai penghitung yang diterima terakhir kali.
+    \item Mekanisme ini memastikan bahwa setiap pesan diproses hanya sekali, bahkan jika dicegat dan dikirim ulang.
+\end{enumerate}
+Untuk perangkat ABP, penghitung frame biasanya diatur ulang ke nol pada setiap siklus daya atau pembaruan firmware. Akibatnya, Network Server akan menolak pesan berikutnya hingga penghitung melebihi nilai yang dicatat sebelumnya. Untuk menghindari hal ini selama pengembangan, disarankan untuk mendaftarkan ulang perangkat ABP di server jaringan setelah setiap reset atau menyimpan penghitung frame dalam memori non-volatil.
+\subsection{Spread Spectrum dan Pertimbangan Keamanan}
+LoRa menggunakan modulasi Chirp Spread Spectrum (CSS), bentuk spread spectrum urutan langsung (DSSS). Meskipun teknik spread spectrum secara historis memberikan probabilitas intersepsi rendah (LPI) dalam komunikasi militer, penggunaan CSS oleh LoRa terutama dimotivasi oleh:
+\begin{enumerate}
+    \item Ketahanan terhadap fading multipath dan pergeseran Doppler.
+    \item Anggaran link tinggi dan kemampuan jangkauan jauh.
+    \item Koeksistensi di lingkungan spektral padat melalui keuntungan pemrosesan (processing gain).
+\end{enumerate}
+Perlu ditekankan bahwa CSS dalam LoRaWAN \emph{tidak} merupakan mekanisme keamanan kriptografi. Kerahasiaan dan integritas pesan semata-mata dijamin oleh kerangka kerja berbasis AES yang dijelaskan di atas, bukan oleh modulasi lapisan fisik. Oleh karena itu, ketergantungan pada spread spectrum untuk keamanan terhadap penyadapan tidak dapat dibenarkan; perlindungan kriptografi tetap penting.
+\section{Kelas Perangkat}
+Spesifikasi LoRaWAN mendefinisikan tiga kelas perangkat—Kelas A, Kelas B, dan Kelas C—untuk mengakomodasi berbagai kebutuhan aplikasi dalam hal konsumsi daya, latensi, dan pola komunikasi. Semua end-device LoRaWAN diwajibkan untuk mengimplementasikan fungsionalitas Kelas A. Kelas B dan Kelas C adalah ekstensi opsional yang dibangun di atas Kelas A. Semua kelas mendukung komunikasi dua arah (uplink dan downlink). Selama Pembaruan Firmware Over-The-Air (FUOTA), perangkat harus beroperasi dalam Kelas B atau Kelas C untuk memungkinkan pengiriman payload firmware besar secara tepat waktu.
+Penting untuk dicatat bahwa end-device tidak dapat mengirim pesan uplink saat menerima pesan downlink karena batasan radio half-duplex.
+\subsection{Kelas A}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/class-a.png}
+    \caption{Operasi LoRaWAN Kelas A}
+    \label{fig:lora_class_a}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/class-a-alt.png}
+    \caption{Operasi Alternatif LoRaWAN Kelas A}
+    \label{fig:lora_class_a_alt}
+\end{figure}
+Kelas A adalah kelas perangkat dasar dan wajib dalam LoRaWAN. Desainnya memprioritaskan konsumsi daya ultra-rendah, menjadikannya cocok untuk aplikasi berbaterai dengan kebutuhan komunikasi tidak sering.
+Gambar~\ref{fig:lora_class_a} dan~\ref{fig:lora_class_a_alt} menggambarkan waktu transmisi uplink dan downlink dalam perangkat Kelas A.
+\begin{enumerate}
+    \item End-device dapat memulai transmisi uplink kapan saja.
+    \item Setelah menyelesaikan transmisi uplink, perangkat membuka dua jendela penerimaan berurutan:
+          \begin{enumerate}
+              \item \textbf{RX1}: Dibuka setelah penundaan tetap (\texttt{RECEIVE\_DELAY1}, biasanya 1 detik).
+              \item \textbf{RX2}: Dibuka setelah penundaan tetap kedua (\texttt{RECEIVE\_DELAY2}, biasanya 2 detik), yaitu 1 detik setelah RX1.
+          \end{enumerate}
+    \item Network Server dapat menjadwalkan downlink di RX1 atau RX2, tetapi tidak keduanya.
+    \item Jika tidak ada downlink yang diterima di kedua jendela, kesempatan berikutnya untuk downlink hanya terjadi setelah perangkat mengirim uplink berikutnya.
+    \item RX2 menggunakan frekuensi dan laju data tetap yang dikonfigurasi per parameter regional, sedangkan RX1 menggunakan saluran yang sama dengan uplink dan laju data yang diimbangi oleh \texttt{RX1DROffset}.
+\end{enumerate}
+Perangkat Kelas A menunjukkan latensi downlink tinggi tetapi mencapai efisiensi energi luar biasa dengan tetap dalam mode tidur antar transmisi. Aplikasi khas meliputi:
+\begin{enumerate}
+    \item Pemantauan lingkungan (misalnya, suhu, kelembaban, kualitas udara)
+    \item Pelacakan hewan dan aset
+    \item Deteksi kebakaran hutan dan kebocoran air
+    \item Sistem parkir pintar dan manajemen limbah
+\end{enumerate}
+\subsection{Kelas B}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/class-b.png}
+    \caption{Operasi LoRaWAN Kelas B}
+    \label{fig:lora_class_b}
+\end{figure}
+Kelas B memperluas Kelas A dengan memperkenalkan slot penerimaan terjadwal—dikenal sebagai \emph{ping slots}—untuk mengurangi latensi downlink sambil mempertahankan efisiensi daya yang wajar.
+Gambar~\ref{fig:lora_class_b} menggambarkan waktu transmisi uplink dan downlink dalam perangkat Kelas B.
+\begin{enumerate}
+    \item Gateway secara berkala menyiarkan \emph{beacon} yang disinkronkan (setiap 128 detik secara default), yang memberikan referensi waktu umum.
+    \item End-device menggunakan beacon ini untuk menyelaraskan jam internalnya dengan waktu jaringan.
+    \item Berdasarkan sinkronisasi ini, Network Server dapat menjadwalkan downlink selama ping slots yang telah ditentukan untuk perangkat individual atau grup multicast.
+    \item Setelah setiap uplink, perangkat masih membuka jendela RX1 dan RX2 seperti pada Kelas A.
+    \item Ping slots terjadi pada interval reguler yang ditentukan oleh \texttt{PING\_SLOT\_PERIODICITY} (default: $2^7 = 128$ detik).
+\end{enumerate}
+Kelas B menawarkan latensi downlink sedang dan cocok untuk aplikasi yang memerlukan aktuasi sesekali atau interaksi downlink lebih sering daripada yang diizinkan Kelas A. Konsumsi daya lebih tinggi daripada Kelas A karena penerimaan beacon berkala dan pendengaran ping slot, tetapi banyak perangkat Kelas B tetap beroperasi dengan baterai dengan masa pakai yang dapat diterima.
+Kasus penggunaan khas meliputi:
+\begin{enumerate}
+    \item Meteran utilitas (listrik, air, gas)
+    \item Sistem pencahayaan jalan pintar
+\end{enumerate}
+Perangkat Kelas B dapat kembali ke operasi Kelas A ketika fungsionalitas ping slot tidak diperlukan.
+\subsection{Kelas C}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/class-c.png}
+    \caption{Operasi LoRaWAN Kelas C}
+    \label{fig:lora_class_c}
+\end{figure}
+Kelas C memberikan latensi downlink serendah mungkin dengan menjaga penerima hampir selalu aktif, dengan mengorbankan konsumsi daya yang jauh lebih tinggi.
+Gambar~\ref{fig:lora_class_c} menggambarkan waktu transmisi uplink dan downlink dalam perangkat Kelas C.
+\begin{enumerate}
+    \item Setelah transmisi uplink, perangkat membuka RX1 dan RX2 seperti pada Kelas A.
+    \item Setelah RX2, perangkat menjaga jendela penerimaan RX2 \emph{terus terbuka} hingga transmisi uplink berikutnya dimulai.
+    \item Ini memungkinkan Network Server mengirim pesan downlink kapan saja, hanya tunduk pada batasan duty cycle peraturan.
+    \item Transmisi uplink hanya dimungkinkan ketika tidak ada downlink yang sedang berlangsung.
+\end{enumerate}
+Karena aktivitas radio yang hampir terus-menerus, perangkat Kelas C umumnya tidak cocok untuk operasi baterai jangka panjang dan biasanya menggunakan daya listrik.
+Aplikasi umum meliputi:
+\begin{enumerate}
+    \item Meteran utilitas yang memerlukan kontrol real-time
+    \item Lampu jalan dengan peredupan dinamis atau perintah hidup/mati
+    \item Lampu suar dan sistem alarm yang memerlukan respons segera
+\end{enumerate}
+Perangkat Kelas C dapat beroperasi dalam mode Kelas A selama periode aktivitas rendah untuk menghemat energi, meskipun ini memerlukan peralihan mode eksplisit melalui perintah MAC atau logika aplikasi.
+\section{Aktivasi End Device}
+Sebelum berpartisipasi dalam jaringan LoRaWAN, setiap end device harus menjalani prosedur aktivasi untuk menetapkan kredensial kriptografi dan mendapatkan alamat jaringan. Dua metode aktivasi berbeda didefinisikan dalam spesifikasi LoRaWAN: Over-the-Air Activation (OTAA) dan Activation by Personalization (ABP). OTAA adalah pendekatan yang direkomendasikan dan lebih aman, memungkinkan turunan kunci dinamis dan roaming jaringan, sedangkan ABP melibatkan pra-konfigurasi kunci dan alamat statis, membatasi fleksibilitas dan keamanan.
+\subsection{Over-the-Air Activation dalam LoRaWAN 1.0.x}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/otaa-lorawan1.0.png}
+    \caption{Prosedur Over-the-Air Activation (OTAA) LoRaWAN 1.0.x}
+    \label{fig:lora_otaa_1.0}
+\end{figure}
+Dalam LoRaWAN 1.0.x, OTAA dicapai melalui jabat tangan dua pesan antara end device dan Network Server, difasilitasi oleh kunci root bersama. Prosedurnya adalah sebagai berikut:
+Gambar~\ref{fig:lora_otaa_1.0} menggambarkan proses OTAA dalam LoRaWAN 1.0.x.
+\begin{enumerate}
+    \item \textbf{Prasyarat}: End device harus disediakan dengan parameter non-volatil berikut:
+          \begin{enumerate}
+              \item \texttt{AppEUI}: Pengenal IEEE EUI-64 64-bit dari server aplikasi.
+              \item \texttt{DevEUI}: Pengenal unik IEEE EUI-64 64-bit dari end device.
+              \item \texttt{AppKey}: Kunci root rahasia AES 128-bit, dibagikan dengan Network Server.
+          \end{enumerate}
+          \texttt{AppKey} tidak pernah dikirim melalui udara.
+    \item \textbf{Transmisi Join-request}: End device memulai prosedur join dengan mengirimkan pesan \texttt{Join-request} yang berisi:
+          \begin{enumerate}
+              \item \texttt{AppEUI} (8 byte)
+              \item \texttt{DevEUI} (8 byte)
+              \item \texttt{DevNonce} (2 byte): nonce acak atau meningkat secara monoton untuk mencegah serangan replay.
+          \end{enumerate}
+          Message Integrity Code (MIC) dihitung berdasarkan field ini menggunakan \texttt{AppKey} dalam AES-CMAC. Pesan dikirim tanpa enkripsi pada salah satu saluran join spesifik wilayah (misalnya, 868.10/868.30/868.50 MHz dalam EU868).
+    \item \textbf{Pembuatan Join-accept}: Setelah validasi berhasil, Network Server menghasilkan:
+          \begin{enumerate}
+              \item \texttt{DevAddr} dinamis 32-bit.
+              \item Dua kunci sesi 128-bit: \texttt{NwkSKey} (untuk integritas lapisan jaringan dan enkripsi perintah MAC) dan \texttt{AppSKey} (untuk enkripsi payload aplikasi).
+              \item Pesan \texttt{Join-accept} yang terdiri dari:
+              \item \texttt{AppNonce} (3 byte): nonce yang disediakan server.
+              \item \texttt{NetID} (3 byte): pengenal jaringan.
+              \item \texttt{DevAddr} (4 byte)
+              \item \texttt{DLSettings} (1 byte): konfigurasi downlink.
+              \item \texttt{RxDelay} (1 byte): penundaan jendela penerimaan.
+              \item \texttt{CFList} (0 atau 16 byte, opsional): frekuensi saluran tambahan.
+          \end{enumerate}
+          MIC dari \texttt{Join-accept} dihitung menggunakan \texttt{AppKey}, dan seluruh payload dienkripsi dengan \texttt{AppKey} menggunakan AES-128 dalam mode ECB.
+    \item \textbf{Pengiriman Join-accept}: \texttt{Join-accept} yang dienkripsi dikirim ke end device melalui downlink di RX1 atau RX2. Tidak ada respons yang dikirim jika permintaan ditolak.
+    \item \textbf{Turunan dan aktivasi kunci sesi}: End device mendekripsi \texttt{Join-accept} dan menurunkan \texttt{NwkSKey} dan \texttt{AppSKey} menggunakan \texttt{AppKey} dan \texttt{AppNonce}. Perangkat menyimpan:
+          \begin{enumerate}
+              \item \texttt{DevAddr}
+              \item \texttt{NwkSKey}
+              \item \texttt{AppSKey}
+          \end{enumerate}
+          Network Server menyimpan \texttt{NwkSKey}, sedangkan \texttt{AppSKey} diteruskan ke Application Server.
+\end{enumerate}
+\subsection{Over-the-Air Activation dalam LoRaWAN 1.1}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/otaa-1.1.png}
+    \caption{Prosedur Over-the-Air Activation (OTAA) LoRaWAN 1.1}
+    \label{fig:lora_otaa_1.1}
+\end{figure}
+LoRaWAN 1.1 meningkatkan keamanan dengan memisahkan kunci root jaringan dan aplikasi serta memperkenalkan Join Server khusus. Prosedur OTAA melibatkan langkah-langkah berikut:
+Gambar~\ref{fig:lora_otaa_1.1} menggambarkan proses OTAA dalam LoRaWAN 1.1.
+\begin{enumerate}
+    \item \textbf{Prasyarat}: End device disediakan dengan:
+          \begin{enumerate}
+              \item \texttt{JoinEUI}: Pengenal 64-bit dari Join Server (menggantikan \texttt{AppEUI}).
+              \item \texttt{DevEUI}: Pengenal perangkat 64-bit.
+              \item \texttt{AppKey}: Kunci root untuk turunan sesi aplikasi.
+              \item \texttt{NwkKey}: Kunci root untuk turunan sesi jaringan.
+          \end{enumerate}
+          Kedua \texttt{AppKey} dan \texttt{NwkKey} dirahasiakan dan tidak pernah dikirim.
+    \item \textbf{Transmisi Join-request}: End device mengirim \texttt{Join-request} yang berisi:
+          \begin{enumerate}
+              \item \texttt{JoinEUI} (8 byte)
+              \item \texttt{DevEUI} (8 byte)
+              \item \texttt{DevNonce} (2 byte): biasanya penghitung yang dinaikkan per upaya join.
+          \end{enumerate}
+          MIC dihitung menggunakan \texttt{NwkKey}. Pesan tidak dienkripsi dan dikirim pada saluran join spesifik wilayah.
+    \item \textbf{Penerusan ke Join Server}: Network Server meneruskan \texttt{Join-request} yang divalidasi ke Join Server yang diidentifikasi oleh \texttt{JoinEUI}.
+    \item \textbf{Pembuatan kunci sesi}: Join Server menurunkan empat kunci sesi:
+          \begin{enumerate}
+              \item \texttt{AppSKey}: untuk kerahasiaan payload aplikasi.
+              \item \texttt{FNwkSIntKey}: untuk MIC uplink (bagian pertama).
+              \item \texttt{SNwkSIntKey}: untuk MIC uplink (bagian kedua) dan semua MIC downlink.
+              \item \texttt{NwkSEncKey}: untuk enkripsi perintah MAC dalam kedua arah.
+          \end{enumerate}
+    \item \textbf{Konstruksi dan enkripsi Join-accept}: Network Server menyusun pesan \texttt{Join-accept} dengan:
+          \begin{enumerate}
+              \item \texttt{JoinNonce} (1 byte): nonce yang disediakan Join Server.
+              \item \texttt{NetID} (3 byte)
+              \item \texttt{DevAddr} (4 byte)
+              \item \texttt{DLSettings} (1 byte)
+              \item \texttt{RxDelay} (1 byte)
+              \item \texttt{CFList} (0 atau 16 byte, opsional)
+          \end{enumerate}
+          MIC dihitung menggunakan \texttt{JSIntKey} (diturunkan dari \texttt{NwkKey}), dan payload dienkripsi dengan \texttt{NwkKey} (untuk \texttt{Join-request}) atau \texttt{JSEncKey} (untuk \texttt{Rejoin-request}).
+    \item \textbf{Distribusi kunci}: Join Server mengirim \texttt{AppSKey} ke Application Server dan tiga kunci jaringan (\texttt{FNwkSIntKey}, \texttt{SNwkSIntKey}, \texttt{NwkSEncKey}) ke Network Server.
+    \item \textbf{Aktivasi perangkat}: End device mendekripsi \texttt{Join-accept} dan menurunkan keempat kunci sesi menggunakan \texttt{AppKey}, \texttt{NwkKey}, dan \texttt{JoinNonce}. Perangkat menyimpan:
+          \begin{enumerate}
+              \item \texttt{DevAddr}
+              \item \texttt{AppSKey}
+              \item \texttt{FNwkSIntKey}
+              \item \texttt{SNwkSIntKey}
+              \item \texttt{NwkSEncKey}
+          \end{enumerate}
+\end{enumerate}
+\subsection{Activation by Personalization}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/abp-1.0.png}
+    \caption{Prosedur Activation by Personalization (ABP) LoRaWAN}
+    \label{fig:lora_abp}
+\end{figure}
+Activation by Personalization (ABP) melewati prosedur join dengan mengonfigurasi parameter sesi langsung ke end device. Metode ini kurang aman dan tidak mendukung roaming jaringan.
+Gambar~\ref{fig:lora_abp} menggambarkan proses ABP.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/abp-1.1.png}
+    \caption{Prosedur Activation by Personalization (ABP) LoRaWAN 1.1}
+    \label{fig:lora_abp_1.1}
+\end{figure}
+Dalam LoRaWAN 1.1, ABP memerlukan pra-konfigurasi beberapa kunci sesi untuk menyelaraskan dengan model keamanan yang ditingkatkan.
+Gambar~\ref{fig:lora_abp_1.1} menggambarkan proses ABP dalam LoRaWAN 1.1.
+\begin{enumerate}
+    \item \textbf{ABP dalam LoRaWAN 1.0.x}: Parameter berikut dipra-konfigurasi:
+          \begin{enumerate}
+              \item \texttt{DevAddr} (32 bit)
+              \item \texttt{NwkSKey} (128 bit)
+              \item \texttt{AppSKey} (128 bit)
+          \end{enumerate}
+          Parameter ini harus disinkronkan secara manual dengan Network Server (\texttt{DevAddr}, \texttt{NwkSKey}) dan Application Server (\texttt{AppSKey}).
+    \item \textbf{ABP dalam LoRaWAN 1.1}: Empat kunci sesi dipra-konfigurasi:
+          \begin{enumerate}
+              \item \texttt{DevAddr} (32 bit)
+              \item \texttt{FNwkSIntKey} (128 bit)
+              \item \texttt{SNwkSIntKey} (128 bit)
+              \item \texttt{NwkSEncKey} (128 bit)
+              \item \texttt{AppSKey} (128 bit)
+          \end{enumerate}
+          Network Server menyimpan tiga kunci jaringan dan \texttt{DevAddr}, sedangkan Application Server menyimpan \texttt{AppSKey}.
+    \item \textbf{Implikasi keamanan}: Perangkat ABP menggunakan kunci sesi statis sepanjang masa pakainya, meningkatkan kerentanan terhadap kompromi kunci. Selain itu, mengganti penyedia jaringan memerlukan rekonfigurasi manual semua materi kriptografi.
+\end{enumerate}
+\section{Spreading Factors}
+LoRa menggunakan modulasi Chirp Spread Spectrum (CSS), di mana informasi dikodekan dalam pulsa yang dimodulasi frekuensi linear yang dikenal sebagai \emph{chirps} atau \emph{symbols}. \emph{Spreading factor} (SF) adalah parameter mendasar yang mengatur durasi dan struktur setiap chirp, sehingga secara langsung memengaruhi karakteristik transmisi utama termasuk laju data, jangkauan komunikasi, time-on-air, sensitivitas penerima, dan konsumsi energi.
+\subsection{Definisi dan Dampak Spreading Factor}
+\begin{enumerate}
+    \item Spreading factor menentukan laju sapuan chirp: spreading factor yang lebih tinggi sesuai dengan chirp yang lebih lambat, yang meningkatkan durasi simbol dan mengurangi laju data.
+    \item Untuk setiap kenaikan satu unit dalam spreading factor (misalnya, dari SF7 ke SF8), durasi chirp berlipat ganda, dan akibatnya laju data berkurang separuhnya untuk bandwidth dan laju pengkodean tetap.
+    \item LoRa mendukung enam spreading factor, dilambangkan SF7 hingga SF12, di mana SF7 menghasilkan laju data tertinggi dan jangkauan terpendek, sedangkan SF12 memberikan laju data terendah dan jangkauan terpanjang.
+    \item Spreading factor bersifat ortogonal: transmisi yang menggunakan spreading factor berbeda pada frekuensi yang sama dan pada waktu yang sama tidak saling mengganggu, memungkinkan penggunaan ulang spektrum dan manajemen kemacetan di jaringan padat.
+\end{enumerate}
+\subsection{Data Rate}
+\begin{enumerate}
+    \item Untuk bandwidth dan coding rate tetap, data rate berbanding terbalik dengan spreading factor.
+    \item Data rate berbanding lurus dengan bandwidth: menggandakan bandwidth akan menggandakan data rate untuk spreading factor yang sama.
+    \item Contoh bit rate untuk SF7 dengan coding rate 4/5 (sering disederhanakan sebagai CR = 1 dalam perhitungan nominal) adalah:
+          \begin{enumerate}
+              \item 5.5 kbit/s pada bandwidth 125 kHz
+              \item 10.9 kbit/s pada bandwidth 250 kHz
+              \item 21.9 kbit/s pada bandwidth 500 kHz
+          \end{enumerate}
+\end{enumerate}
+\subsection{Communication Range}
+\begin{enumerate}
+    \item Spreading factor yang lebih tinggi meningkatkan processing gain, sehingga meningkatkan ketahanan sinyal terhadap noise dan memungkinkan penerimaan pada rasio signal-to-noise (SNR) yang lebih rendah.
+    \item Akibatnya, transmisi yang menggunakan SF12 mencapai jangkauan yang jauh lebih besar dibandingkan dengan yang menggunakan SF7 dalam kondisi daya dan lingkungan yang identik.
+    \item Sifat ini memungkinkan jaringan untuk secara dinamis menyesuaikan spreading factor per perangkat guna menyeimbangkan data rate dan jangkauan berdasarkan kualitas link.
+\end{enumerate}
+\subsection{Time-on-Air}
+\begin{enumerate}
+    \item Time-on-air mengacu pada durasi perangkat menduduki kanal untuk mentransmisikan payload tertentu.
+    \item Untuk ukuran payload dan bandwidth tetap, time-on-air meningkat secara eksponensial seiring peningkatan spreading factor.
+    \item Time-on-air yang lebih lama dapat memperparah keterbatasan duty cycle di pita frekuensi yang diatur dan meningkatkan kerentanan terhadap interferensi.
+    \item Operator jaringan sering menggunakan kalkulator airtime (misalnya, LoRaWAN airtime calculator dari The Things Network) untuk memperkirakan durasi transmisi berdasarkan ukuran payload, bandwidth, dan spreading factor.
+\end{enumerate}
+\subsection{Receiver Sensitivity}
+\begin{enumerate}
+    \item Receiver sensitivity—daya sinyal minimum di mana penerima dapat mendekode transmisi dengan benar—meningkat dengan spreading factor yang lebih tinggi.
+    \item Untuk bandwidth tetap 125 kHz, nilai receiver sensitivity tipikal adalah:
+          \begin{enumerate}
+              \item SF7: \SI{-123}{\decibel m}
+              \item SF8: \SI{-126}{\decibel m}
+              \item SF9: \SI{-129}{\decibel m}
+              \item SF10: \SI{-132}{\decibel m}
+              \item SF11: \SI{-134.5}{\decibel m}
+              \item SF12: \SI{-137}{\decibel m}
+          \end{enumerate}
+    \item Peningkatan sensitivitas ini pada spreading factor tinggi sangat penting untuk menjaga konektivitas di lingkungan dengan sinyal rendah, seperti di dalam gedung atau area pedesaan.
+\end{enumerate}
+\subsection{Battery Life}
+\begin{enumerate}
+    \item Transmisi radio merupakan sumber utama konsumsi energi pada perangkat end LoRaWAN.
+    \item Spreading factor yang lebih tinggi meningkatkan time-on-air, yang secara langsung meningkatkan waktu transmisi aktif dan konsumsi energi per pesan.
+    \item Akibatnya, perangkat yang beroperasi terutama pada SF12 akan memiliki masa pakai baterai lebih pendek dibandingkan dengan perangkat yang beroperasi pada SF7, dengan asumsi ukuran payload dan frekuensi transmisi yang sama.
+    \item Mekanisme Adaptive Data Rate (ADR) dalam LoRaWAN bertujuan untuk meminimalkan spreading factor (dan konsumsi daya) sambil mempertahankan keandalan link, sehingga mengoptimalkan umur baterai.
+\end{enumerate}
+
+\section{Adaptive Data Rate}
+Adaptive Data Rate (ADR) adalah mekanisme yang dikendalikan jaringan yang dirancang untuk mengoptimalkan pertukaran antara keandalan komunikasi, pemanfaatan waktu udara (\emph{airtime}), dan konsumsi energi dalam jaringan LoRaWAN. Dengan menyesuaikan parameter transmisi secara dinamis berdasarkan kualitas tautan yang teramati, ADR memungkinkan penggunaan spektrum yang efisien sekaligus menjaga konektivitas yang andal.
+\subsection{Transmission Parameters Controlled by ADR}
+Mekanisme ADR mengatur parameter lapisan fisik berikut dari perangkat akhir:
+\begin{enumerate}
+    \item Spreading factor
+    \item Bandwidth
+    \item Transmission power
+\end{enumerate}
+Perangkat yang berada dekat dengan gateway biasanya beroperasi dengan spreading factor yang lebih rendah dan data rate yang lebih tinggi untuk meminimalkan airtime dan konsumsi energi. Sebaliknya, perangkat di tepi sel menggunakan spreading factor yang lebih tinggi untuk mencapai anggaran tautan (\emph{link budget}) yang diperlukan agar penerimaan tetap andal.
+\subsection{Conditions for ADR Activation}
+ADR sebaiknya hanya diaktifkan dalam kondisi frekuensi radio (RF) yang stabil. Oleh karena itu:
+\begin{enumerate}
+    \item Perangkat akhir statis umumnya dapat mengaktifkan ADR, asalkan lingkungan RF tetap konsisten.
+    \item Jika perangkat statis mendeteksi degradasi RF sementara (misalnya karena adanya penghalang lingkungan seperti kendaraan yang diparkir di atas sensor), perangkat tersebut harus menonaktifkan ADR sementara.
+    \item Perangkat akhir bergerak harus menerapkan logika untuk mendeteksi periode operasi stasioner yang berkepanjangan dan mengaktifkan ADR selama interval tersebut.
+    \item Keputusan untuk mengaktifkan atau menonaktifkan ADR berada sepenuhnya pada perangkat akhir; baik server aplikasi maupun server jaringan tidak boleh mengesampingkan keputusan ini.
+\end{enumerate}
+\subsection{ADR Operation in The Things Stack}
+The Things Stack mengimplementasikan ADR menggunakan algoritma optimasi berbasis pengukuran yang diturunkan dari strategi adaptasi laju yang direkomendasikan oleh Semtech. Aspek operasional utama meliputi:
+\begin{enumerate}
+    \item Saat bit ADR diatur dalam frame uplink, Network Server mulai mengumpulkan 20 pengukuran uplink terbaru. Setiap pengukuran mencakup:
+          \begin{enumerate}
+              \item Frame counter
+              \item Signal-to-Noise Ratio (SNR) yang dilaporkan oleh gateway penerima terbaik
+              \item Jumlah gateway yang menerima pesan tersebut
+          \end{enumerate}
+    \item Ketika bit ADR dibersihkan oleh perangkat (misalnya karena mobilitas atau kondisi RF yang tidak stabil), semua pengukuran sebelumnya dibuang. Pengumpulan pengukuran dilanjutkan hanya setelah bit ADR diaktifkan kembali.
+    \item Untuk setiap pengukuran, \emph{margin} dihitung sebagai:
+          \[
+              \text{Margin} = \text{Measured SNR} - \text{Required SNR for current data rate}
+          \]
+          Margin ini mengkuantifikasi kelebihan anggaran tautan, yang menjadi dasar potensi peningkatan data rate atau pengurangan daya transmisi.
+    \item Permintaan ADR dipicu dalam kondisi berikut:
+          \begin{enumerate}
+              \item \textbf{Initial ADR Request (hanya untuk US915 dan AU915)}: Dikirim segera setelah join dalam implementasi pra-LoRaWAN 1.1 untuk mengonfigurasi mask saluran. Permintaan ini mencakup margin keamanan karena pengukuran tautan belum mencukupi saat join. LoRaWAN 1.1 menghilangkan kebutuhan permintaan ini dengan memungkinkan konfigurasi mask saluran dalam pesan \texttt{JoinAccept}.
+              \item \textbf{Regular ADR Request}: Dijadwalkan ketika pengukuran yang cukup menunjukkan pengaturan data rate atau daya yang tidak optimal. Permintaan ini disisipkan (\emph{piggybacked}) pada downlink lapisan aplikasi yang sudah ada (misalnya ACK atau payload).
+              \item \textbf{Lowest Data Rate Trigger}: Dikirim ketika perangkat beroperasi pada DR0 (biasanya SF12/125 kHz), terlepas dari margin, untuk mendorong adaptasi laju.
+              \item \textbf{ADR Acknowledgment Request}: Dipicu ketika perangkat mengatur bit \texttt{ADRAckReq}, biasanya setelah mengirim 64 uplink tanpa menerima downlink (tergantung implementasi).
+          \end{enumerate}
+    \item Jika perangkat akhir berulang kali menolak perintah ADR, Network Server akan berhenti menjadwalkan permintaan ADR lebih lanjut. Perilaku ini dapat mengindikasikan adanya masalah firmware perangkat atau ketidakcocokan versi antara perangkat dan server.
+\end{enumerate}
+\section{Limitations and Design Recommendations}
+LoRaWAN adalah protokol Low Power Wide Area Network (LPWAN) khusus yang dioptimalkan untuk kelas aplikasi Internet of Things (IoT) tertentu. Meskipun menawarkan keunggulan signifikan dalam hal jangkauan, efisiensi energi, dan biaya, protokol ini secara inheren tidak cocok untuk kasus penggunaan yang memerlukan data rate tinggi, latensi rendah, atau komunikasi kontinu. Memahami keterbatasan ini sangat penting untuk desain sistem dan pemanfaatan sumber daya yang efektif.
+\subsection{Appropriate Use Cases for LoRaWAN}
+LoRaWAN cocok untuk aplikasi yang memiliki karakteristik berikut:
+\begin{enumerate}
+    \item \textbf{Komunikasi jarak jauh}: Mampu mencapai cakupan beberapa kilometer di lingkungan pedesaan dan ratusan meter hingga beberapa kilometer di lingkungan perkotaan.
+    \item \textbf{Konsumsi daya sangat rendah}: Perangkat akhir dapat beroperasi selama beberapa tahun dengan satu baterai berkat operasi berbasis duty cycle dan mode tidur yang efisien.
+    \item \textbf{Biaya modal dan operasional rendah}: Biaya perangkat keras biasanya di bawah 20\,\texteuro\ per node, dengan biaya operasional berulang yang minimal.
+    \item \textbf{Kebutuhan data rate rendah}: Laju bit lapisan fisik berkisar antara sekitar 250\,bit/s hingga 11\,kbit/s di pita EU868 (menggunakan modulasi LoRa), tergantung pada spreading factor dan bandwidth yang dipilih.
+    \item \textbf{Penyebaran jaringan terdesentralisasi}: Pengguna dapat menyebar gateway pribadi untuk mencapai cakupan di area terpencil atau kurang terlayani tanpa bergantung pada infrastruktur pihak ketiga.
+    \item \textbf{Keamanan end-to-end}: Semua payload aplikasi dienkripsi menggunakan AES 128-bit, menjamin kerahasiaan dan integritas.
+\end{enumerate}
+\subsection{Inappropriate Use Cases for LoRaWAN}
+LoRaWAN tidak dirancang untuk skenario berikut:
+\begin{enumerate}
+    \item \textbf{Transmisi data real-time atau frekuensi tinggi}: Protokol ini menerapkan duty cycle regulasi dan dioptimalkan untuk transmisi infrekuensi (misalnya sekali setiap beberapa menit).
+    \item \textbf{Komunikasi suara atau audio}: Teknologi seperti GPRS, 3G, atau LTE lebih sesuai untuk layanan berbasis suara.
+    \item \textbf{Sistem kendali jarak pendek dengan interaksi tinggi}: Protokol seperti Zigbee atau Bluetooth Low Energy (BLE) lebih cocok untuk otomasi rumah (misalnya pengendalian pencahayaan).
+    \item \textbf{Aplikasi bandwidth tinggi}: Transmisi gambar, streaming video (misalnya Netflix), atau file besar tidak layak; Wi-Fi atau broadband seluler sebaiknya digunakan sebagai gantinya.
+\end{enumerate}
+\subsection{Uplink Transmission Best Practices}
+Untuk memaksimalkan efisiensi spektrum, masa pakai baterai, dan kapasitas jaringan, pedoman berikut harus diperhatikan untuk komunikasi uplink:
+\begin{enumerate}
+    \item \textbf{Minimalkan ukuran payload}: Data harus dikodekan dalam format biner ringkas, bukan representasi verbose seperti JSON atau teks ASCII. Format Cayenne Low Power Payload (LPP) direkomendasikan karena kesederhanaan dan dukungan luasnya.
+    \item \textbf{Optimalkan frekuensi transmisi}: Pesan harus dikirim dengan interval beberapa menit. Strategi agregasi data—seperti melaporkan nilai minimum, rata-rata, dan maksimum selama suatu jendela—atau transmisi berbasis peristiwa (misalnya dipicu oleh pelanggaran ambang batas atau deteksi gerakan) dapat secara signifikan mengurangi lalu lintas yang tidak perlu.
+    \item \textbf{Gunakan data rate tertinggi yang memungkinkan}: Data rate yang lebih tinggi (misalnya SF7 dengan bandwidth 125\,kHz) meminimalkan time-on-air dan konsumsi energi. Jika margin tautan tidak mencukupi, spreading factor dapat ditingkatkan secara bertahap. Adaptive Data Rate (ADR) harus diaktifkan jika kondisi RF stabil, memungkinkan server jaringan untuk mengoptimalkan data rate dan daya transmisi secara dinamis.
+\end{enumerate}
+\subsection{Downlink Transmission Best Practices}
+Karena sifat half-duplex dari sebagian besar gateway LoRaWAN, transmisi downlink sementara menonaktifkan kemampuan gateway untuk menerima pesan uplink di semua saluran. Hal ini berdampak pada kapasitas dan keandalan jaringan. Oleh karena itu, batasan berikut berlaku:
+\begin{enumerate}
+    \item \textbf{Minimalkan penggunaan downlink}: Pesan downlink harus dihindari kecuali benar-benar diperlukan untuk fungsionalitas aplikasi.
+    \item \textbf{Jaga agar payload downlink tetap kecil}: Jika downlink diperlukan, ukuran payload harus diminimalkan untuk mengurangi airtime.
+    \item \textbf{Optimalkan uplink untuk meningkatkan efisiensi downlink}: Data rate downlink diturunkan dari data rate uplink dan RX1DROffset. Konfigurasi uplink yang efisien (misalnya data rate tinggi) memungkinkan downlink yang lebih efisien pula.
+    \item \textbf{Hindari uplink confirmed kecuali benar-benar diperlukan}: Pesan uplink confirmed memicu acknowledgment downlink wajib, meningkatkan beban jaringan. Aplikasi harus dirancang untuk mentolerir kehilangan pesan sesekali bila memungkinkan, menggunakan mekanisme keandalan lapisan aplikasi jika diperlukan.
+\end{enumerate}

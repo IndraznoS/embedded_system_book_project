@@ -1,0 +1,160 @@
+% === Fonts and Encoding ===
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage[indonesian]{babel}
+
+% === Graphics and Drawing ===
+\usepackage{graphicx}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes.gates.logic.US,trees,positioning,arrows,calc,automata,tikzmark,backgrounds}
+\tikzset{background rectangle/.style={fill=white, rounded corners}, tight background}
+\tikzset{every node/.style={font=\sffamily\footnotesize}}
+\usetikzlibrary{fit}
+\usepackage{adjustbox}
+
+% === Code Listings ===
+\usepackage{listings}
+\usepackage{xcolor}
+
+% === Hyperlinks ===
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=cyan,
+  pdftitle={Miles-Simpera Documentation},
+  pdfauthor={Your Name},
+}
+
+% === Caption formatting ===
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf}
+
+% === Code Listing Styles ===
+\lstdefinestyle{ArduinoStyle}{
+  language=C++,
+  backgroundcolor=\color{gray!5},
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  rulecolor=\color{black},
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=true,
+  escapeinside={(*@}{@*)},
+  morekeywords={pinMode,digitalWrite,digitalRead,analogRead,analogWrite,setup,loop,LED_BUILTIN,Serial,begin,print,println,delay,Wire,Adafruit_SSD1306,LoRa,LMIC,os_runloop_once,rtc,SD,File},
+}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  basicstyle=\ttfamily\scriptsize,
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{PHP}{
+  keywords={and, or, xor, __halt_compiler, abstract, array, as, break, callable, case, catch, class, clone, const, continue, declare, default, die, do, echo, else, elseif, empty, enddeclare, endfor, endforeach, endif, endswitch, endwhile, eval, exit, extends, final, finally, for, foreach, function, global, goto, if, implements, include, include_once, instanceof, insteadof, interface, isset, list, match, namespace, new, or, print, private, protected, public, readonly, require, require_once, return, static, switch, throw, trait, try, unset, use, var, while, xor, yield, __CLASS__, __DIR__, __FILE__, __FUNCTION__, __LINE__, __METHOD__, __NAMESPACE__, __TRAIT__},
+  keywordstyle=\color{blue}\bfseries,
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple!70!black},
+  stringstyle=\color{red},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[s]{<<<}{=}{=},
+  identifierstyle=\color{black},
+  basicstyle=\ttfamily\scriptsize,
+}
+
+\lstdefinestyle{PHPStyle}{
+  language=PHP,
+  backgroundcolor=\color{gray!5},
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{purple!70!black},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  rulecolor=\color{black},
+  tabsize=4,
+  breaklines=true,
+  breakatwhitespace=true,
+  escapeinside={(*@}{@*)},
+}
+
+\lstdefinelanguage{Python}{
+  keywords={False, None, True, and, as, assert, async, await, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield},
+  keywordstyle=\color{blue}\bfseries,
+  sensitive=true,
+  comment=[l]{\#},
+  morecomment=[s]{'''}{'''}, % triple-single-quote docstrings
+  morecomment=[s]{"""}{"""}, % triple-double-quote docstrings
+  commentstyle=\color{purple!70!black},
+  stringstyle=\color{red},
+  morestring=[b]',
+  morestring=[b]",
+  identifierstyle=\color{black},
+  basicstyle=\ttfamily\scriptsize,
+  emph={self},
+  emphstyle=\color{orange!70!black}\bfseries,
+}
+
+\lstdefinestyle{PythonStyle}{
+  language=Python,
+  backgroundcolor=\color{gray!5},
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{purple!70!black},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  rulecolor=\color{black},
+  tabsize=4,
+  breaklines=true,
+  breakatwhitespace=true,
+  escapeinside={(*@}{@*)},
+}
+
+% === Typography Tweaks ===
+\tolerance=9999
+\emergencystretch=10pt
+\hyphenpenalty=10000
+\exhyphenpenalty=100

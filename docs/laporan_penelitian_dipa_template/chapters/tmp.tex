@@ -1,0 +1,825 @@
+\chapter{Tinjauan Pustaka}
+\section{Penelitian Terdahulu} 
+Model Predictive Control (MPC) adalah metode kontrol yang digunakan untuk mengoptimalkan performa sistem dinamis dengan memprediksi bagaimana sistem akan berperilaku di masa depan dan membuat keputusan kontrol berdasarkan prediksi tersebut. MPC digunakan dalam berbagai aplikasi, seperti proses industri, sistem energi, transportasi, dan robotics \cite{FORBES2015531}.
+
+Studi literatur tentang MPC meliputi berbagai aspek, seperti pengembangan algoritma, aplikasi, dan implementasi. Salah satu bidang yang diteliti dalam MPC adalah pengembangan algoritma optimisasi yang digunakan dalam membuat keputusan kontrol. Beberapa algoritma yang digunakan dalam MPC meliputi Linear Programming (LP) \cite{Bemporad2002}, Quadratic Programming (QP) \cite{Kufoalor2016}, dan Nonlinear Programming (NLP) \cite{Mate2020}.
+
+Selain itu, studi literatur juga mengeksplorasi aplikasi MPC dalam berbagai bidang, seperti proses industri, sistem energi, transportasi, dan robotics. Dalam proses industri, MPC digunakan untuk mengoptimalkan performa sistem seperti pengendalian temperatur, tekanan, dan flow rate. Dalam sistem energi, MPC digunakan untuk mengoptimalkan penggunaan sumber daya energi dan mengurangi emisi gas rumah kaca. Dalam transportasi, MPC digunakan untuk mengoptimalkan rute dan kecepatan kendaraan untuk mengurangi waktu tempuh dan meningkatkan efisiensi. Dalam robotics, MPC digunakan untuk mengoptimalkan gerakan robot dan meningkatkan performa dalam tugas seperti manipulasi objek \cite{Ju2012}.
+
+Implementasi MPC juga menjadi bidang yang diteliti dalam studi literatur. Beberapa hal yang diteliti dalam implementasi MPC meliputi pemilihan hardware dan software yang sesuai, pengaturan parameter kontrol, dan validasi kinerja sistem. Studi literatur juga mengeksplorasi bagaimana MPC dapat digabungkan dengan metode lain seperti sistem kontrol adaptif dan teknologi sensor untuk meningkatkan performa sistem \cite{Lu2018}.
+
+Secara keseluruhan, studi literatur menunjukkan bahwa MPC merupakan metode kontrol yang efektif dan fleksibel yang digunakan dalam berbagai aplikasi. Penelitian terus dilakukan untuk meningkatkan algoritma optimisasi, menerapkan MPC dalam aplikasi baru, dan meningkatkan implementasi MPC dalam sistem nyata.
+
+Mobile robot Ackerman steering adalah jenis robot yang digunakan dalam aplikasi seperti navigasi, survei, dan inspeksi. Sistem kontrol mobile robot Ackerman steering menjadi fokus dari banyak penelitian dalam bidang robotika dan otomatisasi. Beberapa studi yang telah dilakukan mencakup pengembangan algoritma kontrol, identifikasi model, dan analisis kinerja sistem \cite{Diaz2019}.
+
+Salah satu penelitian yang dilakukan adalah pengembangan algoritma kontrol untuk mobile robot Ackerman steering. Dalam studi ini, peneliti mengembangkan algoritma kontrol berbasis fuzzy untuk mengontrol kecepatan dan sudut kemudi robot. Algoritma ini diuji pada robot Ackerman steering yang dioperasikan di lingkungan nyata dan hasilnya menunjukkan bahwa algoritma ini dapat mengontrol robot dengan baik dan meningkatkan kinerja sistem \cite{Barrero2012}.
+
+Penelitian lain yang dilakukan adalah identifikasi model untuk mobile robot Ackerman steering. Dalam studi ini, peneliti menggunakan metode identifikasi dinamika untuk menentukan model matematis dari robot. Model ini kemudian digunakan untuk menganalisis kinerja sistem dan mengembangkan algoritma kontrol yang lebih baik. Hasil dari penelitian ini menunjukkan bahwa model yang diidentifikasi dapat digunakan untuk meningkatkan kinerja sistem kontrol mobile robot Ackerman steering \cite{Economou2003}
+
+Penelitian lain yang dilakukan adalah analisis kinerja sistem kontrol mobile robot Ackerman steering. Dalam studi ini, peneliti menganalisis kinerja sistem dengan menggunakan berbagai metode seperti analisis kestabilan, analisis respon frekuensi, dan analisis respon dinamik. Hasil dari penelitian ini menunjukkan bahwa sistem kontrol mobile robot Ackerman steering dapat dioptimalkan dengan meningkatkan kinerja sistem \cite{Oh2016}.
+
+Penelitian yang lain yang menarik adalah pengembangan sistem kontrol mobile robot Ackerman steering berbasis komputasi evolusi. Dalam studi ini, peneliti menggunakan algoritma evolusi seperti algoritma genetika dan algoritma evolusi partikel untuk mengembangkan kontroler robot \cite{Wang2009}.
+
+\section{Kajian Teori} 
+Pemodelan sistem dinamik merupakan komponen penting dalam studi sistem kontrol. Pemodelan ini digunakan untuk mendeskripsikan bagaimana sistem akan berperilaku dalam waktu yang akan datang. Teori pemodelan sistem dinamik mencakup berbagai aspek, seperti pemodelan matematis, identifikasi parameter, dan analisis sistem.
+
+Salah satu aspek penting dalam teori pemodelan sistem dinamik adalah pemodelan matematis. Pemodelan matematis digunakan untuk mendeskripsikan bagaimana sistem akan berperilaku dalam waktu yang akan datang. Beberapa metode pemodelan matematis yang digunakan dalam teori pemodelan sistem dinamik meliputi persamaan diferensial, persamaan diferensial persamaan (PDE), dan persamaan aljabar.
+
+Identifikasi parameter juga merupakan aspek penting dalam teori pemodelan sistem dinamik. Identifikasi parameter digunakan untuk menentukan nilai parameter yang digunakan dalam pemodelan matematis. Beberapa metode yang digunakan dalam identifikasi parameter meliputi metode percobaan, metode observasi, dan metode analisis data.
+
+Analisis sistem adalah aspek lain yang penting dalam teori pemodelan sistem dinamik. Analisis sistem digunakan untuk menentukan sifat-sifat sistem seperti stabil, instabil, atau asimptotik stabil. Beberapa metode analisis sistem yang digunakan dalam teori pemodelan sistem dinamik meliputi analisis Routh-Hurwitz, analisis Nyquist, dan analisis Bode.
+
+Selain itu, teori pemodelan sistem dinamik juga mengeksplorasi bagaimana sistem dinamik dapat diidentifikasi dan diestimasi dari data yang diperoleh dari sistem nyata. Metode yang digunakan dalam identifikasi sistem dinamik dari data meliputi metode identifikasi parametrik dan metode identifikasi nonparametrik.
+
+Secara keseluruhan, teori pemodelan sistem dinamik merupakan komponen penting dalam studi sistem kontrol. Pemodelan matematis, identifikasi parameter, dan analisis sistem digunakan untuk mendeskripsikan bagaimana sistem akan berperilaku dalam waktu yang akan datang. 
+
+Teori pemodelan state-space adalah salah satu metode pemodelan sistem dinamik yang digunakan dalam sistem kontrol. Metode ini digunakan untuk mendeskripsikan sistem dalam bentuk persamaan diferensial yang menggambarkan evolusi sistem dalam waktu.
+
+State-space model menggambarkan sistem sebagai sistem dinamik yang ditentukan oleh sebuah set variabel keadaan (state) dan sebuah set input (input). Variabel keadaan menggambarkan kondisi sistem pada saat ini, sedangkan input menggambarkan beban yang diterima oleh sistem. Model state-space menggambarkan bagaimana variabel keadaan dan output sistem berubah sebagai fungsi dari waktu dan input.
+
+Model state-space ditentukan oleh persamaan diferensial yang disebut persamaan evolusi keadaan (state equation) dan persamaan output (output equation). Persamaan evolusi keadaan menggambarkan bagaimana variabel keadaan berubah dalam waktu, sementara persamaan output menggambarkan bagaimana output sistem terkait dengan variabel keadaan. Salah satu keuntungan dari pemodelan state-space adalah bahwa model ini dapat digunakan untuk menganalisis sifat atau perilaku sistem.
+
+
+\section{Pengertian robot}
+Istilah "robot" dari menurut kata "robota" (bahasa Czech) yang berarti pekerja, mulai terkenal waktu seseorang penulis berbangsa Czech (Ceko), Karl Capek, menciptakan pertunjukan menurut lakon lawak yang ditulisnya dalam tahun 1921 yang berjudul RUR (Rossum’s Universal Robot). Tetapi dari kamus besar Webster menaruh definisi tentang robot, yaitu "sebuah alat-alat otomatis yang melakukan pekerjaan misalnya yang dilakukan sang manusia" \cite{indrasno2020}. Robot adalah sebuah alat mekanik yang dapat melakukan tugas fisik, baik menggunakan pengawasan dan kontrol manusia, ataupun menggunakan program yang telah didefinisikan terlebih dulu (kecerdasan buatan).Dalam teknologi robotika secara garis besar terdapat dua jenis robot yaitu robot manual dan robot otomatis. Robot manual adalah robot yang masih melibatkan campur tangan manusia dalam pengoperasiannya. sebaliknya robot otomatis adalah robot yang dalam menjalankan tugasnya sudah tidak melibatkan manusia lagi. Kemampuan ini bisa dicapai jika didukung oleh rangkaian sensor yang memadai agar robot mampu mendeteksi lingkungan di sekitarnya dengan baik sehingga dapat merespon perubahan yang terjadi di lingkungan sekitarnya. Seperti manusia, robot juga memiliki “otak” yang berfungsi sebagai pengendali seluruh sistem robot. Otak robot pada umumnya adalah mikrokontroler\cite{tobi2015}. 
+
+\subsection{Klasifikasi Robot}
+\subsubsection{Klasifikasi Robot Berdasarkan Penggunaan Aktuaktor}
+\begin{itemize}
+    \item Robot Beroda\\
+    Robot yang sering kali digunakan adalah robot yang bergerak dengan menggunakan actuator berupa roda. Roda merupakan t tertua, paling mudah, dan paling efisien untuk pendukung pergerakan robot untuk melintasi lintasan menuju target. Roda seringkali dipilih karena memberikan mudah diperoleh dan dipakai pada robot. Traction merupakan variabel dari material roda dan permukaan yang dilintasi oleh roda. Metarial roda yang lebih kasar memiliki koefisien traction yang besar, dan koefisien yang besar tersebut memberikan gesekan (friction) yang besar pula, dan memperbesar daya yang dibutuhkan untuk menggerakan motor. Jumlah roda yang digunakan pada robot beragam dimana hal tersebut disesuaikan dengan kebutuhan. Robot beroda ditunjukan pada Gambar \ref{fig:robotberoda}. 
+
+    \begin{figure}[!htb]
+ \centering
+ \includegraphics[width=0.5\textwidth]{figures/beroda.jpg}
+ \caption{Robot Beroda}
+ \label{fig:robotberoda}
+\end{figure}
+    \item Robot Berkaki\\
+    Bipedalism adalah sebuah faham dimana organisme bergerak dengan 2 buah tungkai atau alat penggerak (kaki). Binatang atau mesin yang bergerak secara bipedal biasa disebut biped. Biped terdiri dari berjalan, berlari, atau meloncat dengan 2 kaki. Robot berkaki sangat mudah beradaptasi dan biasanya implementasi dari robot tersebut biasanya digunakan pada area outdoor. Kemudahan adapatasi dari robot tersebut dapat dengan mudah unutk meniru (gait) dari mahluk hidup termasuk juga manusia. Untuk melewati medan yang tidak menentu robot berkaki sangat direkomendasikan karena robot berkaki lebih mudah beradaptasi bila dibandingkan menggunakan roda ketika berada pada area outdoor. Robot berkaki ditunjukan pada Gambar \ref{fig:robothumanoid}
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[width=0.7\textwidth]{figures/humanoid.jpg}
+ \caption{Robot Humanoid}
+ \label{fig:robothumanoid}
+\end{figure}
+    \item Robot Manipulator\\
+    Pada robot manipulator, terdapat sendi (joint) yang merupakan tempat sambungan lengan untuk melakukan putaran atau gerakan. Secara umum jenis sendi yang digunakan pada robot manipulator adalah sendi putar (revolute joint). Sendi putar sering digunakan sebagai pinggang (waist), bahu (shoulder) dan siku (elbow) dan penggerak sendi putar akan menghasilkan satu derajat kebebasan. Bagian dasar robot manipulator bisa kaku terpasang pada lantai area kerja ataupun terpasang pada rel. Rel berfungsi sebagai path atau alur sehingga memungkinkan tobot untuk bergerak dari satu lokasi ke lokasi lainnya dalam satu area kerja. Bagian tambahan merupakan perluasan dari bagian dasar, bisa disebut juga lengan (arm). Bagian ujungnya terpasang pada end afector yang berfungsi untuk mengambil atau mencekam material. Robot tersebut digerakkan oleh aktuaktor atau disebut sistem drive yang menyebabkan gerakan yang bervariasi dari robot tersebut.\newpage
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[width=0.4\textwidth]{figures/manipulator.png}
+ \caption{Robot Manipulator}
+ \label{fig:manipulator}
+\end{figure}
+\end{itemize}
+
+\subsubsection{Klasifikasi Robot Berdasarkan Kebutuhan Akan Operator Robot}
+\begin{itemize}
+    \item Autonomous Robot\\
+    Robot autonomous adalah robot yang dapat melakukan tugas-tugas yang diinginkan dalam lingkungan yang tidak terstruktur tanpa bimbingan manusia secara terus-menerus berdasarkan logika manusia yang diberikan kepada robot. Banyak jenis robot yang memiliki beberapa tingkat otonomi. Tingkatan otonomi sangat diinginkan dalam bidang-bidang seperti eksplorasi ruang angkasa, membersihkan lantai, memotong rumput, dan pengolahan limbah air. Robot autonomous ditunjukan pada gamba\ref{fig:auto}. 
+\begin{figure}[!htb]
+ \centering
+\includegraphics[width=0.7\textwidth]{figures/autonomus.jpg}
+ \caption{Robot Autonomous}
+ \label{fig:auto}
+\end{figure}
+
+    \item Robot Semiautonomous\\
+    Robot semiautonomous adalah robot yang pengendaliannya secara otonom dan pengengalian jarak jauh dengan menggunakana remote control. Hal ini bertujuan agar robot dapat melewati rintangan atau lintasan yang berbahaya baik bagi manusia ataupun tidak. Robot semiautonomous ditunjukan pada Gambar \ref{fig:semi}.
+\begin{figure}[!htb]
+ \centering
+ \includegraphics[width=0.4\textwidth]{figures/semi.jpg}
+ \caption{Robot Semiautonomus}
+ \label{fig:semi}
+\end{figure}
+\end{itemize}
+
+\section{Kinematic robot mobile}\label{sectionkinematic}
+Pemodelan kinematik adalah studi tentang gerak robot berdasarkan analisis struktur geometrik dari sistem kerangka koordinat referensi yang diam atau bergerak tanpa mempertimbangkan gaya, torsi atau momen tertentu yang menyebabkan gerakan. Analisa kinematik pada \textit{mobile robot} selalu berdasarkan dengan rotasi roda untuk menentukan $\ v (\frac{m}{s})$, $\alpha (rad)$, dan $\omega (\frac{rad}{s})$\cite{javier2016}. Kinematik robot berkaitan dengan konfigurasi robot di ruang kerjanya, hubungan antara parameter geometrisnya dan batasan yang dikenakan dalam lintasan mereka\cite{rijal2021}. Perkembangan kinematik robotik masih menjadi topik penelitian yang berkelanjutan hingga saat ini, Tujuannya adalah membangun robot yang dapat melakukan tugas-tugas yang canggih dan kompleks dalam aplikasi industri ataupun sosial. Untuk mempelajari tentang kinematik mobile robot, ada beberapa yang perlu diperhatikan yaitu \textit{forward kinematic} dan \textit{inverse kinematic}. Sebelum menentukan persamaan kinematic dari sebuah robot maka kita perlu memodelkan robot tersebut\cite{MPC22}. Berikut adalah pemodelan robot swerve drive roda 3. 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/bodyrobot.pdf}
+    \caption{Pergerakan robot swerve drive roda 3}
+    \label{bodyrobot}
+\end{figure}
+
+Langkah yang harus kita lakukan pertama kali adalah menentukan koordinat (\textit{frame}) sebagai referensi ketika robot bergerak. koordinat pada bodi robot ditentukan dengan mengambil titik tengah pada robot yang dinotasikan sebagai $(B)$ dan koordinat pada setiap roda ditentukan dengan mengambil titik tengah pada roda robot yang dinotasikan sebagai $(W_i)$. Untuk mengontrol kecepatan bodi robot yang dipengaruhi oleh kecepatan putaran roda dari bodi robot itu sendiri yang dinotasikan sebagai ($\mathbf{v}_{W/B}$), persamaan matematisnya adalah sebagai berikut
+    \begin{eqnarray}
+        \mathbf{v}_{W/B} = \mathbf{v}_{B/B} + \vb*{\omega} \times \mathbf{r}_{W/B}\label{persrot}
+    \end{eqnarray}
+dimana $\mathbf{v}_{W/B} = (\dot{x}_{W/B},\dot{y}_{W/B},\dot{z}_{W/B})$ adalah kecepatan roda terhadap bodi robot dan $\mathbf{v}_{B/B} = (\dot{x}_{B/B},\dot{y}_{B/B},\dot{z}_{B/B})$ adalah kecepatan bodi robot terhadap frame\cite{luan19}. Dikarenakan kecepatan angular robot hanya berada pada sumbu Z maka nilai $\omega$ pada persamaan \eqref{persrot} ini dan persamaan \eqref{persrot} dapat diselesaikan dengan cara cross product sehingga menjadi sebagai berikut ini. 
+    \begin{eqnarray}
+            \begin{pmatrix} \dot{x}_{W/B}\\\dot{y}_{W/B} \end{pmatrix}
+            = \begin{pmatrix} \dot{x}_{B/B}\\\dot{y}_{B/B}\end{pmatrix} + \begin{pmatrix} -y_{W_i}\omega_z\\ x_{W_i} \omega_z\end{pmatrix}
+    \end{eqnarray}
+matrix homogeneous dibutuhkan untuk menghitung kecepatan robot terhadap frame global. 
+\begin{eqnarray}
+            \vb*{\xi}_{B/S} &=& \mathbf{H}_{B/S} \quad \vb*{\xi}_{B/B}\\
+            &=& \begin{pmatrix} \vb*{R}_{B/S} & \mathbf{0}\\ \mathbf{0^\top} & 1\end{pmatrix}\begin{pmatrix} \mathbf{v}_{B/B}\\\omega_{z}\end{pmatrix}\\
+            &=& \underbrace{\begin{pmatrix}\cos{\theta} & -\sin{\theta} & 0 \\ \sin{\theta} & \cos{\theta} & 0 \\ 0& 0 & 1\end{pmatrix}\begin{pmatrix}\dot{x}_{B/B}\\\dot{y}_{B/B}\\\omega_{z}\end{pmatrix}}_\text{spatial twist velocity}
+            \label{forward}
+        \end{eqnarray}
+Persamaan \eqref{forward} sering disebut sebagai \textit{forward kinematic} atau \textit{spatial body velocity}, dimana $\theta$ adalah sudut yang terbebntuk antara bodi robot dengan frame global dan $\omega_z$ adalah kecepatan sudut pada sumbu z. 
+
+Pada pemodelan kinematic, tujuan utamanya adalah menentukan \textit{inverse kinematic} sehingga robot dapat bergerak menuju titik yang telah ditentukan sebelumnya berdasarkan kecepatan setiap roda. 
+\begin{eqnarray}
+            \vb*{\xi}_{B/B} &=& \mathbf{H}^{-1}_{B/S} \quad \vb*{\xi}_{B/S}\\
+            &=& \begin{pmatrix} \vb*{R}_{B/S} & \mathbf{0}\\ \mathbf{0^\top} & 1\end{pmatrix}\begin{pmatrix} \mathbf{v}_{B/S}\\\dot{\theta}\end{pmatrix}\\
+            &=& \underbrace{\begin{pmatrix}\cos{\theta} & \sin{\theta} & 0 \\ -\sin{\theta} & \cos{\theta} & 0 \\ 0& 0 & 1\end{pmatrix}\begin{pmatrix}\dot{x}\\\dot{y}\\\dot{\theta}\end{pmatrix}}_\text{body twist velocity}
+            \label{inverse1}\\
+            \mathbf{v}_{W/B} &=& \vb*{R}^{-1}_{B/S} \mathbf{v}_{B/S} + \vb*{\omega} \times \vb*{r}_{W/B}\\
+        &=& \begin{pmatrix}
+            \cos{\theta} & \sin{\theta}\\
+            -\sin{\theta} & \cos{\theta}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \dot{x}\\
+            \dot{y}
+        \end{pmatrix}
+        + \begin{pmatrix}
+            -y_{{W_i}} & \omega_z\\
+            x_{{W_i}} & \omega_z
+        \end{pmatrix}
+        \label{inverse2}
+    \end{eqnarray}
+Berdasarkan persamaan \eqref{inverse2}, untuk mendapatkan parameter \textit{body twist velocity} secara keseluruhan maka dapat berbentuk persamaan sebagai berikut.
+\begin{eqnarray}
+    \mathbf{v}_{W/B} = \begin{pmatrix}
+            1 & 0 & -y_i\\
+            0&1&x_i
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos{\theta} & \sin{\theta} & 0 \\ -\sin{\theta} & \cos{\theta} & 0 \\ 0& 0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            \dot{x}\\
+            \dot{y}\\
+            \dot{\theta}
+        \end{pmatrix}\label{persvwb}
+\end{eqnarray}
+
+Persamaan \eqref{persvwb} bisa disederhanakan sebagai berikut 
+\begin{eqnarray}
+        \begin{bmatrix}
+            \dot{x}_{{w_1/B}}\\
+            \dot{y}_{{w_1/B}}\\
+            \dot{x}_{{w_2/B}}\\
+            \dot{y}_{{w_2/B}}\\
+            \vdots\\
+            \dot{x}_{{w_N/B}}\\
+            \dot{y}_{{w_N/B}}\\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1&0&-x_1\\
+            0&1&x_1\\
+            1&0&-y_2\\
+            0&1&x_2\\
+            \vdots&\vdots&\vdots\\
+            1&0&-y_N\\
+            0&1&x_N\\
+        \end{bmatrix}
+        \mathbf{H}_{B/S}^{-1}
+        \begin{bmatrix}
+            \dot{x}_{B/S}\\
+            \dot{y}_{B/S}\\
+            \omega_z
+        \end{bmatrix} \label{persN}
+    \end{eqnarray}
+
+     \begin{eqnarray}
+        \begin{bmatrix}
+            \dot{x}_{{w_1/B}}\\
+            \dot{y}_{{w_1/B}}\\
+            \dot{x}_{{w_2/B}}\\
+            \dot{y}_{{w_2/B}}\\
+            \dot{x}_{{w_3/B}}\\
+            \dot{y}_{{w_3/B}}\\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1&0& 0\\
+            0&1& L\\
+            1&0&\frac{L}{2}\sqrt{3}\\
+            0&1&\frac{L}{2}\\
+            1&0&-\frac{L}{2}\sqrt{3}\\
+            0&1&-\frac{L}{2}\\
+        \end{bmatrix}
+        \mathbf{H}_{B/S}^{-1}
+        \begin{bmatrix}
+            \dot{x}_{B/S}\\
+            \dot{y}_{B/S}\\
+            \omega_z
+        \end{bmatrix}
+    \end{eqnarray}
+    
+\section{Motor BLDC}
+Motor BLDC (Brushless Direct Current Motor) adalah salah satu jenis motor sinkron, artinya medan magnet yang dihasilkan oleh stator dan medan magnet yang dihasilkan oleh rotor berputar pada frekuensi yang sama. Tidak seperti motor induksi standar, motor DC brushless tidak memiliki selip. Motor jenis ini memiliki magnet permanen di rotor dan elektromagnet di stator. Setelah itu dengan rangkaian sederhana (Simple Computer System) kita dapat merubah arus elektromagnet pada saat rotor berputar.
+
+Dalam hal ini, motor DC brushless setara dengan motor DC komutator reversibel, di mana magnet berputar sementara konduktor tetap diam. Dengan komutator motor DC, polaritas tersebut diubah menggunakan komutator dan sikat. Namun, pada motor DC brushless, pembalikan polaritas dilakukan oleh transistor switching untuk menyinkronkan posisi rotor. Oleh karena itu, motor DC brushless seringkali memiliki sensor posisi internal atau eksternal untuk merasakan posisi sebenarnya dari rotor, atau posisi dapat diindera tanpa sensor. 
+\subsection{Bagian-Bagian Motor BLDC}
+\begin{enumerate}
+    \item Rotor\\
+    Rotor adalah bagian dari mesin yang berputar di bawah gaya
+stator elektromagnetik dengan motor DC tanpa sikat
+bagian rotor hanya berbeda dari rotor motor DC konvensional
+terdiri dari elektromagnet yang terletak di antara sikat (brush)
+terhubung ke dua motor hingga delapan pasang kutub magnet
+bentuk persegi panjang permanen yang direkatkan
+semacam "epoksi" dan tanpa kuas.
+
+Rotor terbuat dari magnet permanen dan dapat berbentuk apa saja dari dua hingga delapan
+Kutub magnet utara (U) atau selatan (S). Bahan magnet yang sangat baik
+juga diperlukan untuk mendapatkan kerapatan medan magnet yang baik.
+Umumnya magnet ferit digunakan untuk membuat magnet permanen, namun bahan ini memiliki kelemahan yaitu kerapatan fluks yang rendah untuk ukuran volumenya.
+Bahan yang diperlukan untuk membentuk rotor. 
+
+\item Stator\\
+Stator adalah bagian dari motor yang diam atau stasioner di mana aksinya berlangsung
+seperti medan putar motor untuk mengerahkan gaya elektromagnetik pada rotor
+untuk menghidupkan mesin. Di stator motor \textit{DC brushless}
+terdiri dari 12 kumparan (elektromagnet) yang bekerja secara elektromagnetik
+dimana stator motor \textit{DC brushless}dihubungkan dalam tiga bagian
+Kabel untuk dihubungkan ke rangkaian kontrol selama motor DC
+Stator konvensional terdiri dari dua kutub magnet permanen.
+
+Back EMF adalah tegangan balik yang dihasilkan oleh brushless coil
+Motor dc saat motor memutar apa yang ada
+Polaritas tegangan berlawanan dengan tegangan sumber
+berperilaku Besarnya ggl balik dipengaruhi oleh kecepatan sudut rotasi
+Motor ($\omega$), medan magnet yang dihasilkan oleh rotor (B) dan kecepatan
+belitan stator (N) sehingga besarnya ggl balik diberikan oleh Persamaan.
+ 
+\end{enumerate}
+\subsection{Prinsip Kerja Motor BLDC}
+Sistem komutasi pada motor BLDC sejumlah 6 siklus atau sering disebut \textit{six step commutation}. Motor BLDC memanfaatkan atau menggunakan kontrol secara elektrik. Posisi rotor akan sangat penting dalam sistem komutasi untuk menentukan urutan komutasi pada motor BLDC. Posisi rotor akan dibaca oleh sensor hall effect yang terpasang pada stator. Berdasarkan pada sinyal yang dikirim oleh sensor hall effect tentang posisi rotor, Berikut Gambar \ref{hall effect} adalah sinyal hall sensor dan PWM pada 6 siklus komutasi pada motor BLDC.
+
+ \begin{figure}[!htb]
+        \centering
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,524); %set diagram left start at 0, and has height of 524
+
+%Straight Lines [id:da66426989308186] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (93,10) -- (94.67,486.17) ;
+%Straight Lines [id:da5399235803190112] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (151.38,10) -- (151.38,487.83) ;
+%Straight Lines [id:da7622918947898114] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (209.76,10) -- (209.76,486.83) ;
+%Straight Lines [id:da36378408420786323] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (268.14,10) -- (268.14,488.83) ;
+%Straight Lines [id:da22677631864502024] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (326.52,10) -- (326.52,489.83) ;
+%Straight Lines [id:da17491511065231014] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (384.9,10) -- (384.9,488.83) ;
+%Straight Lines [id:da39310365282884385] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (443.28,10) -- (443.28,490.83) ;
+%Straight Lines [id:da9766339540885367] 
+\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 194; blue, 19 }  ,fill opacity=1 ]   (93,48.5) -- (208,48.5) ;
+%Straight Lines [id:da6148160245335181] 
+\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 194; blue, 19 }  ,fill opacity=1 ]   (208,62.5) -- (384,62.5) ;
+%Straight Lines [id:da5272420503194839] 
+\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 194; blue, 19 }  ,fill opacity=1 ]   (384,49.5) -- (442.98,49.5) ;
+%Straight Lines [id:da8414603234054747] 
+\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ]   (93.67,102.5) -- (151.67,102.5) ;
+%Straight Lines [id:da23389002688932825] 
+\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ]   (151.67,80.5) -- (325.67,80.5) ;
+%Straight Lines [id:da08526883856010192] 
+\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 194; blue, 19 }  ,fill opacity=1 ]   (208,48.5) -- (208,62.5) ;
+%Straight Lines [id:da8658820333048194] 
+\draw [color={rgb, 255:red, 248; green, 231; blue, 28 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 194; blue, 19 }  ,fill opacity=1 ]   (384,49.5) -- (384,62.5) ;
+%Straight Lines [id:da1937139005913453] 
+\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ]   (151.67,80.5) -- (151.67,102.5) ;
+%Straight Lines [id:da12859568597668836] 
+\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ]   (325.67,80.5) -- (325.67,98.17) ;
+%Straight Lines [id:da7298974598053969] 
+\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ]   (325.67,98.17) -- (443.65,98.17) ;
+%Straight Lines [id:da5224766879990721] 
+\draw [color={rgb, 255:red, 189; green, 16; blue, 224 }  ,draw opacity=1 ]   (93,142.17) -- (267,142.17) ;
+%Straight Lines [id:da4798506823370181] 
+\draw [color={rgb, 255:red, 189; green, 16; blue, 224 }  ,draw opacity=1 ]   (267,118.17) -- (267,142.17) ;
+%Straight Lines [id:da4766678237664206] 
+\draw [color={rgb, 255:red, 189; green, 16; blue, 224 }  ,draw opacity=1 ]   (267,118.17) -- (442,118.17) ;
+%Straight Lines [id:da9911318863705587] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (101.65,193.74) -- (101.65,209.74) ;
+%Straight Lines [id:da951071122127249] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (108.98,193.74) -- (108.98,209.74) ;
+%Straight Lines [id:da422733815596785] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (101.65,193.74) -- (108.98,193.74) ;
+%Straight Lines [id:da4825644000030189] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (108.98,209.74) -- (116.31,209.74) ;
+%Straight Lines [id:da44482752075645027] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (116.31,193.74) -- (116.31,209.74) ;
+%Straight Lines [id:da8744455076596083] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (123.65,193.74) -- (123.65,209.74) ;
+%Straight Lines [id:da875016679145942] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (116.31,193.74) -- (123.65,193.74) ;
+%Straight Lines [id:da3550709105802494] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (123.65,209.74) -- (130.98,209.74) ;
+%Straight Lines [id:da09746267549681975] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (130.98,193.74) -- (130.98,209.74) ;
+%Straight Lines [id:da27471995766079815] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (130.98,193.74) -- (138.31,193.74) ;
+%Straight Lines [id:da6351883425208353] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (138.31,193.74) -- (138.31,209.74) ;
+%Straight Lines [id:da9612652044855334] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (138.31,209.74) -- (145.65,209.74) ;
+%Straight Lines [id:da2252443015553749] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (145.65,193.74) -- (145.65,209.74) ;
+%Straight Lines [id:da8724113536469973] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (152.98,193.74) -- (152.98,209.74) ;
+%Straight Lines [id:da6342417560339735] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (174.98,193.74) -- (182.31,193.74) ;
+%Straight Lines [id:da7212074685561993] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (167.65,209.74) -- (174.98,209.74) ;
+%Straight Lines [id:da36312617970701777] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (160.31,193.74) -- (167.65,193.74) ;
+%Straight Lines [id:da9515182941650473] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (152.98,209.74) -- (160.31,209.74) ;
+%Straight Lines [id:da8029552589817215] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (145.65,193.74) -- (152.98,193.74) ;
+%Straight Lines [id:da3374881099214382] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (208.98,209.74) -- (441.65,209.74) ;
+%Straight Lines [id:da6986936942846611] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (208.98,193.74) -- (208.98,209.74) ;
+%Straight Lines [id:da5361669183491438] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (204.31,193.74) -- (204.31,209.74) ;
+%Straight Lines [id:da6276521250706062] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (196.98,193.74) -- (196.98,209.74) ;
+%Straight Lines [id:da11110698463478652] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (189.65,193.74) -- (189.65,209.74) ;
+%Straight Lines [id:da33361133118407515] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (182.31,193.74) -- (182.31,209.74) ;
+%Straight Lines [id:da2745358216916578] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (174.98,193.74) -- (174.98,209.74) ;
+%Straight Lines [id:da6812400136912684] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (167.65,193.74) -- (167.65,209.74) ;
+%Straight Lines [id:da9124585641421126] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (160.31,193.74) -- (160.31,209.74) ;
+%Straight Lines [id:da29680172438814933] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (204.31,193.74) -- (208.98,193.74) ;
+%Straight Lines [id:da8805645060907517] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (196.98,209.74) -- (204.31,209.74) ;
+%Straight Lines [id:da0006487473513856479] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (189.65,193.74) -- (196.98,193.74) ;
+%Straight Lines [id:da48226379506941197] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (182.31,209.74) -- (189.65,209.74) ;
+%Straight Lines [id:da692793836162241] 
+\draw [color={rgb, 255:red, 215; green, 109; blue, 107 }  ,draw opacity=1 ]   (94.5,259.42) -- (268.98,259.42) ;
+%Straight Lines [id:da7997011026172927] 
+\draw [color={rgb, 255:red, 215; green, 109; blue, 107 }  ,draw opacity=1 ]   (268.98,259.42) -- (268.98,241.42) ;
+%Straight Lines [id:da9289227986074042] 
+\draw [color={rgb, 255:red, 215; green, 109; blue, 107 }  ,draw opacity=1 ]   (268.98,241.42) -- (384.9,241.42) ;
+%Straight Lines [id:da04664152912335062] 
+\draw [color={rgb, 255:red, 215; green, 109; blue, 107 }  ,draw opacity=1 ]   (384.9,259.42) -- (384.9,241.42) ;
+%Straight Lines [id:da05341953010384737] 
+\draw [color={rgb, 255:red, 215; green, 109; blue, 107 }  ,draw opacity=1 ]   (384.9,259.42) -- (442.31,259.42) ;
+%Straight Lines [id:da5946347778958041] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (214.31,289.07) -- (214.31,305.07) ;
+%Straight Lines [id:da9557728411455177] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (221.65,289.07) -- (221.65,305.07) ;
+%Straight Lines [id:da9498677997594611] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (214.31,289.07) -- (221.65,289.07) ;
+%Straight Lines [id:da7111082903797747] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (221.65,305.07) -- (228.98,305.07) ;
+%Straight Lines [id:da4899976515769606] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (228.98,289.07) -- (228.98,305.07) ;
+%Straight Lines [id:da3143091923806871] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (236.31,289.07) -- (236.31,305.07) ;
+%Straight Lines [id:da40194336133431285] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (228.98,289.07) -- (236.31,289.07) ;
+%Straight Lines [id:da24885631033661237] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (236.31,305.07) -- (243.65,305.07) ;
+%Straight Lines [id:da09917393336141789] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (243.65,289.07) -- (243.65,305.07) ;
+%Straight Lines [id:da4745660273679366] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (243.65,289.07) -- (250.98,289.07) ;
+%Straight Lines [id:da7765096010830019] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (250.98,289.07) -- (250.98,305.07) ;
+%Straight Lines [id:da8643486960533469] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (250.98,305.07) -- (258.31,305.07) ;
+%Straight Lines [id:da615285935840443] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (258.31,289.07) -- (258.31,305.07) ;
+%Straight Lines [id:da9798565777333932] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (265.65,289.07) -- (265.65,305.07) ;
+%Straight Lines [id:da851584284256877] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (287.65,289.07) -- (294.98,289.07) ;
+%Straight Lines [id:da5077580964042672] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (280.31,305.07) -- (287.65,305.07) ;
+%Straight Lines [id:da36598909194499574] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (272.98,289.07) -- (280.31,289.07) ;
+%Straight Lines [id:da6154964276872474] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (265.65,305.07) -- (272.98,305.07) ;
+%Straight Lines [id:da32817764027874974] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (258.31,289.07) -- (265.65,289.07) ;
+%Straight Lines [id:da5422569826539667] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (321.65,289.07) -- (321.65,305.07) ;
+%Straight Lines [id:da6181981864219379] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (316.98,289.07) -- (316.98,305.07) ;
+%Straight Lines [id:da0736337929461568] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (309.65,289.07) -- (309.65,305.07) ;
+%Straight Lines [id:da8280091729897696] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (302.31,289.07) -- (302.31,305.07) ;
+%Straight Lines [id:da5071118180416545] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (294.98,289.07) -- (294.98,305.07) ;
+%Straight Lines [id:da6487405245308002] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (287.65,289.07) -- (287.65,305.07) ;
+%Straight Lines [id:da9224962945616766] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (280.31,289.07) -- (280.31,305.07) ;
+%Straight Lines [id:da33093525400071666] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (272.98,289.07) -- (272.98,305.07) ;
+%Straight Lines [id:da05692414546498181] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (316.98,289.07) -- (321.65,289.07) ;
+%Straight Lines [id:da11688996332091728] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (309.65,305.07) -- (316.98,305.07) ;
+%Straight Lines [id:da049330487787194954] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (302.31,289.07) -- (309.65,289.07) ;
+%Straight Lines [id:da2653112796380417] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (294.98,305.07) -- (302.31,305.07) ;
+%Straight Lines [id:da1003614052602757] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (94.98,305.07) -- (214.31,305.07) ;
+%Straight Lines [id:da8590590324481338] 
+\draw [color={rgb, 255:red, 23; green, 215; blue, 11 }  ,draw opacity=1 ]   (321.65,305.07) -- (442.98,305.07) ;
+%Straight Lines [id:da6183093695333641] 
+\draw [color={rgb, 255:red, 103; green, 227; blue, 17 }  ,draw opacity=1 ]   (95.65,333.95) -- (150.98,333.95) ;
+%Straight Lines [id:da9581390174165922] 
+\draw [color={rgb, 255:red, 215; green, 109; blue, 107 }  ,draw opacity=1 ]   (150.98,351.95) -- (150.98,333.95) ;
+%Straight Lines [id:da41044456874476176] 
+\draw [color={rgb, 255:red, 103; green, 227; blue, 17 }  ,draw opacity=1 ]   (150.98,351.95) -- (384.31,351.95) ;
+%Straight Lines [id:da7669164862637026] 
+\draw [color={rgb, 255:red, 215; green, 109; blue, 107 }  ,draw opacity=1 ]   (384.31,351.95) -- (384.31,333.95) ;
+%Straight Lines [id:da8601862651855143] 
+\draw [color={rgb, 255:red, 103; green, 227; blue, 17 }  ,draw opacity=1 ]   (384.31,333.95) -- (441.65,333.95) ;
+%Straight Lines [id:da14517870025733992] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (331.65,381.74) -- (331.65,397.74) ;
+%Straight Lines [id:da5425833523696852] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (338.98,381.74) -- (338.98,397.74) ;
+%Straight Lines [id:da2136003493251657] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (331.65,381.74) -- (338.98,381.74) ;
+%Straight Lines [id:da6571486091461847] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (338.98,397.74) -- (346.31,397.74) ;
+%Straight Lines [id:da4390016714865057] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (346.31,381.74) -- (346.31,397.74) ;
+%Straight Lines [id:da30411310005498327] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (353.65,381.74) -- (353.65,397.74) ;
+%Straight Lines [id:da02433123975559881] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (346.31,381.74) -- (353.65,381.74) ;
+%Straight Lines [id:da9695748658290482] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (353.65,397.74) -- (360.98,397.74) ;
+%Straight Lines [id:da7339033507253625] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (360.98,381.74) -- (360.98,397.74) ;
+%Straight Lines [id:da526657196235147] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (360.98,381.74) -- (368.31,381.74) ;
+%Straight Lines [id:da9789119696578275] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (368.31,381.74) -- (368.31,397.74) ;
+%Straight Lines [id:da21897068818487186] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (368.31,397.74) -- (375.65,397.74) ;
+%Straight Lines [id:da37242038443423175] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (375.65,381.74) -- (375.65,397.74) ;
+%Straight Lines [id:da5933194089365366] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (382.98,381.74) -- (382.98,397.74) ;
+%Straight Lines [id:da09745690984662048] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (404.98,381.74) -- (412.31,381.74) ;
+%Straight Lines [id:da04133314151409273] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (397.65,397.74) -- (404.98,397.74) ;
+%Straight Lines [id:da538529110947157] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (390.31,381.74) -- (397.65,381.74) ;
+%Straight Lines [id:da5032467858933225] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (382.98,397.74) -- (390.31,397.74) ;
+%Straight Lines [id:da3444111725013044] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (375.65,381.74) -- (382.98,381.74) ;
+%Straight Lines [id:da12760114312828263] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (438.98,381.74) -- (438.98,397.74) ;
+%Straight Lines [id:da7762071779954764] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (434.31,381.74) -- (434.31,397.74) ;
+%Straight Lines [id:da9379348857383405] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (426.98,381.74) -- (426.98,397.74) ;
+%Straight Lines [id:da7846430532941167] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (419.65,381.74) -- (419.65,397.74) ;
+%Straight Lines [id:da4862313590627496] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (412.31,381.74) -- (412.31,397.74) ;
+%Straight Lines [id:da9288974224684206] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (404.98,381.74) -- (404.98,397.74) ;
+%Straight Lines [id:da4412207460373956] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (397.65,381.74) -- (397.65,397.74) ;
+%Straight Lines [id:da1550521527221811] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (390.31,381.74) -- (390.31,397.74) ;
+%Straight Lines [id:da027576126299619252] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (434.31,381.74) -- (438.98,381.74) ;
+%Straight Lines [id:da7441172146939343] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (426.98,397.74) -- (434.31,397.74) ;
+%Straight Lines [id:da5412372592829187] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (419.65,381.74) -- (426.98,381.74) ;
+%Straight Lines [id:da16596306792852444] 
+\draw [color={rgb, 255:red, 21; green, 206; blue, 227 }  ,draw opacity=1 ]   (412.31,397.74) -- (419.65,397.74) ;
+%Straight Lines [id:da29584035910044393] 
+\draw [color={rgb, 255:red, 19; green, 219; blue, 222 }  ,draw opacity=1 ]   (96.31,397.74) -- (331.65,397.74) ;
+%Straight Lines [id:da23119032442531684] 
+\draw [color={rgb, 255:red, 11; green, 105; blue, 118 }  ,draw opacity=1 ]   (94.5,450.08) -- (150.98,450.08) ;
+%Straight Lines [id:da48931444758821874] 
+\draw [color={rgb, 255:red, 11; green, 105; blue, 118 }  ,draw opacity=1 ]   (150.98,450.08) -- (150.98,432.08) ;
+%Straight Lines [id:da7329121724789522] 
+\draw [color={rgb, 255:red, 11; green, 105; blue, 118 }  ,draw opacity=1 ]   (150.98,432.08) -- (267.65,432.08) ;
+%Straight Lines [id:da11065664458935376] 
+\draw [color={rgb, 255:red, 11; green, 105; blue, 118 }  ,draw opacity=1 ]   (267.65,450.08) -- (267.65,432.08) ;
+%Straight Lines [id:da12076386279636031] 
+\draw [color={rgb, 255:red, 11; green, 105; blue, 118 }  ,draw opacity=1 ]   (267.65,450.08) -- (442.31,450.08) ;
+
+% Text Node
+\draw (107.7,11.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7] [align=left] {100};
+% Text Node
+\draw (163.7,11.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7] [align=left] {110};
+% Text Node
+\draw (224.7,11.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7] [align=left] {010};
+% Text Node
+\draw (281.7,11.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7] [align=left] {011};
+% Text Node
+\draw (341.7,11.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7] [align=left] {001};
+% Text Node
+\draw (397.7,11.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7] [align=left] {101};
+% Text Node
+\draw (70.7,44.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ,xscale=0.7,yscale=0.7] [align=left] {H1};
+% Text Node
+\draw (71.7,95.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ,xscale=0.7,yscale=0.7] [align=left] {H2};
+% Text Node
+\draw (69.7,135.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ,xscale=0.7,yscale=0.7] [align=left] {H3};
+% Text Node
+\draw (139.7,496.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$60^{\circ }$};
+% Text Node
+\draw (197.7,496.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$120^{\circ }$};
+% Text Node
+\draw (257.7,496.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$180^{\circ }$};
+% Text Node
+\draw (313.7,496.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$240^{\circ }$};
+% Text Node
+\draw (369.7,496.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$300^{\circ }$};
+% Text Node
+\draw (438.7,496.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$360^{\circ }$};
+% Text Node
+\draw (87.7,496.6) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$0^{\circ }$};
+% Text Node
+\draw (71.46,199.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$S_{1}$};
+% Text Node
+\draw (71.46,246.3) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$S_{0}$};
+% Text Node
+\draw (71.46,293.5) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$S_{3}$};
+% Text Node
+\draw (71.46,340.7) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$S_{2}$};
+% Text Node
+\draw (71.46,387.9) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$S_{5}$};
+% Text Node
+\draw (71.46,435.1) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,xscale=0.7,yscale=0.7]  {$S_{4}$};
+\end{tikzpicture}
+        \caption{Sinyal sensor hall effect dan PWM}
+        \label{hall effect}
+    \end{figure}
+\subsubsection{Siklus pertama}
+Pada Gambar \ref{siklus1} ketika kondisi hall sensor 100, maka lilitan A akan bermuatan positif, lilitan B bermuatan negatif, dan lilitan C off. Pada kondisi ini S1 dan S2 akan menutup atau \textit{close}. Pulsa PWM dijelaskan pada Gambar \ref{hall effect}. 
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus1.png}
+        \caption{Siklus 1 Komutasi BLDC}
+        \label{siklus1}
+    \end{figure}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus1_bldc.png}
+        \caption{Kontruksi BLDC saat siklus 1}
+    \end{figure}
+\newpage
+
+\subsubsection{Siklus kedua}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus2.png}
+        \caption{Siklus 2 Komutasi BLDC}
+        \label{siklus2}
+    \end{figure}
+        \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus2_bldc.png}
+        \caption{Kontruksi BLDC saat siklus 2}
+    \end{figure}
+Pada Gambar \ref{siklus2} ketika konidisi hall sensor 110, maka lilitan A akan bermuatan posisif, lilitan B bermuatan off, dan lilitan C negatif. Pada kondisi ini S1 dan S4 akan menutup atau \textit{close}.Pulsa PWM dijelaskan pada Gambar \ref{hall effect}. 
+\newpage
+\subsubsection{Siklus ketiga}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus3.png}
+        \caption{Siklus 3 Komutasi BLDC}
+        \label{siklus3}
+    \end{figure}
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus3_bldc.png}
+        \caption{Kontruksi BLDC saat siklus 3}
+    \end{figure}
+    
+Pada Gambar \ref{siklus3} Ketika konidisi hall sensor 010, maka lilitan A akan off, lilitan B bermuatan positif, dan lilitan C negatif. Pada kondisi ini S3 dan S4 \textit{close}. Pulsa PWM dijelaskan pada Gambar \ref{hall effect}.
+
+\newpage
+\subsubsection{Siklus keempat}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus4.png}
+        \caption{Siklus 4 Komutasi BLDC}
+        \label{siklus4}
+    \end{figure}
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus4_bldc.png}
+        \caption{Kontruksi BLDC saat siklus 4}
+    \end{figure}
+Pada Gambar \ref{siklus4} Ketika konidisi hall sensor 011, maka lilitan A akan bermuatan negatif, lilitan B bermuatan positif, dan lilitan C off. Pada kondisi ini S3 dan S0 \textit{close}. Pulsa PWM dijelaskan pada Gambar \ref{hall effect}. 
+
+\newpage
+\subsubsection{Siklus kelima}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus6.png}
+        \caption{Siklus 5 Komutasi BLDC}
+        \label{siklus5}
+    \end{figure}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus6_bldc.png}
+        \caption{Kontruksi BLDC saat siklus 5}
+    \end{figure}
+Pada Gambar \ref{siklus5} Ketika konidisi hall sensor 001, maka lilitan akan bermuatan A negatif, lilitan B bermuatan off, dan lilitan C positif. Pada kondisi ini S5 dan S2 \textit{close}. Pulsa PWM dijelaskan pada Gambar \ref{hall effect}.
+
+\newpage
+\subsubsection{Siklus keenam}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus5.png}
+        \caption{Siklus 5 Komutasi BLDC}
+        \label{siklus6}
+    \end{figure}
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/siklus5_bldc.png}
+        \caption{Kontruksi BLDC saat Siklus 6}
+    \end{figure}
+Pada Gambar \ref{siklus6} Ketika konidisi hall sensor 101, maka lilitan akan bermuatan A off, lilitan B bermuatan negatif, dan lilitan C positif. Pada kondisi ini S5 dan S0 \textit{close}. Pulsa PWM dijelaskan pada Gambar \ref{hall effect}. 
+
+\newpage
+
+\subsection{Model Matematis Motor BLDC}
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/BLDCEquivalent.pdf}
+        \caption{BLDC motor Equivalent}
+        \label{BLDC}
+    \end{figure}
+    
+To see information about the behavior of BLDC motors, mathematical modeling is needed. The induced current (I) and voltage (V) on the permanent magnet (PM) rotor side, as well as the harmonics on the stator winding side, are machine parameter assumptions used in the mathematical modeling of BLDC motors. Additionally, stray and iron losses (Li and Ls, respectively) are disregarded\cite{kumar21}.
+\begin{eqnarray}
+    v_{ab} &=& R (i_a - i_b) + L \frac{\text{d}}{\text{d}t}(i_a - i_b) + e_a -e_b\\\label{vab}
+    v_{bc} &=& R (i_b - i_c) + L \frac{\text{d}}{\text{d}t}(i_b - i_c) + e_b -e_c\\ \label{vbc}
+    v_{ca} &=& R (i_c - i_a) + L \frac{\text{d}}{\text{d}t}(i_c - i_a) + e_c -e_a\\\label{vca}
+    T_e &=& K_f \omega_m + J \frac{\text{d}\omega_m}{\text{d}t} + T_l
+\end{eqnarray}
+Where $v,i,$ and $e$ are denoted as phase voltage, phase current, and phase back-EMF. $R$ and $L$ are denoted as the resistance and inductance of each phase. $T_e$ and $T_L$ are denoted as the electric torque and the load torque. $J$ is denoted as the rotor inertia, $K_f$ is the friction constant, and $\omega_m$ is the rotor speed\cite{muniraj20}. Because the distance between the phases is 120 degrees, back-EMF and torque on bldc motors can be expressed as follows.
+\begin{eqnarray}
+    e_a &=& \frac{K_e}{2} \omega_m F(\theta_e)\\
+    e_b &=& \frac{K_e}{2} \omega_m F(\theta_e - \frac{2\pi}{3})\\
+    e_c &=& \frac{K_e}{2} \omega_m F(\theta_e - \frac{4\pi}{3})\\
+    T_e &=& \frac{K_t}{2}(F(\theta_e)i_a + F(\theta_e - \frac{2\pi}{3})i_b + F(\theta_e - \frac{4\pi}{3})i_c)
+\end{eqnarray}
+Where $K_e$ and $K_t$ are back emf constants and torque constants for BLDC motors. $\theta_e$ is electrical angle or equal mechanical angle times number of pole($\theta_e = \frac{P}{2}\theta_m$). $F$ is a function of the trapezoidal or sinusoidal waveform of back-EMF's BLDC motor\cite{kelek19}. For trapezoidal waveform, the function can be written as 
+\begin{eqnarray}
+F(\theta_e) = \left\{
+  \begin{array}{lr}
+    1 & , 0 \leq \theta_e < \frac{2\pi}{3}\\
+    1-\frac{6}{\pi}(\theta_e - \frac{2\pi}{3}) & , \frac{2\pi}{3} \leq \theta_e < \pi\\
+    -1 & ,\pi \leq \theta_e < \frac{5\pi}{3}\\
+    -1 + \frac{6\pi}{\pi}(\theta_e - \frac{5\pi}{3}) & , \frac{5\pi}{3} \leq \theta_e < 2\pi
+  \end{array}
+\right.
+\end{eqnarray}
+by using Kirchoff's law 1 then 
+\begin{eqnarray}
+    i_a + i_b + i_c = 0 \\
+    i_c = -(i_a + i_b)\label{kirchoff1}
+\end{eqnarray}
+Based on equations \eqref{kirchoff1},\eqref{vab}, \eqref{vbc} ,and \eqref{vca}, the following equations are obtained.
+\begin{eqnarray}
+    \frac{\text{d}I_a}{\text{d}t} &=& -\frac{3RI_a}{L} - \frac{2E_a}{3L} + \frac{E_b}{3L} + \frac{E_c}{3L} + \frac{2V_a}{3L} - \frac{V_b}{3L} - \frac{V_c}{3L}\\
+    \frac{\text{d}I_b}{\text{d}t} &=& -\frac{3RI_b}{L} + \frac{E_a}{3L} - \frac{2E_b}{3L} + \frac{E_c}{3L} - \frac{V_a}{3L} + \frac{2V_b}{3L} - \frac{V_c}{3L}\\
+    \frac{\text{d}\omega_m}{\text{d}t} &=& -\frac{\beta\omega_m}{J} + \frac{T_e - T_i}{J}\\
+    \frac{\text{d}\theta_m}{\text{d}t} &=& \omega_m
+\end{eqnarray}
+and the state space model is 
+    \begin{eqnarray}
+        \begin{bmatrix}
+            \dot{i}{_a}\\
+            \dot{i}{_b}\\
+            \dot{\omega}{_m}\\
+            \dot{\theta}{_m}
+        \end{bmatrix} = 
+        \begin{bmatrix}
+            -\frac{R_a}{L_a} & 0 & 0 & 0\\
+            0 & -\frac{R_a}{L_a} & 0 & 0\\
+            0 & 0 & \frac{-b}{J} & 0 \\
+            0 & 0 & 1 & 0 
+        \end{bmatrix}
+        \begin{bmatrix}
+            i_a \\
+            i_b\\
+            \omega_m\\
+            \theta_m
+        \end{bmatrix}   
+        + \begin{bmatrix}
+            \frac{2}{3L_a} & \frac{2}{3L_a} & 0 \\
+            -\frac{2}{3L_a} & \frac{2}{3L_a} & 0\\
+            0&0&\frac{1}{J}\\
+            0&0&0\\
+        \end{bmatrix}
+        \begin{bmatrix}
+            V_{ab} - E_{ab} \\
+            V_{bc} - E_{bc}\\
+            T_e - T_L
+        \end{bmatrix}
+    \end{eqnarray} 
+
+\section{Sistem drive}
+\subsection{Ackermann steering}
+\begin{figure}[!htb]
+ \centering
+\includegraphics[width=0.7\textwidth]{figures/anker.png}
+ \caption{Ackermann Steering}
+ \label{fig:acker}
+\end{figure}
+
+Ackermann steering berlandaskan fakta Ketika kendaraan berbelok, roda di luar harus melakukan perjalanan lebih jauh, dan mereka mengikuti busur yang berbeda dari roda di dalam belokan. Mobil modern tidak menggunakan kemudi Ackermann murni karena beberapa keterbatasan dalam manuver kecepatan tinggi. Mobil balap menggunakan kemudi inverse Ackermann yang lebih baik untuk manuver kecepatan tinggi.\par
+Pada Ackermann tradisional, masing-masing dari empat roda harus berputar pada kecepatan yang berbeda untuk mencegah penyaradan. Ban depan cenderung berputar lebih cepat daripada ban belakang, dan roda di bagian luar belokan harus berputar lebih cepat daripada roda bagian dalam. Jadi untuk belok kiri, ban depan kanan berputar paling cepat dari keempatnya sedangkan ban belakang kiri berputar paling lambat.
+\subsection{Holonomic Drive}
+\begin{figure}[!htb]
+ \centering
+\includegraphics[width=0.5\textwidth]{figures/holonomic.jpg}
+ \caption{Holonomic Drive}
+ \label{fig:hol}
+\end{figure}
+Sistem Holonomic drive menggunakan beberapa roda khusus agar robot bisa bergerak ke segala arah dengan kecepatan roda yang berbeda-beda. Ini akan memberikan kemampuan yang tinggi saat manuver karena robot tidak harus memutar bodi atau arah orientasi robot sebelum bergerak segala arah tertentu. Arah gerak apapun dpata dicaai hanya dengan mengatur masing-maisng roda dnegan kecepatan yang benar. Hal ini membutuhkan roda yang dapat mengarah ke samping seperti meccanum atau omni. 
+\subsection{Swerve drive }    \begin{figure}[!htb]
+ \centering
+\includegraphics[width=0.3\textwidth]{figures/swerve.jpg}
+ \caption{Swerve Drive}
+ \label{fig:swerve}
+\end{figure}
+Swerve drive adalah jenis drivetrain yang dirancang khusus agar robot dapat berputar saat berjalan di sepanjang jalur yang dilintasinya. Pada 1 modul Normal swerve drive menggunakan 2 buah motor yang dapat mengontrol arah hadap dan kecepatan roda secara independen dan tidak menggunakan kombinasi kedua motornya. Swerve drive lebih kompleks dan lebih mahal dari pada meccanum driver. Swerve drive memerlukan 4 motor unutk driving, 4 motor untuk steering, dan 8 buah encoder untuk mengukur jarak yang ditempuh roda. Swerve drive memiliki kelebihan yaitu
+    \begin{enumerate}
+        \item Konsep yang simple
+        \item Roda yang simple 
+        \item Modul drive dan steering yang dikendalikan secara mandiri
+        \item Daya laju yang kuat pada steering dan driving
+    \end{enumerate}
+Kekurangan swerve drive yaitu : 
+    \begin{enumerate}
+        \item Perancangan mekanik yang sangat kompleks
+        \item Perancangan program kontrol yang sangat komplek
+        \item menggunakan sabuk atau rantai yang seiring waktu dapat menyebabkan hilangnya kepresisian.
+    \end{enumerate}
+
+\subsection{Tank drive}
+Tank drive adalah sistem sederhana dengan satu set roda independent di setiap sisi robot. Ini bisa berarti bahwa 2 atau lebih roda di setiap sisi. Kiri dan kanan roda digerakkan secar terpisah sehingga satu sisi dapat berjalan dengan cepat dari yang lain. Ketika kedua sisi didorong ke depan dengan kecepatan yang sama, robot bergerak maju. Jika satu sisi didorong sedikit lebih cepat dari yang lain, robot akan bergerak sepanjang busur bertahap. Jika satu sisi benar-benar berhenti atau didorong mundur, robot dapat berputar di tempatnya.
+
+
+\section{Peta Jalan Peneltian}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/roadmapurbanselfdrivingcar.png}
+    \caption{Peta jalan peneltian urban self driving vehicle/car}
+    \label{fig:roadmap}
+\end{figure}
+
+Jangka panjang rencana penelitian adalah untuk mengembangkan teknologi yang dibutuhkan untuk urban self-driving vehicle/car yang direncanakan dapat dihasilkan pada tahun 2030-an, seperti yang ditunjukkan pada Gambar~\ref{fig:roadmap}. Urban self-driving cars merupakan teknologi otomatisasi kendaraan yang memungkinkan kendaraan untuk beroperasi secara mandiri di lingkungan perkotaan. Penelitian mengenai urban self-driving cars mencakup berbagai aspek, seperti teknologi sensor, sistem kontrol, perencanaan jalan, dan interaksi dengan lingkungan sekitar.
+
+Teknologi sensor yang digunakan dalam urban self-driving cars meliputi kamera, lidar, radar, dan GPS. Kamera digunakan untuk mendeteksi objek di depan kendaraan, sementara lidar dan radar digunakan untuk mendeteksi objek di sekitar kendaraan. GPS digunakan untuk menentukan posisi kendaraan dan navigasi. Penelitian mengenai pengembangan dan integrasi teknologi sensor ini difokuskan pada meningkatkan keandalan dan akurasi dari sistem sensor.
+
+Sistem kontrol yang digunakan dalam urban self-driving cars meliputi sistem kontrol lalu lintas, sistem kontrol kecepatan, dan sistem kontrol jarak aman. Sistem kontrol lalu lintas digunakan untuk mengatur kendaraan agar sesuai dengan aturan lalu lintas, sistem kontrol kecepatan digunakan untuk mengatur kecepatan kendaraan, dan sistem kontrol jarak aman digunakan untuk menjaga jarak aman dengan kendaraan lain.
+
+Roadmap teknologi motor brushless DC (BLDC) dapat dibagi menjadi beberapa tahap yang menunjukkan perkembangan teknologi dari masa ke masa.
+\begin{enumerate}
+    \item Tahap awal: Pada tahap ini, motor BLDC hanya digunakan dalam aplikasi industri dengan kontrol sederhana. Motor BLDC pada tahap ini menggunakan kontroler analog dan sensor posisi rotor yang sederhana.
+    \item Tahap perkembangan: Pada tahap ini, teknologi motor BLDC mulai digunakan dalam aplikasi transportasi, seperti mobil listrik dan sepeda listrik. Kontroler motor BLDC mulai digunakan dengan teknologi digital dan sensor posisi rotor yang lebih canggih.
+    \item Tahap pengembangan: Pada tahap ini, motor BLDC mulai digunakan dalam aplikasi pembangkit listrik, seperti turbin angin dan generator listrik. Kontroler motor BLDC mulai digunakan dengan teknologi kontrol vektor, seperti field-oriented control (FOC).
+    \item Tahap aplikasi: Pada tahap ini, motor BLDC digunakan dalam berbagai aplikasi, seperti industri, transportasi, pembangkit listrik, dan aplikasi rumah tangga. Kontroler motor BLDC mulai digunakan dengan teknologi kontrol adaptif dan teknologi komunikasi nirkabel.
+    \item Tahap masa depan: Pada tahap ini, teknologi motor BLDC diharapkan akan mengalami perkembangan yang signifikan, seperti menggunakan material magnet super, teknologi kontrol intelegen, dan teknologi komunikasi 5G.
+\end{enumerate}
+Roadmap ini menunjukkan bahwa teknologi motor BLDC selalu berkembang dan menjadi lebih canggih dan efisien dengan waktu. Dengan perkembangan teknologi ini, diharapkan dapat meningkatkan efisiensi dan kinerja motor BLDC serta dapat digunakan dalam berbagai aplikasi yang lebih luas.
+
+Perjalanan dan diskripsi peta jalan penilitian pada Gambar~\ref{fig:roadmap} dapat dijelaskan sebagai berikut
+\begin{enumerate}
+\item Tahun (2000-2007), pada durasi tahun tersebut, telah dilakukan kajian dan riset mengenai fuzzy, sistem kontrol dan embedded system. \textbf{Milestone}: skripsi mengenai sistem fuzzy dihasilkan (Universitas Brawijaya), dan pemrograman fuzzy pada embedded systems dipublikasikan \cite{indrazno2007}.
+\item Tahun (2004-2008), kajian penerapan teori probabilitas pada robot dilaksanakan. \textbf{Milestone}: thesis mengenai probabilistic robotic telah berhasil dipertahankan dalam sidang thesis (Institut Teknologi Sepuluh Nopember).
+\item Tahun (2009-2012), studi dan implementasi neural networks dilakukan, pada periode ini dicapai \textbf{milestone} berupa beberapa catatan (unpublised) tentang neural network telah dibuat sebagai bahan perkuliahan.
+\item Tahun (2011-2016), kajian yang mendalam penerapan intelligent systems dalam robotika dilakukan, pada periode ini dicapai \textbf{milestone} berupa desertasi berjudul "intelligent visual servoing" (Ulster University, Intelligent Systems Research Centre), dan beberapa publikasi \cite{indrazno2009, indrazno2010, indrazno2011, indrazno2012, yiannis2012, indrazno2014}.
+\item Tahun (2010-2021), studi tentang pemodelan sistem dinamik, robotika, dan kontrol dilakukan hampir bersamaan dengan periode peta jalan sebelumnya, dimana \textbf{milestone} publikasi yang sama dengan sebelumnya juga memuat sistem dinamik dan beberapa publikasi yang terbaru \cite{indrazno2015, indrazno2017a, indrazno2017b, indrazno2017c, indrazno2018a, indrazno2018d, indrazno2018e, ferdian2019a, ferdian2019b, widamuri2020, indrazno2021a, indrazno2021b, indrazno2021c}.
+\item Tahun (2016-2021), pada periode ini studi dan riset dalam bidang embedded systems dan IOT dilakuakan, dimana \textbf{milestone} berupa beberapa riset \cite{indrazno2015, indrazno2018b, indrazno2018c, erfan2018a, rosa2018, rosa2020} telah dipublikasikan.
+\item Tahun (2021-20228), Modelling urban mobile robot vehicle, BLDC dan Power Electronics. \textbf{Milestone}: tersedianya teknologi, teori kontrol urban self-driving car dan prototipe sistem kontrol motor BLDC
+\item Tahun (2023-2030), Intelligent control mobile robot, sensor fusion. \textbf{Milestone}: tersedianya algoritma sistem cerdas dan teknologi sensor fusion.
+\end{enumerate}
