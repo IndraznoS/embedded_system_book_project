@@ -4,5 +4,6 @@
 
 Collaborators:
 
-Indrazno Siradjuddin
+- Indrazno Siradjuddin
+- Ida Lailatul Fitria
 
