@@ -16,89 +16,89 @@
 %%%%%% DOCUMENT BEGIN %%%%%%
 \begin{document}
 
-	\pagenumbering{alph} % for pageslts package to get page numbering correctly
+\pagenumbering{alph} % for pageslts package to get page numbering correctly
 
-	% front cover
-	% \thispagestyle{empty}
-	% \begin{textblock*}{160mm}(-3mm,0mm)
-	%\textblockcolour{red}
-	% \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{pics/cover.png}}  % full-page picture for 160x240 format
-	% \end{textblock*}
-	% \null\newpage % latex might neglect \newpage because the page is empty,
+% front cover
+% \thispagestyle{empty}
+% \begin{textblock*}{160mm}(-3mm,0mm)
+%\textblockcolour{red}
+% \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{pics/cover.png}}  % full-page picture for 160x240 format
+% \end{textblock*}
+% \null\newpage % latex might neglect \newpage because the page is empty,
 
-	% blank page
-	% \thispagestyle{empty}
-	% \null\newpage
+% blank page
+% \thispagestyle{empty}
+% \null\newpage
 
-	% front matter %
-	\thispagestyle{empty}
-	\begin{textblock*}{60mm}(85mm,90mm)
+% front matter %
+\thispagestyle{empty}
+\begin{textblock*}{60mm}(85mm,90mm)
 	%\textblockcolour{red}
 	\noindent
 	{\sffamily\LARGE\bfseries EMBEEDDED SISTEM}\\
 	\noindent
 	{\sffamily\small Indrazno Siradjuddin}\\
 	{\color{dark-gray}\rule[5pt]{170pt}{3pt}}
-	\end{textblock*}
-	\null\newpage
+\end{textblock*}
+\null\newpage
 
-	% license page %
-	% \thispagestyle{empty}
-	% \include{license}
+% license page %
+% \thispagestyle{empty}
+% \include{license}
 
-	% blank page with note
-	% \thispagestyle{empty}
-	% \null
-	% \vspace*{\fill}
-	% \hfill\textit{To everyone who helped}
-	% \vspace*{\fill}
-	% \newpage
+% blank page with note
+% \thispagestyle{empty}
+% \null
+% \vspace*{\fill}
+% \hfill\textit{To everyone who helped}
+% \vspace*{\fill}
+% \newpage
 
-	% blank page
-	\thispagestyle{empty}
-	\null\newpage
+% blank page
+\thispagestyle{empty}
+\null\newpage
 
-	% table of contents page %
-	\renewcommand\contentsname{Table of Contents} % rename title
-	\pagenumbering{roman}
-	\tableofcontents
-	%\null\newpage
+% table of contents page %
+\renewcommand\contentsname{Table of Contents} % rename title
+\pagenumbering{roman}
+\tableofcontents
+%\null\newpage
 
-	% Acknowledgments, from page i
-	\include{chapters/acknowledgments}
+% Acknowledgments, from page i
+\include{chapters/acknowledgments}
 
-	% blank page
-	\thispagestyle{empty}
-	\null\newpage
+% blank page
+\thispagestyle{empty}
+\null\newpage
 
-	% Preface, from page ii
-	\setcounter{page}{1}
-	\pagenumbering{arabic}
-	\include{chapters/introduction}
+% Preface, from page ii
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\include{chapters/introduction}
 
 
-	% from page 1 begins Chapter 1 %
-	\include{chapters/chapter1}
-	% \include{chapter2}
-	% \include{chapter3}
-	% \include{chapter4}
-	% \include{chapter5}
-	% \include{chapter6}
-	% \include{chapter7}
-	% \include{chapter8}
-	% \include{chapter9}
-	% \include{chapter10}
-	% \include{chapter11}
-	% \include{chapter13}
-	% \begin{appendices}
-	%     \include{appendix}
-	%     \include{authors}
-	% \end{appendices}
-	% ensure even total number of pages (add final blank page only if needed)
-	\ifodd\value{page}
-	\thispagestyle{empty}
-	\null\newpage
-	\fi
+% from page 1 begins Chapter 1 %
+\include{chapters/chapter1}
+% \include{chapter2}
+% \include{chapter3}
+% \include{chapter4}
+% \include{chapter5}
+% \include{chapter6}
+% \include{chapter7}
+% \include{chapter8}
+% \include{chapter9}
+% \include{chapter10}
+% \include{chapter11}
+% \include{chapter13}
+% \begin{appendices}
+%     \include{appendix}
+%     \include{authors}
+% \end{appendices}
+% ensure even total number of pages (add final blank page only if needed)
+\ifodd\value{page}
+\thispagestyle{empty}
+\null\newpage
+\fi
 
 \end{document}
 %%%%%% DOCUMENT END  %%%%%%
