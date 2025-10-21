@@ -1,1 +1,8 @@
-# embedded_system_book_project
+# embedded\_system\_book\_project
+
+
+
+Collaborators:
+
+Indrazno Siradjuddin
+
