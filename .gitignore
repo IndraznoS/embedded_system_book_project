@@ -1,0 +1,66 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.lol
+book/build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# PlatformIO
+arduino/.pio/
+arduino/.vscode/.browse.c_cpp.db*
+arduino/.vscode/c_cpp_properties.json
+arduino/.vscode/launch.json
+arduino/.vscode/ipch/
+arduino/lib/
+arduino/libdeps/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+/tmp/
+
+# Log files
+*.log
+*.txt.log

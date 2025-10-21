@@ -1,0 +1,14 @@
+# Python Requirements
+# 
+# Install with: pip install -r requirements.txt
+
+# Serial communication
+pyserial>=3.5
+
+# Data analysis and visualization
+numpy>=1.21.0
+matplotlib>=3.4.0
+pandas>=1.3.0
+
+# Optional: Scientific computing
+scipy>=1.7.0

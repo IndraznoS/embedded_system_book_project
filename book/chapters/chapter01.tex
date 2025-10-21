@@ -1,0 +1,75 @@
+\chapter{Introduction to Embedded Systems}
+
+\section{What is an Embedded System?}
+
+An embedded system is a computer system with a dedicated function within a larger mechanical or electrical system. Unlike general-purpose computers, embedded systems are designed to perform specific tasks, often with real-time computing constraints.
+
+\subsection{Characteristics of Embedded Systems}
+
+Embedded systems typically have the following characteristics:
+
+\begin{itemize}
+    \item \textbf{Dedicated Function:} Designed for specific tasks
+    \item \textbf{Real-time Operation:} Must respond to inputs within specified time constraints
+    \item \textbf{Resource Constraints:} Limited memory, processing power, and energy
+    \item \textbf{Reliability:} Must operate continuously without failure
+    \item \textbf{Cost Sensitivity:} Often produced in high volumes with tight cost constraints
+\end{itemize}
+
+\section{Applications of Embedded Systems}
+
+Embedded systems are found in numerous applications across various industries:
+
+\begin{itemize}
+    \item \textbf{Consumer Electronics:} Smartphones, digital cameras, smart TVs
+    \item \textbf{Automotive:} Engine control units, anti-lock braking systems, infotainment systems
+    \item \textbf{Industrial Control:} PLCs, robotics, manufacturing automation
+    \item \textbf{Medical Devices:} Pacemakers, insulin pumps, diagnostic equipment
+    \item \textbf{IoT Devices:} Smart home devices, wearables, environmental sensors
+\end{itemize}
+
+\section{Arduino Platform}
+
+Arduino is an open-source electronics platform based on easy-to-use hardware and software. It's ideal for learning embedded systems programming because:
+
+\begin{itemize}
+    \item Simple, accessible hardware platform
+    \item Easy-to-understand programming language based on C/C++
+    \item Large community and extensive documentation
+    \item Wide range of sensors and actuators available
+\end{itemize}
+
+\subsection{Basic Arduino Program Structure}
+
+An Arduino program (sketch) consists of two main functions:
+
+\begin{lstlisting}[caption=Basic Arduino Structure]
+void setup() {
+    // Initialization code runs once
+    pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+    // Main code runs repeatedly
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(1000);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(1000);
+}
+\end{lstlisting}
+
+\section{Development Environment}
+
+This book uses PlatformIO as the development environment for Arduino projects. PlatformIO offers several advantages over the traditional Arduino IDE:
+
+\begin{itemize}
+    \item Professional IDE integration (VS Code, CLion, etc.)
+    \item Advanced debugging capabilities
+    \item Library management
+    \item Support for multiple platforms and frameworks
+    \item Command-line interface for automation
+\end{itemize}
+
+\section{Summary}
+
+In this chapter, we introduced the fundamentals of embedded systems, their characteristics, and applications. We also introduced the Arduino platform and PlatformIO development environment that will be used throughout this book.
