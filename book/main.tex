@@ -1,0 +1,107 @@
+\documentclass[12pt,a4paper]{book}
+
+% Include preamble configuration
+\input{preamble.tex}
+
+% Document metadata
+\title{Embedded Systems: A Practical Guide with Arduino}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+% Title page
+\maketitle
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% List of figures
+\listoffigures
+\newpage
+
+% List of listings
+\lstlistoflistings
+\newpage
+
+% Preface
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+This book provides a practical introduction to embedded systems using the Arduino platform and PlatformIO development environment. It is designed for students, hobbyists, and professionals who want to learn embedded systems programming through hands-on examples.
+
+The book covers fundamental concepts including digital I/O, analog signals, communication protocols, interrupts, and real-time programming. Each chapter includes practical examples with complete Arduino code that can be built and tested using PlatformIO.
+
+\paragraph{Prerequisites}
+Readers should have basic knowledge of:
+\begin{itemize}
+    \item C/C++ programming
+    \item Basic electronics (voltage, current, resistance)
+    \item Computer architecture fundamentals
+\end{itemize}
+
+\paragraph{How to Use This Book}
+Each chapter builds upon previous chapters, so it's recommended to read them in order. The accompanying code examples are available in the repository and can be compiled and uploaded to Arduino boards using PlatformIO.
+
+\newpage
+
+% Main content - include chapters
+\input{chapters/chapter01.tex}
+\input{chapters/chapter02.tex}
+
+% Appendices
+\appendix
+
+\chapter{Hardware Setup}
+
+\section{Required Components}
+\begin{itemize}
+    \item Arduino Uno or compatible board
+    \item USB cable for programming
+    \item Breadboard and jumper wires
+    \item LEDs and resistors (220Ω)
+    \item Push buttons
+    \item Potentiometer (10kΩ)
+    \item Various sensors (optional)
+\end{itemize}
+
+\section{Software Installation}
+
+\subsection{PlatformIO}
+PlatformIO can be installed as:
+\begin{itemize}
+    \item VS Code extension (recommended)
+    \item Command-line tool: \code{pip install platformio}
+    \item Standalone IDE: PlatformIO IDE
+\end{itemize}
+
+\subsection{Python Tools}
+Python 3.7 or later is required for the analysis scripts:
+\begin{lstlisting}[language=bash]
+pip install -r scripts/requirements.txt
+\end{lstlisting}
+
+\chapter{Quick Reference}
+
+\section{Arduino Pin Functions}
+\begin{itemize}
+    \item \code{pinMode(pin, mode)}: Configure pin as INPUT, OUTPUT, or INPUT\_PULLUP
+    \item \code{digitalWrite(pin, value)}: Write HIGH or LOW to output pin
+    \item \code{digitalRead(pin)}: Read HIGH or LOW from input pin
+    \item \code{analogRead(pin)}: Read analog value (0-1023)
+    \item \code{analogWrite(pin, value)}: Write PWM value (0-255)
+\end{itemize}
+
+\section{Common PlatformIO Commands}
+\begin{itemize}
+    \item \code{pio run}: Build project
+    \item \code{pio run -t upload}: Upload to board
+    \item \code{pio device monitor}: Open serial monitor
+    \item \code{pio run -t clean}: Clean build files
+\end{itemize}
+
+% Bibliography (if you have a .bib file)
+% \printbibliography
+
+\end{document}

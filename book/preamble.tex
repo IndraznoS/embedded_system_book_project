@@ -1,0 +1,88 @@
+% Preamble configuration for Embedded Systems Book
+% Document class and basic packages
+
+% Font and encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Page layout and margins
+\usepackage[margin=1in]{geometry}
+
+% Graphics and figures
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{figures/}}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+% Code listings
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define colors for code syntax highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Configure listings for C/C++ (Arduino)
+\lstdefinestyle{arduino}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=C++
+}
+
+\lstset{style=arduino}
+
+% Hyperlinks and references
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue,
+}
+
+% Bibliography
+\usepackage[backend=bibtex,style=numeric]{biblatex}
+
+% Math packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Circuit diagrams (useful for embedded systems)
+\usepackage{circuitikz}
+
+% Headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\leftmark}
+\lhead{Embedded Systems}
+\cfoot{\thepage}
+
+% Chapter and section formatting
+\usepackage{titlesec}
+
+% Custom commands
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\register}[1]{\texttt{\textbf{#1}}}

@@ -1,0 +1,118 @@
+\chapter{Digital I/O and GPIO}
+
+\section{Introduction}
+
+General-Purpose Input/Output (GPIO) pins are the fundamental interface between a microcontroller and the external world. They allow the microcontroller to read digital signals (input) and control external devices (output).
+
+\section{Digital Signals}
+
+Digital signals have only two states:
+\begin{itemize}
+    \item \textbf{HIGH} (Logic 1): Typically +5V or +3.3V
+    \item \textbf{LOW} (Logic 0): Typically 0V (Ground)
+\end{itemize}
+
+\section{Configuring GPIO Pins}
+
+Before using a GPIO pin, it must be configured as either input or output using the \code{pinMode()} function:
+
+\begin{lstlisting}[caption=Configuring GPIO Pins]
+void setup() {
+    // Configure pin 13 as output (LED)
+    pinMode(13, OUTPUT);
+    
+    // Configure pin 2 as input (button)
+    pinMode(2, INPUT);
+    
+    // Configure pin 3 as input with pull-up resistor
+    pinMode(3, INPUT_PULLUP);
+}
+\end{lstlisting}
+
+\section{Digital Output}
+
+To control a digital output pin, use the \code{digitalWrite()} function:
+
+\begin{lstlisting}[caption=Blinking LED Example]
+const int LED_PIN = 13;
+
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(LED_PIN, HIGH);  // Turn LED on
+    delay(1000);                  // Wait 1 second
+    digitalWrite(LED_PIN, LOW);   // Turn LED off
+    delay(1000);                  // Wait 1 second
+}
+\end{lstlisting}
+
+\section{Digital Input}
+
+To read a digital input pin, use the \code{digitalRead()} function:
+
+\begin{lstlisting}[caption=Reading a Button]
+const int BUTTON_PIN = 2;
+const int LED_PIN = 13;
+
+void setup() {
+    pinMode(BUTTON_PIN, INPUT_PULLUP);
+    pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+    int buttonState = digitalRead(BUTTON_PIN);
+    
+    if (buttonState == LOW) {  // Button pressed (active LOW)
+        digitalWrite(LED_PIN, HIGH);
+    } else {
+        digitalWrite(LED_PIN, LOW);
+    }
+}
+\end{lstlisting}
+
+\section{Pull-up and Pull-down Resistors}
+
+When reading digital inputs, pull-up or pull-down resistors are essential to ensure the pin has a defined state:
+
+\begin{itemize}
+    \item \textbf{Pull-up resistor:} Connects the pin to HIGH when not driven LOW
+    \item \textbf{Pull-down resistor:} Connects the pin to LOW when not driven HIGH
+\end{itemize}
+
+Arduino provides internal pull-up resistors that can be enabled using \code{INPUT\_PULLUP}.
+
+\section{Debouncing}
+
+Mechanical switches can produce multiple transitions (bouncing) when pressed. Debouncing techniques are used to filter these transitions:
+
+\begin{lstlisting}[caption=Simple Software Debouncing]
+const int BUTTON_PIN = 2;
+const int DEBOUNCE_DELAY = 50;  // milliseconds
+
+int lastButtonState = HIGH;
+int buttonState = HIGH;
+unsigned long lastDebounceTime = 0;
+
+void loop() {
+    int reading = digitalRead(BUTTON_PIN);
+    
+    if (reading != lastButtonState) {
+        lastDebounceTime = millis();
+    }
+    
+    if ((millis() - lastDebounceTime) > DEBOUNCE_DELAY) {
+        if (reading != buttonState) {
+            buttonState = reading;
+            // Button state has changed after debounce
+        }
+    }
+    
+    lastButtonState = reading;
+}
+\end{lstlisting}
+
+\section{Summary}
+
+This chapter covered the fundamentals of digital I/O operations, including configuring GPIO pins, reading digital inputs, controlling digital outputs, and implementing debouncing for reliable button reading.
