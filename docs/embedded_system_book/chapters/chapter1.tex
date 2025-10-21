@@ -1,0 +1,108 @@
+\chapter{Introduction To VHDL}
+
+\section{VHDL}
+The VHDL entity construct provides a method to abstract the functionality of a circuit description to a higher level. It provides a simple wrapper for the lower-level circuitry. This wrapper effectively describes how the black box interfaces with the outside world. Since VHDL describes digital circuits, the entity simply lists the various inputs and outputs of the underlying circuitry. In VHDL terms, the black box is described by an entity declaration. The syntax of the entity declaration is shown in Listing~\ref{entity_basic}.
+
+\noindent
+\begin{minipage}{0.99\linewidth}
+    \begin{lstlisting}[style=VHDLStyle, label=entity_basic, caption=The entity declaration in VHDL., mathescape=true]
+entity my_entity is
+port(
+    port_name_1 : in    std_logic ;
+    port_name_2 : out   std_logic;
+    port_name_3 : inout std_logic ); --do not forget the semicolon
+end my_entity; -- do not forget this semicolon either
+\end{lstlisting}
+\end{minipage}
+
+\texttt{my\_entity} defines the name of the entity. The next section is nothing more than the list of signals from the underlying circuit that are available to the outside world, which is why it is often referred to as an interface specification. The \texttt{port\_name\_x} is an identifier used to differentiate the various signals. The next keyword (the keyword \texttt{in}) specifies the direction of the signal relative to the entity where signals can either enter, exit or do both. These input and output signals are associated with the keywords \textbf{in}, \textbf{out} and \textbf{inout}\footnote{The \texttt{inout} data mode will be discussed later on in the book.} respectively. The next keyword (the keyword \texttt{std\_logic}) refers to the type of data that the port will handle. There are several data types available in VHDL but we will primarily deal with the \texttt{std\_logic} type and derived versions. More information regarding the various VHDL data types will be discussed later.
+
+\section{Tikz Picture}
+\begin{minipage}{0.49\linewidth}
+    \begin{flushright}
+        \begin{tikzpicture}[x=1mm,y=1mm,line width=0.8pt,scale=0.9,framed]
+            %\draw[help lines] (0,0) grid (50,50);
+            % BOX
+            \draw (20,0) rectangle (37,35) node[midway]{killer\_ckt};
+            % INPUTS
+            \small
+            \node (a) at (20,-2.5) {}; % this is the reference point
+            \draw [latex-] ($(a)+(0,25)$) -- ++(-10,0) node[left]{life\_in1};
+            \draw [latex-] ($(a)+(0,20)$) -- ++(-10,0) node[left]{life\_in2};
+            \draw [latex-] ($(a)+(0,15)$) -- ++(-10,0) node[left]{ctrl\_a};
+            \draw [latex-] ($(a)+(0,10)$) -- ++(-10,0) node[left]{ctrl\_b};
+            % OUTPUTS
+            \draw [-latex] ($(a)+(17,25)$) -- ++(10,0) node[right]{kill\_a};
+            \draw [-latex] ($(a)+(17,20)$) -- ++(10,0) node[right]{kill\_b};
+            \draw [-latex] ($(a)+(17,15)$) -- ++(10,0) node[right]{kill\_c};
+        \end{tikzpicture}
+    \end{flushright}
+
+\end{minipage}
+
+\section{Arduino Code}
+
+\begin{minipage}{0.99\linewidth}
+    \begin{lstlisting}[style=ArduinoStyle,caption={Program OLED Minimalis},label={lst:oled-simple}]
+#include <Wire.h>
+#include <SSD1306Wire.h>
+
+// Inisialisasi OLED: alamat I2C, SDA, SCL
+SSD1306Wire display(0x3c, 18, 17);
+
+void setup() {
+    display.init();
+    display.flipScreenVertically(); // T3-S3 memiliki orientasi terbalik
+    display.setFont(ArialMT_Plain_10);
+    display.clear();
+    display.drawString(0, 0, "Halo Dunia!");
+    display.drawString(0, 12, "LILYGO T3-S3");
+    display.display(); // Penting: tanpa ini, layar tetap kosong
+}
+
+void loop() {
+  // Tidak ada pembaruan dinamis
+}
+\end{lstlisting}
+\end{minipage}
+
+\section{PHP Code}
+\begin{minipage}{0.99\linewidth}
+    \begin{lstlisting}[style=PHPStyle,caption={Endpoint PHP Minimalis},label={lst:php-simple}]
+<?php
+echo "Halo dari Server!";
+?>
+\end{lstlisting}
+\end{minipage}
+
+
+\section{Javascript}
+\begin{minipage}{0.99\linewidth}
+    \begin{lstlisting}[style=JavaScriptStyle,caption={Javascript Minimalis},label={lst:js-simple}]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0    ">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="greeting">Hello, World!</h1>
+    <button onclick="changeGreeting()">Click Me</button>
+
+    <script>
+        function changeGreeting() {
+            document.getElementById("greeting").innerText = "Hello, JavaScript!";
+        }
+    </script>
+</body>
+</html>
+\end{lstlisting}
+\end{minipage}
+
+\section{PYTHON}
+\begin{minipage}{0.99\linewidth}
+    \begin{lstlisting}[style=PythonStyle,caption={Python Minimalis},label={lst:python-simple}]
+        print("Halo, Dunia!")
+    \end{lstlisting}
+\end{minipage}
